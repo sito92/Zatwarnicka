@@ -183,9 +183,30 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MenuButtonController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201504231554549_FirstMigration.cs" />
+    <Compile Include="Migrations\201504231554549_FirstMigration.Designer.cs">
+      <DependentUpon>201504231554549_FirstMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201504231604553_menubuttonchange.cs" />
+    <Compile Include="Migrations\201504231604553_menubuttonchange.Designer.cs">
+      <DependentUpon>201504231604553_menubuttonchange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201504231615438_menubuttonchange1.cs" />
+    <Compile Include="Migrations\201504231615438_menubuttonchange1.Designer.cs">
+      <DependentUpon>201504231615438_menubuttonchange1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201504231722137_menubuttonchange2.cs" />
+    <Compile Include="Migrations\201504231722137_menubuttonchange2.Designer.cs">
+      <DependentUpon>201504231722137_menubuttonchange2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201504231730042_menubuttonchange3.cs" />
+    <Compile Include="Migrations\201504231730042_menubuttonchange3.Designer.cs">
+      <DependentUpon>201504231730042_menubuttonchange3.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
@@ -316,8 +337,28 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
+    <Content Include="Views\MenuButton\Details.cshtml" />
+    <Content Include="Views\MenuButton\List.cshtml" />
+    <Content Include="Views\MenuButton\Branch.cshtml" />
+    <Content Include="Views\MenuButton\Add.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201504231554549_FirstMigration.resx">
+      <DependentUpon>201504231554549_FirstMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201504231604553_menubuttonchange.resx">
+      <DependentUpon>201504231604553_menubuttonchange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201504231615438_menubuttonchange1.resx">
+      <DependentUpon>201504231615438_menubuttonchange1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201504231722137_menubuttonchange2.resx">
+      <DependentUpon>201504231722137_menubuttonchange2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201504231730042_menubuttonchange3.resx">
+      <DependentUpon>201504231730042_menubuttonchange3.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>

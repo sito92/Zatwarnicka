@@ -14,13 +14,13 @@ namespace SchoolCMS.Models
         }
 
 
-        DbSet<MenuButton> MenuButtons { get; set; }
-        DbSet<User> Users { get; set; }
-        DbSet<File> Files { get; set; }
-        DbSet<Layout> Layouts { get; set; }
-        DbSet<News> Newses { get; set; }
-        DbSet<Page> Pages { get; set; }
-        DbSet<Tag> Tags { get; set; }
+        public DbSet<MenuButton> MenuButtons { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<File> Files { get; set; }
+        public DbSet<Layout> Layouts { get; set; }
+        public DbSet<News> Newses { get; set; }
+        public DbSet<Page> Pages { get; set; }
+        public DbSet<Tag> Tags { get; set; }
  
     }
 }

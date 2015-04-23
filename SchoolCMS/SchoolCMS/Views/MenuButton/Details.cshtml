@@ -1,0 +1,28 @@
+﻿@model SchoolCMS.Models.MenuButton
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>MenuButton</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ParentId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ParentId)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Add Button", "Add",new { id=Model.Id })
+</p>

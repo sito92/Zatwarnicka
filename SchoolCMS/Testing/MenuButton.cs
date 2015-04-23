@@ -11,8 +11,8 @@ namespace SchoolCMS.Models
 
         public string Name { get; set; }
         public bool IsRootButton { get; set; }
-        public int Level { get; set; }
-        public int? ParentId { get; set; }
+        public int  Level { get; set; }
+        public int ParentId { get; set; }
         public virtual MenuButton Parent {get; set;}
     }
 }

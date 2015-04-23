@@ -1,0 +1,26 @@
+﻿@model System.Collections.Generic.IEnumerable<SchoolCMS.Models.MenuButton>
+
+@{
+    ViewBag.Title = "Branch";
+}
+
+<h2>Branch</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+
+@foreach (var item in Model) {
+
+    for (int i = 0; i <item.Level; i++)
+    {
+        @:" "
+    }
+   
+            @Html.DisplayFor(modelItem => item.Name)
+            @Html.ActionLink("Edit", "Details", new { menuButtonId= item.Id})
+      
+ <br/>   
+}
+
