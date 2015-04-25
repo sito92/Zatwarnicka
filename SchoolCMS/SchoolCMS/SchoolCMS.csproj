@@ -208,6 +208,10 @@
     <Compile Include="Migrations\201504231730042_menubuttonchange3.Designer.cs">
       <DependentUpon>201504231730042_menubuttonchange3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201504240752431_MenuButtonPage.cs" />
+    <Compile Include="Migrations\201504240752431_MenuButtonPage.Designer.cs">
+      <DependentUpon>201504240752431_MenuButtonPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Admin.cs" />
@@ -341,6 +345,8 @@
     <Content Include="Views\MenuButton\List.cshtml" />
     <Content Include="Views\MenuButton\Branch.cshtml" />
     <Content Include="Views\MenuButton\Add.cshtml" />
+    <Content Include="Views\MenuButton\Edit.cshtml" />
+    <Content Include="Views\Shared\DynamicMenu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201504231554549_FirstMigration.resx">
@@ -357,6 +363,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201504231730042_menubuttonchange3.resx">
       <DependentUpon>201504231730042_menubuttonchange3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201504240752431_MenuButtonPage.resx">
+      <DependentUpon>201504240752431_MenuButtonPage.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

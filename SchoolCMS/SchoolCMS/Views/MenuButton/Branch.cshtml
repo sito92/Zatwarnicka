@@ -19,8 +19,10 @@
     }
    
             @Html.DisplayFor(modelItem => item.Name)
-            @Html.ActionLink("Edit", "Details", new { menuButtonId= item.Id})
-      
+            @Html.ActionLink("Edit", "Edit", new { menuButtonId= item.Id}) 
+            @Html.ActionLink("Delete", "Delete", new { menuButtonId= item.Id})
+            @Html.ActionLink("Add Button", "Add", new { id = item.Id })
+
  <br/>   
 }
 

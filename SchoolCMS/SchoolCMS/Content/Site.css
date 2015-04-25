@@ -1,4 +1,85 @@
-﻿html {
+﻿#menu0, #menu0 dl {
+	font-size: 12px;
+	position: absolute;
+	width: 150px;
+	margin: 0;
+	padding: 0;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #eee #aaa #aaa #eee;
+}
+
+#menu0 dt {
+	cursor: pointer;
+	margin: 0;
+	padding: 0;
+	background-color: #888;
+	color: #fff;
+	text-align: center;
+	font-weight: bold;
+	font-size: 14px;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #aaa #666 #666 #aaa;
+	padding: 4px 5px;
+}
+
+#menu0 dl dt {
+	background-color: #ccc;
+	color: #000;
+	text-align: left;
+	font-weight: normal;
+	font-size: 12px;
+	border: 0;
+	padding: 0;
+}
+
+#menu0 dd  {
+	background-color: #ccc;
+	color: #000;
+	margin: 0;
+	padding: 0;
+	width: 150px;
+	height: 22px;
+}
+
+#menu0 dd.active {
+	font-weight: bold;
+}
+
+#menu0 dt a {
+	background: url("submenu.gif") no-repeat 140px 8px;
+	padding-right: 20px;
+}
+
+#menu0 a:link, #menu0 a:visited {
+	display: block;
+	color: #000;
+	text-decoration: none;
+	padding: 4px 5px;
+}
+
+#menu0 a:hover {
+	color: #fff;
+	background-color: #008;
+}
+
+#menu0 dl {
+	position: absolute;
+	border: 0;
+}
+
+#menu0 dl dd {
+	position: relative;
+	left: 151px;
+	bottom: 22px;
+	border-left: 1px solid #eee;
+	border-right: 1px solid #aaa;
+}
+
+
+
+html {
     background-color: #e2e2e2;
     margin: 0;
     padding: 0;
@@ -754,3 +835,5 @@ tr.pager td {
             margin: 0;
         }
 }
+
+

@@ -1,20 +1,22 @@
 ﻿@model SchoolCMS.Models.MenuButton
 
 @{
-    ViewBag.Title = "Add";
+    ViewBag.Title = "Edit";
 }
 
-<h2>Add</h2>
+<h2>Edit</h2>
 
-@using (Html.BeginForm("Add","MenuButton")) {
+@using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
-    @Html.HiddenFor(x=>x.IsRootButton)
-    @Html.HiddenFor(x => x.Id)
-    @Html.HiddenFor(x=>x.ParentId)
-    @Html.HiddenFor(x => x.Level)
+
     <fieldset>
         <legend>MenuButton</legend>
+
+        @Html.HiddenFor(x => x.IsRootButton)
+        @Html.HiddenFor(x => x.Id)
+        @Html.HiddenFor(x => x.ParentId)
+        @Html.HiddenFor(x => x.Level)
 
         <div class="editor-label">
             @Html.LabelFor(model => model.Name)
@@ -24,8 +26,16 @@
             @Html.ValidationMessageFor(model => model.Name)
         </div>
 
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PageId)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model=>model.PageId,(SelectList)ViewBag.Pages)
+            @Html.ValidationMessageFor(model => model.PageId)
+        </div>
+
         <p>
-            <input type="submit" value="Create" />
+            <input type="submit" value="Save" />
         </p>
     </fieldset>
 }

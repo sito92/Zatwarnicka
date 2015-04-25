@@ -13,6 +13,8 @@ namespace SchoolCMS.Models
         public bool IsRootButton { get; set; }
         public int Level { get; set; }
         public int? ParentId { get; set; }
+        public int? PageId { get; set; }
+        public virtual Page PAge { get; set; }
         public virtual MenuButton Parent {get; set;}
     }
 }
