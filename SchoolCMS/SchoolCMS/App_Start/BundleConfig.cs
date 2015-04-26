@@ -38,6 +38,19 @@ namespace SchoolCMS
                         "~/Content/themes/base/jquery.ui.datepicker.css",
                         "~/Content/themes/base/jquery.ui.progressbar.css",
                         "~/Content/themes/base/jquery.ui.theme.css"));
+
+
+            //markitup
+
+            bundles.Add(new ScriptBundle("~/bundles/markitupscripts").Include(
+                "~/markitup/jquery.markitup.js",
+                "~/markitup/sets/default/set.js"
+                ));
+
+            bundles.Add(new StyleBundle("~/bundles/markitpstyles").Include(
+                "~/markitup/skins/markitup/style.css",
+                "~/markitup/sets/default/style.css"
+                ));
         }
     }
 }

@@ -184,6 +184,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MenuButtonController.cs" />
+    <Compile Include="Controllers\PageController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -288,6 +289,39 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
+    <Content Include="markitup\jquery.markitup.js" />
+    <Content Include="markitup\sets\default\images\bold.png" />
+    <Content Include="markitup\sets\default\images\clean.png" />
+    <Content Include="markitup\sets\default\images\image.png" />
+    <Content Include="markitup\sets\default\images\italic.png" />
+    <Content Include="markitup\sets\default\images\link.png" />
+    <Content Include="markitup\sets\default\images\list-bullet.png" />
+    <Content Include="markitup\sets\default\images\list-numeric.png" />
+    <Content Include="markitup\sets\default\images\picture.png" />
+    <Content Include="markitup\sets\default\images\preview.png" />
+    <Content Include="markitup\sets\default\images\stroke.png" />
+    <Content Include="markitup\sets\default\set.js" />
+    <Content Include="markitup\sets\default\style.css" />
+    <Content Include="markitup\skins\markitup\images\bg-container.png" />
+    <Content Include="markitup\skins\markitup\images\bg-editor-bbcode.png" />
+    <Content Include="markitup\skins\markitup\images\bg-editor-dotclear.png" />
+    <Content Include="markitup\skins\markitup\images\bg-editor-html.png" />
+    <Content Include="markitup\skins\markitup\images\bg-editor-json.png" />
+    <Content Include="markitup\skins\markitup\images\bg-editor-markdown.png" />
+    <Content Include="markitup\skins\markitup\images\bg-editor-textile.png" />
+    <Content Include="markitup\skins\markitup\images\bg-editor-wiki.png" />
+    <Content Include="markitup\skins\markitup\images\bg-editor-xml.png" />
+    <Content Include="markitup\skins\markitup\images\bg-editor.png" />
+    <Content Include="markitup\skins\markitup\images\handle.png" />
+    <Content Include="markitup\skins\markitup\images\menu.png" />
+    <Content Include="markitup\skins\markitup\images\submenu.png" />
+    <Content Include="markitup\skins\markitup\style.css" />
+    <Content Include="markitup\skins\simple\images\handle.png" />
+    <Content Include="markitup\skins\simple\images\menu.png" />
+    <Content Include="markitup\skins\simple\images\submenu.png" />
+    <Content Include="markitup\skins\simple\style.css" />
+    <Content Include="markitup\templates\preview.css" />
+    <Content Include="markitup\templates\preview.html" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -347,6 +381,8 @@
     <Content Include="Views\MenuButton\Add.cshtml" />
     <Content Include="Views\MenuButton\Edit.cshtml" />
     <Content Include="Views\Shared\DynamicMenu.cshtml" />
+    <Content Include="Views\Page\List.cshtml" />
+    <Content Include="Views\Page\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201504231554549_FirstMigration.resx">
