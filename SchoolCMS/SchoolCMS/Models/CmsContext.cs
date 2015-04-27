@@ -21,6 +21,6 @@ namespace SchoolCMS.Models
         public DbSet<News> Newses { get; set; }
         public DbSet<Page> Pages { get; set; }
         public DbSet<Tag> Tags { get; set; }
- 
+        public DbSet<CmsSettings> CmsSettings { get; set; }
     }
 }

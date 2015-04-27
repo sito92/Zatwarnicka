@@ -182,6 +182,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\CmsSettingsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MenuButtonController.cs" />
     <Compile Include="Controllers\PageController.cs" />
@@ -213,10 +215,15 @@
     <Compile Include="Migrations\201504240752431_MenuButtonPage.Designer.cs">
       <DependentUpon>201504240752431_MenuButtonPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201504271559418_CmsSettings.cs" />
+    <Compile Include="Migrations\201504271559418_CmsSettings.Designer.cs">
+      <DependentUpon>201504271559418_CmsSettings.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\CmsContext.cs" />
+    <Compile Include="Models\CmsSettings.cs" />
     <Compile Include="Models\CopyWriter.cs" />
     <Compile Include="Models\File.cs" />
     <Compile Include="Models\Layout.cs" />
@@ -383,6 +390,8 @@
     <Content Include="Views\Shared\DynamicMenu.cshtml" />
     <Content Include="Views\Page\List.cshtml" />
     <Content Include="Views\Page\Edit.cshtml" />
+    <Content Include="Views\Page\Show.cshtml" />
+    <Content Include="Views\CmsSettings\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201504231554549_FirstMigration.resx">
@@ -402,6 +411,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201504240752431_MenuButtonPage.resx">
       <DependentUpon>201504240752431_MenuButtonPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201504271559418_CmsSettings.resx">
+      <DependentUpon>201504271559418_CmsSettings.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

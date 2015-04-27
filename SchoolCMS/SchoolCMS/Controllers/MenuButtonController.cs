@@ -8,9 +8,9 @@ using SchoolCMS.Models;
 
 namespace SchoolCMS.Controllers
 {
-    public class MenuButtonController : Controller
+    public class MenuButtonController : BaseController
     {
-        CmsContext context = new CmsContext();
+
         //
         // GET: /MenuButton/
 
@@ -43,13 +43,16 @@ namespace SchoolCMS.Controllers
             {
                 return HttpNotFound();
             }
-            if (button.PageId==0)
+            if (ModelState.IsValid)
             {
-                button.PageId = null;
+                if (button.PageId == 0)
+                {
+                    button.PageId = null;
+                }
+                dbButton.Name = button.Name;
+                dbButton.PageId = button.PageId;
+                context.SaveChanges();
             }
-            dbButton.Name = button.Name;
-            dbButton.PageId = button.PageId;
-            context.SaveChanges();
             return RedirectToAction("List");
 
         }
@@ -75,9 +78,12 @@ namespace SchoolCMS.Controllers
         [HttpPost]
         public ActionResult Add(MenuButton button)
         {
-            button.Id = 0;
-            context.MenuButtons.Add(button);
-            context.SaveChanges();
+            if (ModelState.IsValid)
+            {
+                button.Id = 0;
+                context.MenuButtons.Add(button);
+                context.SaveChanges();
+            }
             return RedirectToAction("List");
         }
 

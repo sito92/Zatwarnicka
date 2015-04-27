@@ -7,11 +7,10 @@ using SchoolCMS.Models;
 
 namespace SchoolCMS.Controllers
 {
-    public class PageController : Controller
+    public class PageController : BaseController
     {
         //
         // GET: /Product/
-        CmsContext context = new CmsContext();
         public ActionResult Index()
         {
             return View();
@@ -30,6 +29,15 @@ namespace SchoolCMS.Controllers
 
             return View(page);
 
+        }
+
+        public ActionResult Show(int id)
+        {
+            var page = context.Pages.FirstOrDefault(x => x.Id == id);
+            if (page == null)
+                return HttpNotFound();
+
+            return View(page);
         }
 
     }
