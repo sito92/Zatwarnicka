@@ -1,14 +1,17 @@
-﻿@model SchoolCMS.Models.Page
+﻿@using SchoolCMS.Models
+@model SchoolCMS.Models.Page
 
 @{
     ViewBag.Title = "Edit";
+    int filesCount;
 }
 
 
 
 <h2>Edit</h2>
 
-@using (Html.BeginForm()) {
+@using (Html.BeginForm(null, null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
@@ -49,6 +52,32 @@
             @Html.ValidationMessageFor(model => model.Content)
         </div>
 
+        <div class="editor-label">
+            @Html.Label("Files")
+        </div>
+        <div class="editor-field">
+            <div id="files">
+                @{
+    if (Model.Files != null && Model.Files.Count > 0)
+    {
+        foreach (var file in Model.Files)
+        {
+            @file.Name
+            
+        }
+        filesCount = Model.Files.Count;
+    }
+    else
+    {
+        filesCount = 0;
+        @Html.Raw("Nie ma plików")
+    }
+
+                }
+                <div id="addButton"></div>
+            </div>
+        </div>
+
         <p>
             <input type="submit" value="Save" />
         </p>
@@ -60,12 +89,34 @@
 </div>
 
 @section Scripts {
-<script type="text/javascript">
-    $(document).ready(function () {
-        $("#Content").markItUp(mySettings);
-    });
-</script>
-@Styles.Render("~/bundles/markitpstyles")
-@Scripts.Render("~/bundles/markitupscripts")
+    <script type="text/javascript">
+        function appendOptions(selectId) {
+            var select = $("#" + selectId);
+            @foreach(var file in (SelectList)ViewBag.Files)
+        {
+            @:select.append("<option value='@file.Value'>@file.Text</option>");
+                    }
+
+        }
+
+        var counter = 0;
+        $(document).ready(function () {
+
+            $("#Content").markItUp(mySettings);
+        });
+
+        $("#addButton").click(function () {
+
+            counter++;
+            var selectId = "fileId" + counter;
+            var filesDiv = $("#files");
+            filesDiv.append("<select id='" + selectId + "' name ='filesId'>");
+            appendOptions(selectId);
+        });
+
+
+    </script>
+    @Styles.Render("~/bundles/markitpstyles")
+    @Scripts.Render("~/bundles/markitupscripts")
     @Scripts.Render("~/bundles/jqueryval")
 }

@@ -1,4 +1,16 @@
-﻿#menu0, #menu0 dl {
+﻿#addButton {
+    width: 25px;
+    height: 25px;
+    background-color: green;
+}
+
+#addButton:hover {
+    background-color:red;
+}
+
+
+
+#menu0, #menu0 dl {
 	font-size: 12px;
 	position: absolute;
 	width: 150px;
@@ -835,5 +847,4 @@ tr.pager td {
             margin: 0;
         }
 }
-
 

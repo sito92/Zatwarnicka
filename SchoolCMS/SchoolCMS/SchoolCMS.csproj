@@ -184,6 +184,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CmsSettingsController.cs" />
+    <Compile Include="Controllers\FileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MenuButtonController.cs" />
     <Compile Include="Controllers\PageController.cs" />
@@ -219,6 +220,26 @@
     <Compile Include="Migrations\201504271559418_CmsSettings.Designer.cs">
       <DependentUpon>201504271559418_CmsSettings.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201504271801447_PageChange.cs" />
+    <Compile Include="Migrations\201504271801447_PageChange.Designer.cs">
+      <DependentUpon>201504271801447_PageChange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201504271805261_PageChange1.cs" />
+    <Compile Include="Migrations\201504271805261_PageChange1.Designer.cs">
+      <DependentUpon>201504271805261_PageChange1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201504271809455_Fix.cs" />
+    <Compile Include="Migrations\201504271809455_Fix.Designer.cs">
+      <DependentUpon>201504271809455_Fix.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201504271822139_FilesChange.cs" />
+    <Compile Include="Migrations\201504271822139_FilesChange.Designer.cs">
+      <DependentUpon>201504271822139_FilesChange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201504271942422_CreatedatetimeRemoved.cs" />
+    <Compile Include="Migrations\201504271942422_CreatedatetimeRemoved.Designer.cs">
+      <DependentUpon>201504271942422_CreatedatetimeRemoved.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Admin.cs" />
@@ -226,6 +247,8 @@
     <Compile Include="Models\CmsSettings.cs" />
     <Compile Include="Models\CopyWriter.cs" />
     <Compile Include="Models\File.cs" />
+    <Compile Include="Models\FileType.cs" />
+    <Compile Include="Models\InforamtionSource.cs" />
     <Compile Include="Models\Layout.cs" />
     <Compile Include="Models\MenuButton.cs" />
     <Compile Include="Models\News.cs" />
@@ -415,9 +438,27 @@
     <EmbeddedResource Include="Migrations\201504271559418_CmsSettings.resx">
       <DependentUpon>201504271559418_CmsSettings.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201504271801447_PageChange.resx">
+      <DependentUpon>201504271801447_PageChange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201504271805261_PageChange1.resx">
+      <DependentUpon>201504271805261_PageChange1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201504271809455_Fix.resx">
+      <DependentUpon>201504271809455_Fix.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201504271822139_FilesChange.resx">
+      <DependentUpon>201504271822139_FilesChange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201504271942422_CreatedatetimeRemoved.resx">
+      <DependentUpon>201504271942422_CreatedatetimeRemoved.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\Uploads\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

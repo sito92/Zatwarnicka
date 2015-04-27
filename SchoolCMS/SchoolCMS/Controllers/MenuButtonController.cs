@@ -31,7 +31,7 @@ namespace SchoolCMS.Controllers
             {
                 return HttpNotFound();
             }
-            PopulatePages(menuButton.PageId);
+            PopulatePages(menuButton.InformationSourceId);
             return View("Edit",menuButton);
         }
 
@@ -45,12 +45,12 @@ namespace SchoolCMS.Controllers
             }
             if (ModelState.IsValid)
             {
-                if (button.PageId == 0)
+                if (button.InformationSourceId == 0)
                 {
-                    button.PageId = null;
+                    button.InformationSourceId = null;
                 }
                 dbButton.Name = button.Name;
-                dbButton.PageId = button.PageId;
+                dbButton.InformationSourceId = button.InformationSourceId;
                 context.SaveChanges();
             }
             return RedirectToAction("List");
@@ -142,7 +142,7 @@ namespace SchoolCMS.Controllers
 
         private void PopulatePages(object selectedPage = null)
         {
-            var pages = context.Pages.OrderBy(x=>x.Title).ToList();
+            var pages = context.InforamtionSources.OfType<Page>().OrderBy(x=>x.Title).ToList();
            pages.Insert(0,new Page(){Id = 0,Title = "Brak"});
 
             ViewBag.Pages = new SelectList(pages, "Id", "Title", selectedPage ?? 0);

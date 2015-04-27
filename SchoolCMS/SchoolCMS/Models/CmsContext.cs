@@ -18,9 +18,9 @@ namespace SchoolCMS.Models
         public DbSet<User> Users { get; set; }
         public DbSet<File> Files { get; set; }
         public DbSet<Layout> Layouts { get; set; }
-        public DbSet<News> Newses { get; set; }
-        public DbSet<Page> Pages { get; set; }
+        public DbSet<InforamtionSource> InforamtionSources { get; set; } 
         public DbSet<Tag> Tags { get; set; }
         public DbSet<CmsSettings> CmsSettings { get; set; }
+        public DbSet<FileType> FileTypes { get; set; } 
     }
 }
