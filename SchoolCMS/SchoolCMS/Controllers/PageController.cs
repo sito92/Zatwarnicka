@@ -36,7 +36,10 @@ namespace SchoolCMS.Controllers
         [HttpPost]
         public ActionResult Edit(Page page, IEnumerable<int> filesToAdd, IEnumerable<int> filesToRemove)
         {
-
+            if (!ModelState.IsValid)
+            {
+                return View(page);
+            }
             var prePage = context.InforamtionSources.OfType<Page>().FirstOrDefault(x => x.Id == page.Id);
             if (prePage == null)
             {
@@ -69,6 +72,10 @@ namespace SchoolCMS.Controllers
                     }
                 }
             }
+
+            prePage.Content = page.Content;
+            prePage.Title = page.Title;
+
             context.SaveChanges();
             return RedirectToAction("List");
         }
@@ -82,6 +89,23 @@ namespace SchoolCMS.Controllers
             return View(page);
         }
 
+
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Create(Page page)
+        {
+            if (ModelState.IsValid)
+            {
+                context.InforamtionSources.Add(page);
+                context.SaveChanges();
+                return RedirectToAction("List");
+            }
+            return View(page);
+        }
         protected void PopulateFiles(object selectedFile = null)
         {
             var files = context.Files.ToList();

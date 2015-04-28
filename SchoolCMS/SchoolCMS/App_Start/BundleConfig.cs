@@ -44,7 +44,8 @@ namespace SchoolCMS
 
             bundles.Add(new ScriptBundle("~/bundles/markitupscripts").Include(
                 "~/markitup/jquery.markitup.js",
-                "~/markitup/sets/default/set.js"
+                "~/markitup/sets/default/set.js",
+                "~/markitup/markitupadd.js"
                 ));
 
             bundles.Add(new StyleBundle("~/bundles/markitpstyles").Include(
