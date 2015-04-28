@@ -16,7 +16,7 @@ namespace SchoolCMS.Models
         public int FileTypeId { get; set; }
         public virtual FileType FileType { get; set; }
 
-        public ICollection<InforamtionSource> InforamtionSources { get; set; }
+        public virtual ICollection<InforamtionSource> InforamtionSources { get; set; }
 
         //public News News {get; set;}
        

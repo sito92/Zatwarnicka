@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using DotNetOpenAuth.Messaging;
 using SchoolCMS.Models;
+using WebGrease.Css.Extensions;
 
 namespace SchoolCMS.Controllers
 {
@@ -30,19 +32,45 @@ namespace SchoolCMS.Controllers
             return View(page);
 
         }
+
         [HttpPost]
-        public ActionResult Edit(Page page,IEnumerable<int> filesId )
+        public ActionResult Edit(Page page, IEnumerable<int> filesToAdd, IEnumerable<int> filesToRemove)
         {
 
             var prePage = context.InforamtionSources.OfType<Page>().FirstOrDefault(x => x.Id == page.Id);
-            if (prePage==null)
+            if (prePage == null)
             {
                 return HttpNotFound();
             }
+            if (filesToRemove != null)
+            {
+                var contextFilesToRemove = context.Files.Where(x => filesToRemove.Contains(x.Id));
 
-            
-           
-            return View();
+                foreach (var fileToRemove in contextFilesToRemove)
+                {
+                    if (prePage.Files.Contains(fileToRemove))
+                    {
+                        prePage.Files.Remove(fileToRemove);
+                    }
+                }
+            }
+            if (filesToAdd != null)
+            {
+                var contextFilesToAdd = context.Files.Where(x => filesToAdd.Contains(x.Id));
+
+                if (contextFilesToAdd.Any())
+                {
+                    foreach (var fileToAdd in contextFilesToAdd)
+                    {
+                        if (!prePage.Files.Contains(fileToAdd))
+                        {
+                            prePage.Files.Add(fileToAdd);
+                        }
+                    }
+                }
+            }
+            context.SaveChanges();
+            return RedirectToAction("List");
         }
 
         public ActionResult Show(int id)

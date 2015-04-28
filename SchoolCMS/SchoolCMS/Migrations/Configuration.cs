@@ -93,11 +93,45 @@ namespace SchoolCMS.Migrations
                     FileTypeId = 1,
                     Name = "Fajny obrazek",
                     Size = 512
+                },
+                new File()
+                {
+                    UploadDateTime = DateTime.Now,
+                    Extension = ".exe",
+                    FileName = "plik",
+                    FileTypeId = 1,
+                    Name = "Plik2",
+                    Size = 512
+                },
+                 new File()
+                {
+                    UploadDateTime = DateTime.Now,
+                    Extension = ".exe",
+                    FileName = "plik",
+                    FileTypeId = 1,
+                    Name = "Plik3",
+                    Size = 512
+                },
+                                 new File()
+                {
+                    UploadDateTime = DateTime.Now,
+                    Extension = ".exe",
+                    FileName = "plik",
+                    FileTypeId = 1,
+                    Name = "Plik4",
+                    Size = 512
                 }
             };
 
             files.ForEach(x=>context.Files.Add(x));
             context.SaveChanges();
+
+
+            //var page = context.InforamtionSources.OfType<Page>().FirstOrDefault();
+            //page.Files.Add(files[0]);
+            //context.SaveChanges();
         }
     }
 }
+
+

@@ -8,8 +8,14 @@
     background-color:red;
 }
 
-
-
+#removeButton {
+    width: 15px;
+    height: 15px;
+    background-color: red;
+}
+#removeButton:hover {
+    background-color: yellow;
+}
 #menu0, #menu0 dl {
 	font-size: 12px;
 	position: absolute;

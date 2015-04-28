@@ -7,6 +7,10 @@ namespace SchoolCMS.Models
 {
     public class InforamtionSource
     {
+        public InforamtionSource()
+        {
+            Files = new List<File>();
+        }
         public int Id { get; set; }
 
         public virtual User Author { get; set; }
@@ -19,6 +23,6 @@ namespace SchoolCMS.Models
 
         public string Content { get; set; }
 
-        public ICollection<File> Files { get; set; } 
+        public virtual ICollection<File> Files { get; set; } 
     }
 }

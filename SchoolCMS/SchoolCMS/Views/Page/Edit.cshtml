@@ -1,4 +1,5 @@
-﻿@using SchoolCMS.Models
+﻿@using System.Linq
+@using SchoolCMS.Models
 @model SchoolCMS.Models.Page
 
 @{
@@ -62,8 +63,12 @@
     {
         foreach (var file in Model.Files)
         {
-            @file.Name
-            
+            var divId = "file" + @file.Id;
+            <div id="@divId">
+                @file.Name
+                <div id="removeButton" onclick="removeFile(@file.Id)"></div>
+            </div>
+                        
         }
         filesCount = Model.Files.Count;
     }
@@ -90,6 +95,15 @@
 
 @section Scripts {
     <script type="text/javascript">
+
+        function removeFile(fileId) {
+            var div = $("#file" + fileId);
+            
+            div.remove();
+            var filesDiv = $("#files");
+            filesDiv.append("<input type='hidden' name='filesToRemove' value='" + fileId + "'/>");
+            
+        }
         function appendOptions(selectId) {
             var select = $("#" + selectId);
             @foreach(var file in (SelectList)ViewBag.Files)
@@ -110,7 +124,7 @@
             counter++;
             var selectId = "fileId" + counter;
             var filesDiv = $("#files");
-            filesDiv.append("<select id='" + selectId + "' name ='filesId'>");
+            filesDiv.append("<select id='" + selectId + "' name ='filesToAdd'>");
             appendOptions(selectId);
         });
 
