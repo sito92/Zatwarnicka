@@ -439,6 +439,8 @@
     <Content Include="Views\News\NewsDetails.cshtml" />
     <Content Include="Views\News\NewsEdit.cshtml" />
     <Content Include="Views\Page\Create.cshtml" />
+    <Content Include="Views\File\Add.cshtml" />
+    <Content Include="Views\File\List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201504231554549_FirstMigration.resx">
