@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using SchoolCMS.Models;
+using SchoolCMS.ViewModels;
 
 namespace SchoolCMS.Controllers
 {
@@ -11,8 +13,10 @@ namespace SchoolCMS.Controllers
         public ActionResult Index()
         {
             ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
+            var test = new MainPage();
+            test.newsList = context.InforamtionSources.OfType<News>().ToList();
 
-            return View();
+            return View(test);
         }
 
         public ActionResult About()

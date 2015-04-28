@@ -5,10 +5,8 @@ using System.Web;
 
 namespace SchoolCMS.Models
 {
-    public class News:InforamtionSource
+    public class News : InforamtionSource
     {
-        public int TagId { get; set; }
-        public virtual Tag Tag { get; set; }
-
+        public virtual ICollection<Tag> Tags { get; set; }
     }
 }
