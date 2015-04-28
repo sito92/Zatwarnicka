@@ -1,0 +1,68 @@
+﻿@model SchoolCMS.ViewModels.NewsEdit
+
+@{
+    ViewBag.Title = "NewsEdit";
+}
+
+<h2>NewsEdit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>News</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Tags)
+        </div>
+        <div>
+            @Html.ListBoxFor(model => model.SelectedTags, Model.Tags)
+
+            @Html.ValidationMessageFor(model => model.Tags)
+
+            @Html.HiddenFor(model => model.News.Id)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.News.Title)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.News.Title)
+            @Html.ValidationMessageFor(model => model.News.Title)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.News.Content)
+        </div>
+        <div class="editor-field">
+            @Html.TextAreaFor(model => model.News.Content)
+            @Html.ValidationMessageFor(model => model.News.Content)
+        </div>
+
+        <p>
+            <input type="submit" value="Save"/>
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+
+@section Scripts {
+
+    <script>
+
+        $(document).ready(function() {
+            $("#Content").markItUp(mySettings);
+        });
+    </script>
+
+
+    @Styles.Render("~/bundles/markitpstyles")
+    @Scripts.Render("~/bundles/markitupscripts")
+    @Scripts.Render("~/bundles/jqueryval")
+}

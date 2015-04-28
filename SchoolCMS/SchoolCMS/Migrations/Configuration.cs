@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using SchoolCMS.Models;
+using WebGrease.Css.Extensions;
 
 namespace SchoolCMS.Migrations
 {
@@ -70,6 +71,14 @@ namespace SchoolCMS.Migrations
                         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sem turpis, dignissim ac lorem non, pellentesque placerat urna. Vestibulum in massa vitae odio sodales lacinia. Suspendisse nec gravida nisl. Vivamus id malesuada tellus. In hac habitasse platea dictumst. In tortor eros, gravida non tempus id, feugiat non odio. Phasellus non consectetur elit, in blandit nisi. Nam hendrerit purus vitae mi sollicitudin ultrices. Praesent volutpat nec nunc et fringilla.",
                     Date = DateTime.Now,
                     Title = "Lorem ipsum"
+                },
+                new Models.News()
+                {
+                    AuthorId = 1,
+                    Content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sem turpis, dignissim ac lorem non, pellentesque placerat urna. Vestibulum in massa vitae odio sodales lacinia. Suspendisse nec gravida nisl. Vivamus id malesuada tellus. In hac habitasse platea dictumst. In tortor eros, gravida non tempus id, feugiat non odio. Phasellus non consectetur elit, in blandit nisi. Nam hendrerit purus vitae mi sollicitudin ultrices. Praesent volutpat nec nunc et fringilla.",
+                    Date = DateTime.Now,
+                    Title = "Lorem ipsum",
+                    
                 }
             };
             inforamtionSources.ForEach(x=>context.InforamtionSources.Add(x));
@@ -97,6 +106,21 @@ namespace SchoolCMS.Migrations
             };
 
             files.ForEach(x=>context.Files.Add(x));
+            context.SaveChanges();
+            
+            List<Tag> tags = new List<Tag>()
+            {
+                new Tag()
+                {
+                    Name = "Testowy"
+                },
+                new Tag()
+                {
+                    Name = "Testowy2"
+                }
+            };
+
+            tags.ForEach(x=>context.Tags.Add(x));
             context.SaveChanges();
         }
     }
