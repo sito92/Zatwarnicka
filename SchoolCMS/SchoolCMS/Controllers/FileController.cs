@@ -29,26 +29,9 @@ namespace SchoolCMS.Controllers
         }
 
         [HttpPost]
-        public ActionResult Add(File file,IEnumerable<HttpPostedFileBase> files )
+        public ActionResult Add(File file)
         {
-            if (files.Any())
-            {
-                foreach (var fl in files)
-                {
-                    if (fl.ContentLength > 0)
-                    {
-                        var modelFile = new File()
-                        {
-                            UploadDateTime = DateTime.Now,
-                            Extension = System.IO.Path.GetExtension(file.FileName),
 
-
-
-                        };
-                    }
-                    fl.SaveAs("");
-                }
-            }
             return View();
         }
 

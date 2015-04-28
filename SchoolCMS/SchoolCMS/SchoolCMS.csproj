@@ -253,6 +253,10 @@
     <Compile Include="Migrations\201504281411422_Tags.Designer.cs">
       <DependentUpon>201504281411422_Tags.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201504281933591_FileExtension.cs" />
+    <Compile Include="Migrations\201504281933591_FileExtension.Designer.cs">
+      <DependentUpon>201504281933591_FileExtension.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Admin.cs" />
@@ -260,6 +264,7 @@
     <Compile Include="Models\CmsSettings.cs" />
     <Compile Include="Models\CopyWriter.cs" />
     <Compile Include="Models\File.cs" />
+    <Compile Include="Models\FileExtension.cs" />
     <Compile Include="Models\FileType.cs" />
     <Compile Include="Models\InforamtionSource.cs" />
     <Compile Include="Models\Layout.cs" />
@@ -480,6 +485,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201504281411422_Tags.resx">
       <DependentUpon>201504281411422_Tags.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201504281933591_FileExtension.resx">
+      <DependentUpon>201504281933591_FileExtension.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

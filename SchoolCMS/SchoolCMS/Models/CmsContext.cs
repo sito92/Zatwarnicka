@@ -21,6 +21,7 @@ namespace SchoolCMS.Models
         public DbSet<InforamtionSource> InforamtionSources { get; set; } 
         public DbSet<Tag> Tags { get; set; }
         public DbSet<CmsSettings> CmsSettings { get; set; }
-        public DbSet<FileType> FileTypes { get; set; } 
+        public DbSet<FileType> FileTypes { get; set; }
+        public DbSet<FileExtension> FileExtensions { get; set; } 
     }
 }

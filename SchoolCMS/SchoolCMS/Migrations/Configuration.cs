@@ -43,14 +43,14 @@ namespace SchoolCMS.Migrations
                     Password = "admin"
                 }
             };
-            users.ForEach(x=>context.Users.Add(x));
+            users.ForEach(x => context.Users.AddOrUpdate(x));
              context.SaveChanges();
             List<Layout> layouts = new List<Layout>()
             {
                 new Layout() {Name = "Default", Path = "/Content/Site.css"}
             };
 
-            layouts.ForEach(x=>context.Layouts.Add(x));
+            layouts.ForEach(x => context.Layouts.AddOrUpdate(x));
             context.SaveChanges();
 
 
@@ -59,7 +59,7 @@ namespace SchoolCMS.Migrations
                 new Models.CmsSettings() {LayoutId = 1, SchoolName = "Przyk³adowa szko³a"}
             };
 
-            settingses.ForEach(x=>context.CmsSettings.Add(x));
+            settingses.ForEach(x => context.CmsSettings.AddOrUpdate(x));
             context.SaveChanges();
 
             List<InforamtionSource> inforamtionSources = new List<InforamtionSource>()
@@ -81,14 +81,17 @@ namespace SchoolCMS.Migrations
                     
                 }
             };
-            inforamtionSources.ForEach(x=>context.InforamtionSources.Add(x));
+            inforamtionSources.ForEach(x => context.InforamtionSources.AddOrUpdate(x));
              context.SaveChanges();
 
             List<FileType> fileTypes = new List<FileType>()
             {
-                new FileType() {Name = "Obraz"}
+                new FileType() {Name = "Obraz"},
+                new FileType() {Name = "Plik wykonywalny"},
+                new FileType() {Name = "Plik tekstowy"},
+
             };
-            fileTypes.ForEach(x=>context.FileTypes.Add(x));
+            fileTypes.ForEach(x=>context.FileTypes.AddOrUpdate(x));
             context.SaveChanges();
 
             List<File> files = new List<File>()
@@ -132,7 +135,7 @@ namespace SchoolCMS.Migrations
                 }
             };
 
-            files.ForEach(x=>context.Files.Add(x));
+            files.ForEach(x => context.Files.AddOrUpdate(x));
             context.SaveChanges();
 
             
@@ -148,9 +151,20 @@ namespace SchoolCMS.Migrations
                 }
             };
 
-            tags.ForEach(x=>context.Tags.Add(x));
+            tags.ForEach(x => context.Tags.AddOrUpdate(x));
             context.SaveChanges();
 
+
+            List<Models.FileExtension> fileExtensions = new List<Models.FileExtension>()
+            {
+                new Models.FileExtension() {Extension = ".exe", FileTypeId = 2},
+                new Models.FileExtension() {Extension = ".jpeg", FileTypeId = 1},
+                new Models.FileExtension() {Extension = ".jpg", FileTypeId = 1},
+                new Models.FileExtension() {Extension = ".txt", FileTypeId = 3},
+
+            };
+            fileExtensions.ForEach(x=>context.FileExtensions.AddOrUpdate(x));
+            context.SaveChanges();
         }
     }
 }

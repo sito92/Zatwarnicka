@@ -100,6 +100,8 @@ namespace SchoolCMS.Controllers
         {
             if (ModelState.IsValid)
             {
+                page.Date = DateTime.Now;
+                //TODO page author
                 context.InforamtionSources.Add(page);
                 context.SaveChanges();
                 return RedirectToAction("List");
