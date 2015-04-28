@@ -157,3 +157,4 @@ $RECYCLE.BIN/
 
 SchoolCMS/SchoolCMS/App_Data/Localdatabase.mdf
 SchoolCMS/SchoolCMS/App_Data/Localdatabase_log.ldf
+SchoolCMS/SchoolCMS/Web.config
