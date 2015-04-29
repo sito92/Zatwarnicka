@@ -185,6 +185,7 @@
     <Compile Include="App_Start\AuthConfig.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\InitializeMembership.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -195,7 +196,6 @@
     <Compile Include="Controllers\MenuButtonController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\PageController.cs" />
-    <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -400,7 +400,9 @@
     <Content Include="Scripts\knockout-2.2.0.debug.js" />
     <Content Include="Scripts\knockout-2.2.0.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -515,6 +517,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\Uploads\" />
+    <Folder Include="Filters\" />
     <Folder Include="Models\VieModels\" />
   </ItemGroup>
   <PropertyGroup>
