@@ -11,7 +11,7 @@ namespace SchoolCMS.Helpers
     {
         public static MainPage ContentTrimmer(MainPage page)
         {
-            foreach (var news in page.newsList)
+            foreach (var news in page.NewsList)
             {
                 if (news.Content.Length < 150)
                 {

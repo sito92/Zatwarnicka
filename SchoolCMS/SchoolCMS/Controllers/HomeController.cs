@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using SchoolCMS.Helpers;
 using SchoolCMS.Models;
 using SchoolCMS.ViewModels;
+using PagedList;
 
 namespace SchoolCMS.Controllers
 {
@@ -13,14 +14,14 @@ namespace SchoolCMS.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
-            var test = new MainPage();
-            
-            test.newsList = context.InforamtionSources.OfType<News>().ToList();
-            test.ShortContentDict = new Dictionary<News, string>();
+            var test = new MainPage
+            {
+                NewsList = context.InforamtionSources.OfType<News>().ToList(),
+                ShortContentDict = new Dictionary<News, string>()
+            };
 
             NewsContentHelper.ContentTrimmer(test);
-
+            
             return View(test);
         }
 

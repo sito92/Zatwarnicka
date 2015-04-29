@@ -1,17 +1,18 @@
 ﻿@model SchoolCMS.ViewModels.MainPage
-
+@using PagedList.Mvc
 @{
     ViewBag.Title = "Home Page";
 }
 
 @{
     <ul>
-        @foreach (var news in @Model.ShortContentDict)
-        {
-            <li>
-                @news.Value
-                @Html.ActionLink("Czytaj więcej", "NewsDetails", "News", new {newsId = news.Key.Id}, null)
-            </li>
-        }
+         
+            @foreach (var news in @Model.ShortContentDict)
+            {
+                <li>
+                    @news.Value
+                    @Html.ActionLink("Czytaj więcej", "NewsDetails", "News", new {newsId = news.Key.Id}, null)
+                </li>
+            }
     </ul>
 }
