@@ -14,7 +14,9 @@ namespace SchoolCMS.Models
         public int Level { get; set; }
         public int? ParentId { get; set; }
         public int? InformationSourceId { get; set; }
+        public int? PageId { get; set; }
         public virtual InforamtionSource InforamtionSource { get; set; }
         public virtual MenuButton Parent {get; set;}
+        public virtual Page Page { get; set; }
     }
 }

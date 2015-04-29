@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using SchoolCMS.Models;
+using SchoolCMS.ViewModels;
 
 namespace SchoolCMS.Controllers
 {
@@ -70,18 +71,25 @@ namespace SchoolCMS.Controllers
            var button = context.MenuButtons.FirstOrDefault(x => x.Id == id);
             if (button == null)
                 return HttpNotFound();
-            var newButton = new MenuButton() {ParentId = button.Id, Level = button.Level+1};
-            return View(newButton);
 
+            var newButton = new MenuButtonPage()
+            {
+                MenuButton = new MenuButton() {ParentId = button.Id, Level = button.Level + 1},
+                Pages = new SelectList(context.InforamtionSources.OfType<Page>(), "Id","Title")
+            };
+            
+            return View(newButton);
         }
 
         [HttpPost]
-        public ActionResult Add(MenuButton button)
+        public ActionResult Add(MenuButtonPage button)
         {
             if (ModelState.IsValid)
             {
-                button.Id = 0;
-                context.MenuButtons.Add(button);
+                button.MenuButton.Id = 0;
+                button.MenuButton.Page =
+                    context.InforamtionSources.OfType<Page>().FirstOrDefault(x => x.Id == button.SelectedPage[0]);
+                context.MenuButtons.Add(button.MenuButton);
                 context.SaveChanges();
             }
             return RedirectToAction("List");

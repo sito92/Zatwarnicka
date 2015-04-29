@@ -269,6 +269,10 @@
     <Compile Include="Migrations\201504290959058_MainPage.Designer.cs">
       <DependentUpon>201504290959058_MainPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201504291836144_MenuButtonPage1.cs" />
+    <Compile Include="Migrations\201504291836144_MenuButtonPage1.Designer.cs">
+      <DependentUpon>201504291836144_MenuButtonPage1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Admin.cs" />
@@ -287,6 +291,7 @@
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\MainPage.cs" />
+    <Compile Include="ViewModels\MenuButtonPage.cs" />
     <Compile Include="ViewModels\NewsEdit.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -508,6 +513,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201504290959058_MainPage.resx">
       <DependentUpon>201504290959058_MainPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201504291836144_MenuButtonPage1.resx">
+      <DependentUpon>201504291836144_MenuButtonPage1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

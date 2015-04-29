@@ -11,6 +11,5 @@ namespace SchoolCMS.ViewModels
         public List<News> NewsList { get; set; }
 
         public Dictionary<News, string> ShortContentDict { get; set; }
-
     }
 }
