@@ -6,12 +6,12 @@
 
 @{
     <ul>
-        @foreach (var news in @Model.newsList)
+        @foreach (var news in @Model.ShortContentDict)
         {
-        <li>
-            @news.Content.Substring(0, 100);
-            @Html.ActionLink("Czytaj więcej","NewsDetails","News",new {newsId = news.Id},null)
-        </li>
+            <li>
+                @news.Value
+                @Html.ActionLink("Czytaj więcej", "NewsDetails", "News", new {newsId = news.Key.Id}, null)
+            </li>
         }
     </ul>
 }

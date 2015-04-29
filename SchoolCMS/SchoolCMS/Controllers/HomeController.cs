@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using SchoolCMS.Helpers;
 using SchoolCMS.Models;
 using SchoolCMS.ViewModels;
 
@@ -14,7 +15,11 @@ namespace SchoolCMS.Controllers
         {
             ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
             var test = new MainPage();
+            
             test.newsList = context.InforamtionSources.OfType<News>().ToList();
+            test.ShortContentDict = new Dictionary<News, string>();
+
+            NewsContentHelper.ContentTrimmer(test);
 
             return View(test);
         }

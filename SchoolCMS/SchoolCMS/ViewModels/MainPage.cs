@@ -9,5 +9,7 @@ namespace SchoolCMS.ViewModels
     public class MainPage
     {
         public List<News> newsList { get; set; }
+
+        public Dictionary<News, string> ShortContentDict { get; set; }   
     }
 }

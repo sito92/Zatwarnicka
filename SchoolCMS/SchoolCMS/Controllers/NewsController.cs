@@ -19,6 +19,33 @@ namespace SchoolCMS.Controllers
             return View(selectedNews);
         }
 
+        public ActionResult NewsList()
+        {
+            var news = context.InforamtionSources.OfType<News>();
+
+            return View(news);
+        }
+
+        public ActionResult NewsAdd()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult NewsAdd(News model)
+        {
+            if (ModelState.IsValid)
+            {
+                model.Date = DateTime.Now;
+                context.InforamtionSources.Add(model);
+                context.SaveChanges();
+
+                return RedirectToAction("NewsList", "News");
+            }
+
+            return View(model);
+        }
+
         public ActionResult NewsEdit(int newsId)
         {
 
@@ -42,7 +69,17 @@ namespace SchoolCMS.Controllers
             selectedNews.Tags.AddRange(tags);
             context.SaveChanges();
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("NewsList","News");
+        }
+
+        public ActionResult NewsDelete(int newsId)
+        {
+            var selectedNews = context.InforamtionSources.OfType<News>().FirstOrDefault(x => x.Id == newsId);
+
+            context.InforamtionSources.Remove(selectedNews);
+            context.SaveChanges();
+
+            return View("NewsList");
         }
     }
 }

@@ -193,6 +193,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\NewsContentHelper.cs" />
     <Compile Include="Migrations\201504231554549_FirstMigration.cs" />
     <Compile Include="Migrations\201504231554549_FirstMigration.Designer.cs">
       <DependentUpon>201504231554549_FirstMigration.cs</DependentUpon>
@@ -256,6 +257,10 @@
     <Compile Include="Migrations\201504281933591_FileExtension.cs" />
     <Compile Include="Migrations\201504281933591_FileExtension.Designer.cs">
       <DependentUpon>201504281933591_FileExtension.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201504290959058_MainPage.cs" />
+    <Compile Include="Migrations\201504290959058_MainPage.Designer.cs">
+      <DependentUpon>201504290959058_MainPage.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
@@ -441,6 +446,8 @@
     <Content Include="Views\Page\Create.cshtml" />
     <Content Include="Views\File\Add.cshtml" />
     <Content Include="Views\File\List.cshtml" />
+    <Content Include="Views\News\NewsList.cshtml" />
+    <Content Include="Views\News\NewsAdd.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201504231554549_FirstMigration.resx">
@@ -490,6 +497,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201504281933591_FileExtension.resx">
       <DependentUpon>201504281933591_FileExtension.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201504290959058_MainPage.resx">
+      <DependentUpon>201504290959058_MainPage.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
