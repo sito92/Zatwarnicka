@@ -14,14 +14,14 @@ namespace SchoolCMS.Controllers
         
         public ActionResult NewsDetails(int newsId)
         {
-            var selectedNews = context.InforamtionSources.OfType<News>().FirstOrDefault(x => x.Id == newsId);
+            var selectedNews = context.InformationSources.OfType<News>().FirstOrDefault(x => x.Id == newsId);
 
             return View(selectedNews);
         }
 
         public ActionResult NewsList()
         {
-            var news = context.InforamtionSources.OfType<News>();
+            var news = context.InformationSources.OfType<News>();
 
             return View(news);
         }
@@ -37,7 +37,7 @@ namespace SchoolCMS.Controllers
             if (ModelState.IsValid)
             {
                 model.Date = DateTime.Now;
-                context.InforamtionSources.Add(model);
+                context.InformationSources.Add(model);
                 context.SaveChanges();
 
                 return RedirectToAction("NewsList", "News");
@@ -51,7 +51,7 @@ namespace SchoolCMS.Controllers
 
             var selectedNews = new NewsEdit
             {
-                News = context.InforamtionSources.OfType<News>().FirstOrDefault(x => x.Id == newsId),
+                News = context.InformationSources.OfType<News>().FirstOrDefault(x => x.Id == newsId),
                 Tags = new SelectList(context.Tags,"Id","Name"),
             };
 
@@ -63,7 +63,7 @@ namespace SchoolCMS.Controllers
         [HttpPost]
         public ActionResult NewsEdit(NewsEdit model)
         {
-            var selectedNews = context.InforamtionSources.OfType<News>().FirstOrDefault(x => x.Id == model.News.Id);
+            var selectedNews = context.InformationSources.OfType<News>().FirstOrDefault(x => x.Id == model.News.Id);
             var tags = context.Tags.Where(x => model.SelectedTags.Contains(x.Id));
 
             selectedNews.Tags.AddRange(tags);
@@ -74,9 +74,9 @@ namespace SchoolCMS.Controllers
 
         public ActionResult NewsDelete(int newsId)
         {
-            var selectedNews = context.InforamtionSources.OfType<News>().FirstOrDefault(x => x.Id == newsId);
+            var selectedNews = context.InformationSources.OfType<News>().FirstOrDefault(x => x.Id == newsId);
 
-            context.InforamtionSources.Remove(selectedNews);
+            context.InformationSources.Remove(selectedNews);
             context.SaveChanges();
 
             return View("NewsList");

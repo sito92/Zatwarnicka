@@ -11,7 +11,7 @@ namespace SchoolCMS.ViewModels
     {
         public MenuButton MenuButton { get; set; }
 
-        public List<int> SelectedPage { get; set; } 
+        public int SelectedPage { get; set; } 
        
         public IEnumerable<SelectListItem> Pages  { get; set; }
     }

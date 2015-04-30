@@ -6,7 +6,7 @@ using System.Web;
 
 namespace SchoolCMS.Models
 {
-    public class Page:InforamtionSource
+    public class Page:InformationSource
     {
 
     }

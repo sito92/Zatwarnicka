@@ -25,7 +25,7 @@
         </div>
 
         <div>
-            @Html.ListBoxFor(model => model.SelectedPage, Model.Pages);
+            @Html.DropDownListFor(model => model.SelectedPage, Model.Pages);
             @Html.HiddenFor(model => model.MenuButton.Id)
         </div>
 
