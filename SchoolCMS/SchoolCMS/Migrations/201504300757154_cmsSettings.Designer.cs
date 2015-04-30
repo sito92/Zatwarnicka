@@ -5,13 +5,13 @@ namespace SchoolCMS.Migrations
     using System.Data.Entity.Migrations.Infrastructure;
     using System.Resources;
     
-    public sealed partial class CreatedatetimeRemoved : IMigrationMetadata
+    public sealed partial class cmsSettings : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(CreatedatetimeRemoved));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(cmsSettings));
         
         string IMigrationMetadata.Id
         {
-            get { return "201504271942422_CreatedatetimeRemoved"; }
+            get { return "201504300757154_cmsSettings"; }
         }
         
         string IMigrationMetadata.Source

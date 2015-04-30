@@ -1,4 +1,4 @@
-﻿@model SchoolCMS.Models.MenuButton
+﻿@model SchoolCMS.ViewModels.MenuButtonPage
 
 @{
     ViewBag.Title = "Add";
@@ -9,19 +9,24 @@
 @using (Html.BeginForm("Add","MenuButton")) {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
-    @Html.HiddenFor(x=>x.IsRootButton)
-    @Html.HiddenFor(x => x.Id)
-    @Html.HiddenFor(x=>x.ParentId)
-    @Html.HiddenFor(x => x.Level)
+    @Html.HiddenFor(x=>x.MenuButton.IsRootButton)
+    @Html.HiddenFor(x => x.MenuButton.Id)
+    @Html.HiddenFor(x=>x.MenuButton.ParentId)
+    @Html.HiddenFor(x => x.MenuButton.Level)
     <fieldset>
         <legend>MenuButton</legend>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.Name)
+            @Html.LabelFor(model => model.MenuButton.Name)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Name)
-            @Html.ValidationMessageFor(model => model.Name)
+            @Html.EditorFor(model => model.MenuButton.Name)
+            @Html.ValidationMessageFor(model => model.MenuButton.Name)
+        </div>
+
+        <div>
+            @Html.DropDownListFor(model => model.SelectedPage, Model.Pages);
+            @Html.HiddenFor(model => model.MenuButton.Id)
         </div>
 
         <p>
@@ -29,7 +34,6 @@
         </p>
     </fieldset>
 }
-
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>

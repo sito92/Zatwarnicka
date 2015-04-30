@@ -5,9 +5,9 @@ using System.Web;
 
 namespace SchoolCMS.Models
 {
-    public class InforamtionSource
+    public class InformationSource
     {
-        public InforamtionSource()
+        public InformationSource()
         {
             Files = new List<File>();
         }

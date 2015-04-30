@@ -5,13 +5,13 @@ namespace SchoolCMS.Migrations
     using System.Data.Entity.Migrations.Infrastructure;
     using System.Resources;
     
-    public sealed partial class menubuttonchange1 : IMigrationMetadata
+    public sealed partial class fixing2 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(menubuttonchange1));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(fixing2));
         
         string IMigrationMetadata.Id
         {
-            get { return "201504231615438_menubuttonchange1"; }
+            get { return "201504300737307_fixing2"; }
         }
         
         string IMigrationMetadata.Source

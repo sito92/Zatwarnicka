@@ -62,7 +62,7 @@ namespace SchoolCMS.Migrations
             settingses.ForEach(x => context.CmsSettings.AddOrUpdate(x));
             context.SaveChanges();
 
-            List<InforamtionSource> inforamtionSources = new List<InforamtionSource>()
+            List<InformationSource> inforamtionSources = new List<InformationSource>()
             {
                 new Page()
                 {
@@ -81,7 +81,7 @@ namespace SchoolCMS.Migrations
                     
                 }
             };
-            inforamtionSources.ForEach(x => context.InforamtionSources.AddOrUpdate(x));
+            inforamtionSources.ForEach(x => context.InformationSources.AddOrUpdate(x));
              context.SaveChanges();
 
             List<FileType> fileTypes = new List<FileType>()

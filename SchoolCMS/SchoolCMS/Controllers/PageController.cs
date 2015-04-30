@@ -20,12 +20,12 @@ namespace SchoolCMS.Controllers
 
         public ActionResult List()
         {
-            return View(context.InforamtionSources.OfType<Page>());
+            return View(context.InformationSources.OfType<Page>());
         }
 
         public ActionResult Edit(int id)
         {
-            var page = context.InforamtionSources.OfType<Page>().FirstOrDefault(x => x.Id == id);
+            var page = context.InformationSources.OfType<Page>().FirstOrDefault(x => x.Id == id);
             if (page == null)
                 return HttpNotFound();
             PopulateFiles();
@@ -40,7 +40,7 @@ namespace SchoolCMS.Controllers
             {
                 return View(page);
             }
-            var prePage = context.InforamtionSources.OfType<Page>().FirstOrDefault(x => x.Id == page.Id);
+            var prePage = context.InformationSources.OfType<Page>().FirstOrDefault(x => x.Id == page.Id);
             if (prePage == null)
             {
                 return HttpNotFound();
@@ -82,7 +82,7 @@ namespace SchoolCMS.Controllers
 
         public ActionResult Show(int id)
         {
-            var page = context.InforamtionSources.OfType<Page>().FirstOrDefault(x => x.Id == id);
+            var page = context.InformationSources.OfType<Page>().FirstOrDefault(x => x.Id == id);
             if (page == null)
                 return HttpNotFound();
 
@@ -102,7 +102,7 @@ namespace SchoolCMS.Controllers
             {
                 page.Date = DateTime.Now;
                 //TODO page author
-                context.InforamtionSources.Add(page);
+                context.InformationSources.Add(page);
                 context.SaveChanges();
                 return RedirectToAction("List");
             }

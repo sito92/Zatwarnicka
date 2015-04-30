@@ -16,7 +16,7 @@ namespace SchoolCMS.Controllers
         {
             var test = new MainPage
             {
-                NewsList = context.InforamtionSources.OfType<News>().ToList(),
+                NewsList = context.InformationSources.OfType<News>().ToList(),
                 ShortContentDict = new Dictionary<News, string>()
             };
 

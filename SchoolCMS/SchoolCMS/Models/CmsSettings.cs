@@ -11,5 +11,12 @@ namespace SchoolCMS.Models
         public int LayoutId{ get; set; }
         public string SchoolName { get; set; }
         public virtual Layout Layout{ get; set; }
+
+        public virtual Address Address {get; set;}
+        public int AdressId { get; set; }
+
+        public int NewsAmountPerSite {get; set;}
+        public virtual LogoSettings LogoSettings {get; set;}
+        public int? LogoSetingsId { get; set; }
     }
 }

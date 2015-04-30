@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using SchoolCMS.Models;
+using SchoolCMS.ViewModels;
 
 namespace SchoolCMS.Controllers
 {
@@ -70,18 +71,24 @@ namespace SchoolCMS.Controllers
            var button = context.MenuButtons.FirstOrDefault(x => x.Id == id);
             if (button == null)
                 return HttpNotFound();
-            var newButton = new MenuButton() {ParentId = button.Id, Level = button.Level+1};
-            return View(newButton);
 
+            var newButton = new MenuButtonPage()
+            {
+                MenuButton = new MenuButton() {ParentId = button.Id, Level = button.Level + 1},
+                Pages = new SelectList(context.InformationSources, "Id","Title")
+            };
+            
+            return View(newButton);
         }
 
         [HttpPost]
-        public ActionResult Add(MenuButton button)
+        public ActionResult Add(MenuButtonPage button)
         {
             if (ModelState.IsValid)
             {
-                button.Id = 0;
-                context.MenuButtons.Add(button);
+                button.MenuButton.Id = 0;
+                button.MenuButton.InformationSourceId = button.SelectedPage;
+                context.MenuButtons.Add(button.MenuButton);
                 context.SaveChanges();
             }
             return RedirectToAction("List");
@@ -89,7 +96,11 @@ namespace SchoolCMS.Controllers
 
         public ActionResult NewBranch()
         {
-            MenuButton button = new MenuButton() {IsRootButton = true, Level = 0, ParentId = null};
+            MenuButtonPage button = new MenuButtonPage()
+            {
+                MenuButton = new MenuButton(){IsRootButton = true, Level = 0, ParentId = null},
+                Pages = new SelectList(context.InformationSources, "Id", "Title")
+            };
             return View("Add",button);
         }
 
@@ -140,12 +151,12 @@ namespace SchoolCMS.Controllers
             return Buttons;
         }
 
-        private void PopulatePages(object selectedPage = null)
+        private void PopulatePages(object selectedSource = null)
         {
-            var pages = context.InforamtionSources.OfType<Page>().OrderBy(x=>x.Title).ToList();
-           pages.Insert(0,new Page(){Id = 0,Title = "Brak"});
+            var informationSources = context.InformationSources.OrderBy(x=>x.Title).ToList();
+           informationSources.Insert(0,new InformationSource(){Id = 0,Title = "Brak"});
 
-            ViewBag.Pages = new SelectList(pages, "Id", "Title", selectedPage ?? 0);
+            ViewBag.Pages = new SelectList(informationSources, "Id", "Title", selectedSource ?? 0);
         }
 
     }
