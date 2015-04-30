@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Transactions;
 using System.Web;
@@ -93,7 +94,8 @@ namespace SchoolCMS.Controllers
                 // Attempt to register the user
                 try
                 {
-                    WebSecurity.CreateUserAndAccount(model.UserName, model.Password, new {Discriminator = "CopyWriter"});
+                    WebSecurity.CreateUserAndAccount(model.UserName, model.Password, new { Discriminator = "CopyWriter", Name = model.Name, Surname = model.Surname, Email = model.Email });
+                    Roles.AddUserToRole(model.UserName, "CopyWriter");
                     WebSecurity.Login(model.UserName, model.Password);
                     return RedirectToAction("Index", "Home");
                 }

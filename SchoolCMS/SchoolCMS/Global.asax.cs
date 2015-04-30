@@ -24,6 +24,7 @@ namespace SchoolCMS
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AuthConfig.RegisterAuth();
             InitializeMembership.SeedMembership();
+            CreateRoles.CreateRolesSeed();
         }
     }
 }
