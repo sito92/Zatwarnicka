@@ -36,7 +36,7 @@ namespace SchoolCMS.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (WebSecurity.Login(model.UserName, model.Password, persistCookie: model.RememberMe))
+                if (WebSecurity.Login(model.UserName, model.Password))
                 {
                     if (Url.IsLocalUrl(returnUrl))
                     {
@@ -93,7 +93,7 @@ namespace SchoolCMS.Controllers
                 // Attempt to register the user
                 try
                 {
-                    WebSecurity.CreateUserAndAccount(model.UserName, model.Password, model.Discriminator);
+                    WebSecurity.CreateUserAndAccount(model.UserName, model.Password, new {Discriminator = "CopyWriter"});
                     WebSecurity.Login(model.UserName, model.Password);
                     return RedirectToAction("Index", "Home");
                 }
