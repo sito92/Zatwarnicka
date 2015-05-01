@@ -410,7 +410,6 @@
   <ItemGroup>
     <Folder Include="App_Data\Uploads\" />
     <Folder Include="Filters\" />
-    <Folder Include="Models\VieModels\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201505010911507_RadziFix.resx">
