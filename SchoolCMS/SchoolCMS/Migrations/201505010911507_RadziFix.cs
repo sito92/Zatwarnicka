@@ -3,7 +3,7 @@ namespace SchoolCMS.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class fixing : DbMigration
+    public partial class RadziFix : DbMigration
     {
         public override void Up()
         {
@@ -45,7 +45,6 @@ namespace SchoolCMS.Migrations
                     {
                         Id = c.Int(nullable: false, identity: true),
                         Username = c.String(),
-                        Password = c.String(),
                         Email = c.String(),
                         Name = c.String(),
                         Surname = c.String(),
@@ -107,10 +106,41 @@ namespace SchoolCMS.Migrations
                         Id = c.Int(nullable: false, identity: true),
                         LayoutId = c.Int(nullable: false),
                         SchoolName = c.String(),
+                        AdressId = c.Int(nullable: false),
+                        NewsAmountPerSite = c.Int(nullable: false),
+                        LogoSetingsId = c.Int(),
+                        Address_Id = c.Int(),
+                        LogoSettings_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Layouts", t => t.LayoutId, cascadeDelete: true)
-                .Index(t => t.LayoutId);
+                .ForeignKey("dbo.Addresses", t => t.Address_Id)
+                .ForeignKey("dbo.LogoSettings", t => t.LogoSettings_Id)
+                .Index(t => t.LayoutId)
+                .Index(t => t.Address_Id)
+                .Index(t => t.LogoSettings_Id);
+            
+            CreateTable(
+                "dbo.Addresses",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        City = c.String(),
+                        Street = c.String(),
+                        HouseNumber = c.Int(nullable: false),
+                        PostCode = c.String(),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
+                "dbo.LogoSettings",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        LogoName = c.String(),
+                        LogoPath = c.String(),
+                    })
+                .PrimaryKey(t => t.Id);
             
             CreateTable(
                 "dbo.FileExtensions",
@@ -144,6 +174,8 @@ namespace SchoolCMS.Migrations
             DropIndex("dbo.FileInformationSources", new[] { "InformationSource_Id" });
             DropIndex("dbo.FileInformationSources", new[] { "File_Id" });
             DropIndex("dbo.FileExtensions", new[] { "FileTypeId" });
+            DropIndex("dbo.CmsSettings", new[] { "LogoSettings_Id" });
+            DropIndex("dbo.CmsSettings", new[] { "Address_Id" });
             DropIndex("dbo.CmsSettings", new[] { "LayoutId" });
             DropIndex("dbo.Tags", new[] { "News_Id" });
             DropIndex("dbo.Files", new[] { "FileTypeId" });
@@ -153,6 +185,8 @@ namespace SchoolCMS.Migrations
             DropForeignKey("dbo.FileInformationSources", "InformationSource_Id", "dbo.InformationSources");
             DropForeignKey("dbo.FileInformationSources", "File_Id", "dbo.Files");
             DropForeignKey("dbo.FileExtensions", "FileTypeId", "dbo.FileTypes");
+            DropForeignKey("dbo.CmsSettings", "LogoSettings_Id", "dbo.LogoSettings");
+            DropForeignKey("dbo.CmsSettings", "Address_Id", "dbo.Addresses");
             DropForeignKey("dbo.CmsSettings", "LayoutId", "dbo.Layouts");
             DropForeignKey("dbo.Tags", "News_Id", "dbo.InformationSources");
             DropForeignKey("dbo.Files", "FileTypeId", "dbo.FileTypes");
@@ -161,6 +195,8 @@ namespace SchoolCMS.Migrations
             DropForeignKey("dbo.MenuButtons", "InformationSourceId", "dbo.InformationSources");
             DropTable("dbo.FileInformationSources");
             DropTable("dbo.FileExtensions");
+            DropTable("dbo.LogoSettings");
+            DropTable("dbo.Addresses");
             DropTable("dbo.CmsSettings");
             DropTable("dbo.Layouts");
             DropTable("dbo.Tags");

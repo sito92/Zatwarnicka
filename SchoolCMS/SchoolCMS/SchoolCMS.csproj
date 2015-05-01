@@ -200,27 +200,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\ButtonHelper.cs" />
     <Compile Include="Helpers\NewsContentHelper.cs" />
     <Compile Include="Helpers\NewsPaginationHelper.cs" />
-    <Compile Include="Migrations\201504300727142_fixing.cs" />
-    <Compile Include="Migrations\201504300727142_fixing.Designer.cs">
-      <DependentUpon>201504300727142_fixing.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201504300737307_fixing2.cs" />
-    <Compile Include="Migrations\201504300737307_fixing2.Designer.cs">
-      <DependentUpon>201504300737307_fixing2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201504300757154_cmsSettings.cs" />
-    <Compile Include="Migrations\201504300757154_cmsSettings.Designer.cs">
-      <DependentUpon>201504300757154_cmsSettings.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201504301714443_PasswordDeleted.cs" />
-    <Compile Include="Migrations\201504301714443_PasswordDeleted.Designer.cs">
-      <DependentUpon>201504301714443_PasswordDeleted.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201505010706301_cmsSettings1.cs" />
-    <Compile Include="Migrations\201505010706301_cmsSettings1.Designer.cs">
-      <DependentUpon>201505010706301_cmsSettings1.cs</DependentUpon>
+    <Compile Include="Migrations\201505010911507_RadziFix.cs" />
+    <Compile Include="Migrations\201505010911507_RadziFix.Designer.cs">
+      <DependentUpon>201505010911507_RadziFix.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
@@ -241,6 +226,8 @@
     <Compile Include="Models\Tag.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\Button.cs" />
+    <Compile Include="ViewModels\CmsViewModel.cs" />
     <Compile Include="ViewModels\MainPage.cs" />
     <Compile Include="ViewModels\MenuButtonPage.cs" />
     <Compile Include="ViewModels\NewsEdit.cs" />
@@ -251,6 +238,7 @@
     <Content Include="App_Data\Localdatabase_log.ldf">
       <DependentUpon>Localdatabase.mdf</DependentUpon>
     </Content>
+    <Content Include="Content\images\arrow.jpg" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
@@ -425,20 +413,8 @@
     <Folder Include="Models\VieModels\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201504300727142_fixing.resx">
-      <DependentUpon>201504300727142_fixing.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201504300737307_fixing2.resx">
-      <DependentUpon>201504300737307_fixing2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201504300757154_cmsSettings.resx">
-      <DependentUpon>201504300757154_cmsSettings.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201504301714443_PasswordDeleted.resx">
-      <DependentUpon>201504301714443_PasswordDeleted.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201505010706301_cmsSettings1.resx">
-      <DependentUpon>201505010706301_cmsSettings1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201505010911507_RadziFix.resx">
+      <DependentUpon>201505010911507_RadziFix.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

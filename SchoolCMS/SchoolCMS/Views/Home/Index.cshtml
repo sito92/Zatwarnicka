@@ -6,13 +6,20 @@
 
 @{
     <ul>
-         
-            @foreach (var news in @Model.ShortContentDict)
-            {
-                <li>
-                    @news.Value
-                    @Html.ActionLink("Czytaj więcej", "NewsDetails", "News", new {newsId = news.Key.Id}, null)
-                </li>
-            }
+
+        @foreach (var news in @Model.PagedNews)
+        {
+            <li>
+                @news.ShortContent
+                @Html.ActionLink("Czytaj więcej", "NewsDetails", "News", new { newsId  = news.Id},null)
+            </li>
+        }
+
     </ul>
+    <br />   
+    @Html.PagedListPager(Model.PagedNews, page => Url.Action("Index",new {pageNumber = page}))
+    
+
+
 }
+Page @(Model.PagedNews.PageCount < Model.PagedNews.PageNumber ? 0 : Model.PagedNews.PageNumber) of @Model.PagedNews.PageCount

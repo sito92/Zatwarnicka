@@ -13,14 +13,8 @@ namespace SchoolCMS.Helpers
         {
             foreach (var news in page.NewsList)
             {
-                if (news.Content.Length < 150)
-                {
-                    page.ShortContentDict.Add(news,news.Content);
-                }
-                else
-                {
-                    page.ShortContentDict.Add(news,news.Content.Substring(0,150));
-                }
+                page.ShortContentDict.Add(news,
+                    news.Content.Length < 150 ? news.Content : news.Content.Substring(0, 150));
             }
 
             return page;

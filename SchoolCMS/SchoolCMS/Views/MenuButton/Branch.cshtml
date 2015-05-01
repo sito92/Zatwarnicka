@@ -6,23 +6,27 @@
 
 <h2>Branch</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-
 
 @foreach (var item in Model) {
 
     for (int i = 0; i <item.Level; i++)
     {
-        @:" "
+        if (i==item.Level-1)
+        {
+            <div id="arrow"></div>
+        }
+        else
+        {
+            <div id="levelEscape"></div>
+        }
     }
-   
+    <div id="editButtonContainer">
+        <div id="editButton">
             @Html.DisplayFor(modelItem => item.Name)
-            @Html.ActionLink("Edit", "Edit", new { menuButtonId= item.Id}) 
-            @Html.ActionLink("Delete", "Delete", new { menuButtonId= item.Id})
-            @Html.ActionLink("Add Button", "Add", new { id = item.Id })
-
- <br/>   
+        </div>
+        @Html.ActionLink("Edit", "Edit", new { menuButtonId = item.Id })
+        @Html.ActionLink("Delete", "Delete", new { menuButtonId = item.Id })
+        @Html.ActionLink("Add Button", "Add", new { id = item.Id })
+    </div>  
 }
 

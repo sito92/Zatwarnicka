@@ -12,16 +12,17 @@ namespace SchoolCMS.Controllers
 {
     public class HomeController : BaseController
     {
-        public ActionResult Index()
+        private int pageSize = 1;
+        public ActionResult Index(int pageNumber=1)
         {
             var test = new MainPage
             {
                 NewsList = context.InformationSources.OfType<News>().ToList(),
-                ShortContentDict = new Dictionary<News, string>()
+                ShortContentDict = new Dictionary<News, string>(),
             };
 
             NewsContentHelper.ContentTrimmer(test);
-            
+            test.PagedNews = test.ShortContentDict.Keys.ToPagedList(pageNumber, pageSize);
             return View(test);
         }
 

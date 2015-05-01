@@ -1,59 +1,138 @@
-﻿@using SchoolCMS.Models
+﻿@using System
+@using System.Linq
+@using System.Web.Caching
+@using SchoolCMS.Helpers
+@using SchoolCMS.Models
+@using SchoolCMS.ViewModels
 @{
-    var Model = (CmsSettings) ViewBag.Settings;
+    var Model = (CmsViewModel)ViewBag.Settings;
 }
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <title>@ViewBag.Title - My ASP.NET MVC Application</title>
-        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-        <meta name="viewport" content="width=device-width"/>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - My ASP.NET MVC Application</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
 
-        <link href="@Model.Layout.Path" rel="stylesheet" />
+    <link href="@Model.CmsSettings.Layout.Path" rel="stylesheet" />
 
-        @Scripts.Render("~/bundles/modernizr")
-        @Scripts.Render("~/bundles/jquery")
-        
-        
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
 
-    </head>
+
+
+</head>
 <body>
-@Model.SchoolName
-<header>
-    <div class="content-wrapper">
-        <div class="float-left">
-            <p class="site-title">@Html.ActionLink("your logo here", "Index", "Home")</p>
+    @Model.CmsSettings.SchoolName
+    <header>
+        <div class="content-wrapper">
+            <div class="float-left">
+                <p class="site-title">@Html.ActionLink("your logo here", "Index", "Home")</p>
+            </div>
+
+            <ul id="nav">
+                <li class="site-name"><a href="#">&nbsp;</a></li>
+                <li class="yahoo">
+                    <a href="#">Yahoo</a>
+                    <ul>
+                        <li>
+                            <a href="#">Yahoo Games &raquo;</a>
+                            <ul>
+                                <li><a href="#">Board Games</a></li>
+                                <li><a href="#">Card Games</a></li>
+                                <li><a href="#">Puzzle Games</a></li>
+                                <li>
+                                    <a href="#">Skill Games &raquo;</a>
+                                    <ul>
+                                        <li><a href="#">Yahoo Pool</a></li>
+                                        <li><a href="#">Chess</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Yahoo Search</a></li>
+                        <li><a href="#">Yahoo Answsers</a></li>
+                    </ul>
+                </li>
+                <li class="facebook">
+                    <a href="#">Facebook</a>
+                    <ul>
+                        <li><a href="#">Facebook Pages</a></li>
+                        <li><a href="#">Facebook Groups</a></li>
+                    </ul>
+                </li>
+                <li class="google">
+                    <a href="#">Google</a>
+                    <ul>
+                        <li><a href="#">Google mail</a></li>
+                        <li><a href="#">Google Plus</a></li>
+                        <li>
+                            <a href="#">Google Search &raquo;</a>
+                            <ul>
+                                <li><a href="#">Search Images</a></li>
+                                <li><a href="#">Search Web</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="twitter">
+                    <a href="#">Twitter</a>
+                    <ul>
+                        <li><a href="#">New Tweets</a></li>
+                        <li>
+
+                            <a href="#">Compose a Tweet</a>
+                            <ul>
+                                <li>
+                                    elem
+                                    <ul>
+                                        <li>elem2</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            elem
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+            <ul id="nav">
+
+           @Html.ButtonList(Model.MenuButtons,"cos")
+            </ul>
+
+            <div class="float-right">
+                <section id="login">
+                    @Html.Partial("_LoginPartial")
+                </section>
+                <nav>
+                    <ul id="menu">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    </ul>
+                </nav>
+            </div>
         </div>
-        <div class="float-right">
-            <section id="login">
-                @Html.Partial("_LoginPartial")
-            </section>
-            <nav>
-                <ul id="menu">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-            </nav>
-        </div>
+    </header>
+    <div id="body">
+        @RenderSection("featured", required: false)
+        <section class="content-wrapper main-content clear-fix">
+            @RenderBody()
+        </section>
     </div>
-</header>
-<div id="body">
-    @RenderSection("featured", required: false)
-    <section class="content-wrapper main-content clear-fix">
-        @RenderBody()
-    </section>
-</div>
-<footer>
-    <div class="content-wrapper">
-        <div class="float-left">
-            <p>&copy; @DateTime.Now.Year - My ASP.NET MVC Application</p>
+    <footer>
+        <div class="content-wrapper">
+            <div class="float-left">
+                <p>&copy; @DateTime.Now.Year - My ASP.NET MVC Application</p>
+            </div>
         </div>
-    </div>
-</footer>
+    </footer>
 
 
-@RenderSection("scripts", required: false)
+    @RenderSection("scripts", required: false)
 </body>
 </html>
