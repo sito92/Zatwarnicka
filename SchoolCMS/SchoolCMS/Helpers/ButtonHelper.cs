@@ -24,7 +24,7 @@ namespace SchoolCMS.Helpers
                 foreach (var button in branch)
                 {
                     result += openLi;
-                    result += button.Name;
+                    result = GetListElement(result, button);
                     var i = branch.IndexOf(button);
                     if (i + 1 <= branch.Count - 1)
                     {
@@ -38,6 +38,17 @@ namespace SchoolCMS.Helpers
                 }
             }
             return new MvcHtmlString(result);
+        }
+
+        private static string GetListElement(string result, MenuButton button)
+        {
+            if (button.InformationSourceId!=null)
+            {
+                
+            }
+            result += button.Name;
+
+            return result;
         }
 
         private static string GetTags(List<MenuButton> branch, int i, MenuButton button, string result)

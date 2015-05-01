@@ -5,13 +5,13 @@ namespace SchoolCMS.Migrations
     using System.Data.Entity.Migrations.Infrastructure;
     using System.Resources;
     
-    public sealed partial class cmsSettings1 : IMigrationMetadata
+    public sealed partial class anotherfix : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(cmsSettings1));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(anotherfix));
         
         string IMigrationMetadata.Id
         {
-            get { return "201505010706301_cmsSettings1"; }
+            get { return "201505011424171_anotherfix"; }
         }
         
         string IMigrationMetadata.Source

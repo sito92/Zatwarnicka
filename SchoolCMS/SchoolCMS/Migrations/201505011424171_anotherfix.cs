@@ -3,7 +3,7 @@ namespace SchoolCMS.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class cmsSettings1 : DbMigration
+    public partial class anotherfix : DbMigration
     {
         public override void Up()
         {
