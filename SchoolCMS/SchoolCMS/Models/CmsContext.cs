@@ -22,6 +22,8 @@ namespace SchoolCMS.Models
         public DbSet<Tag> Tags { get; set; }
         public DbSet<CmsSettings> CmsSettings { get; set; }
         public DbSet<FileType> FileTypes { get; set; }
-        public DbSet<FileExtension> FileExtensions { get; set; } 
+        public DbSet<FileExtension> FileExtensions { get; set; }
+        public DbSet<Address> Addresses { get; set; }
+        public DbSet<LogoSettings> LogoSettings { get; set; } 
     }
 }

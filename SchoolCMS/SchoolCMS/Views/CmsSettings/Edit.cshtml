@@ -1,4 +1,4 @@
-﻿@model SchoolCMS.Models.CmsSettings
+﻿@model SchoolCMS.ViewModels.RichCmsSettings
 
 @{
     ViewBag.Title = "Edit";
@@ -11,17 +11,7 @@
     @Html.ValidationSummary(true)
 
     <fieldset>
-        <legend>CmsSettings</legend>
-
-        @Html.HiddenFor(model => model.Id)
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.LayoutId)
-        </div>
-        <div class="editor-field">
-            @Html.DropDownListFor(model => model.LayoutId,(SelectList)ViewBag.Layouts)
-            @Html.ValidationMessageFor(model => model.LayoutId)
-        </div>
+        <legend>RichCmsSettings</legend>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.SchoolName)
@@ -31,14 +21,46 @@
             @Html.ValidationMessageFor(model => model.SchoolName)
         </div>
 
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NewsAmountPerSite)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.NewsAmountPerSite)
+            @Html.ValidationMessageFor(model => model.NewsAmountPerSite)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Layouts)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.SelectedLayoutId, Model.Layouts)
+            @Html.ValidationMessageFor(model => model.Layouts)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Addresses)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.SelectedAddressId, Model.Addresses)
+            @Html.ValidationMessageFor(model => model.Addresses)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.LogoSettings)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.SelectedLogoSettingsId, Model.LogoSettings)
+            @Html.ValidationMessageFor(model => model.LogoSettings)
+        </div>
+
         <p>
-            <input type="submit" value="Save" />
+            <input type="submit" value="Create" />
         </p>
     </fieldset>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "Index", "Home")
 </div>
 
 @section Scripts {
