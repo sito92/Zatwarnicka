@@ -203,9 +203,9 @@
     <Compile Include="Helpers\ButtonHelper.cs" />
     <Compile Include="Helpers\NewsContentHelper.cs" />
     <Compile Include="Helpers\NewsPaginationHelper.cs" />
-    <Compile Include="Migrations\201505010911507_RadziFix.cs" />
-    <Compile Include="Migrations\201505010911507_RadziFix.Designer.cs">
-      <DependentUpon>201505010911507_RadziFix.cs</DependentUpon>
+    <Compile Include="Migrations\201505011424171_anotherfix.cs" />
+    <Compile Include="Migrations\201505011424171_anotherfix.Designer.cs">
+      <DependentUpon>201505011424171_anotherfix.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
@@ -412,8 +412,8 @@
     <Folder Include="Filters\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201505010911507_RadziFix.resx">
-      <DependentUpon>201505010911507_RadziFix.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201505011424171_anotherfix.resx">
+      <DependentUpon>201505011424171_anotherfix.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
