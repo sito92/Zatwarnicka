@@ -54,7 +54,7 @@ namespace SchoolCMS.Controllers
                 dbButton.InformationSourceId = button.InformationSourceId;
                 context.SaveChanges();
             }
-            return RedirectToAction("List");
+            return RedirectToAction("Branch",dbButton.Id);
 
         }
 
@@ -71,11 +71,13 @@ namespace SchoolCMS.Controllers
            var button = context.MenuButtons.FirstOrDefault(x => x.Id == id);
             if (button == null)
                 return HttpNotFound();
-
+            var informationSources = context.InformationSources.OrderBy(x => x.Title).ToList();
+            informationSources.Insert(0, new InformationSource() { Id = 0, Title = "Brak" });
             var newButton = new MenuButtonPage()
             {
                 MenuButton = new MenuButton() {ParentId = button.Id, Level = button.Level + 1},
-                Pages = new SelectList(context.InformationSources, "Id","Title")
+                Pages = new SelectList(informationSources, "Id", "Title")
+
             };
             
             return View(newButton);
@@ -86,12 +88,30 @@ namespace SchoolCMS.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (button.SelectedPage==0)
+                {
+                    button.MenuButton.InformationSourceId = null;
+                }
+                else
+                {
+                    button.MenuButton.InformationSourceId = button.SelectedPage;
+                }
                 button.MenuButton.Id = 0;
-                button.MenuButton.InformationSourceId = button.SelectedPage;
+                
                 context.MenuButtons.Add(button.MenuButton);
                 context.SaveChanges();
+
+                if (button.MenuButton.IsRootButton)
+                {
+                    return RedirectToAction("List");
+                }
+                else
+                {
+                    return RedirectToAction("Branch", new { menuButtonId = GetParrentButton(button.MenuButton).Id});
+                }
+                
             }
-            return RedirectToAction("List");
+                return View(button);
         }
 
         public ActionResult NewBranch()
@@ -151,6 +171,22 @@ namespace SchoolCMS.Controllers
             return Buttons;
         }
 
+        private MenuButton GetParrentButton(MenuButton childButton)
+        {
+            if (childButton.IsRootButton)
+            {
+                return childButton;
+            }
+
+            while (!childButton.IsRootButton)
+            {
+                childButton = context.MenuButtons.FirstOrDefault(x => x.Id == childButton.ParentId);
+            }
+            return childButton;
+
+
+
+        }
         private void PopulatePages(object selectedSource = null)
         {
             var informationSources = context.InformationSources.OrderBy(x=>x.Title).ToList();

@@ -41,5 +41,6 @@ namespace SchoolCMS.Controllers
 
             ViewBag.Layouts = new SelectList(layouts, "Id", "Name", selectedLayout ?? 0);
         }
+        
     }
 }

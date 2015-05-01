@@ -1,4 +1,169 @@
-﻿#addButton {
+﻿#nav{
+	height: 39px;
+	font: 12px Geneva, Arial, Helvetica, sans-serif;
+	background: #3AB3A9;
+	border: 1px solid #30A097;	
+	border-radius: 3px;
+	min-width:500px;
+	margin-left: 0px;
+	padding-left: 0px;
+}	
+
+#nav li{
+	list-style: none;
+	display: block;
+	float: left;
+	height: 40px;
+	position: relative;
+	border-right: 1px solid #52BDB5;
+}
+
+#nav li a{
+	padding: 0px 10px 0px 30px;
+	margin: 0px 0;
+	line-height: 40px;
+	text-decoration: none;
+	border-right: 1px solid #389E96;
+	height: 40px;
+	color: #FFF;
+	text-shadow: 1px 1px 1px #66696B;
+}
+
+#nav ul{
+	background: #f2f5f6; 
+	padding: 0px;
+	border-bottom: 1px solid #DDDDDD;
+	border-right: 1px solid #DDDDDD;
+	border-left:1px solid #DDDDDD;
+	border-radius: 0px 0px 3px 3px;
+	box-shadow: 2px 2px 3px #ECECEC;
+	-webkit-box-shadow: 2px 2px 3px #ECECEC;
+    -moz-box-shadow:2px 2px 3px #ECECEC;
+	width:170px;
+}
+#nav .site-name,#nav .site-name:hover{
+	padding-left: 10px;
+	padding-right: 10px;
+	color: #FFF;
+	text-shadow: 1px 1px 1px #66696B;
+	font: italic 20px/38px Georgia, "Times New Roman", Times, serif;
+	background: url(images/saaraan.png) no-repeat 10px 5px;
+	width: 160px;
+	border-right: 1px solid #52BDB5;
+}
+#nav .site-name a{
+	width: 129px;
+	overflow:hidden;
+}
+#nav li.facebook{
+	background: url(images/facebook.png) no-repeat 9px 12px;
+}
+#nav li.facebook:hover  {
+	background: url(images/facebook.png) no-repeat 9px 12px #3BA39B;
+}
+#nav li.yahoo{
+	background: url(images/yahoo.png) no-repeat 9px 12px;
+}
+#nav li.yahoo:hover  {
+	background: url(images/yahoo.png) no-repeat 9px 12px #3BA39B;
+}
+#nav li.google{
+	background: url(images/google.png) no-repeat 9px 12px;
+}
+#nav li.google:hover  {
+	background: url(images/google.png) no-repeat 9px 12px #3BA39B;
+}
+#nav li.twitter{
+	background: url(images/twitter.png) no-repeat 9px 12px;
+}
+#nav li.twitter:hover  {
+	background: url(images/twitter.png) no-repeat 9px 12px #3BA39B;
+}
+
+#nav li:hover{
+	background: #3BA39B;
+}
+#nav li a{
+	display: block;
+}
+#nav ul li {
+	border-right:none;
+	border-bottom:1px solid #DDDDDD;
+	width:170px;
+	height:39px;
+}
+#nav ul li a {
+	border-right: none;
+	color:#6791AD;
+	text-shadow: 1px 1px 1px #FFF;
+	border-bottom:1px solid #FFFFFF;
+}
+#nav ul li:hover{background:#DFEEF0;}
+#nav ul li:last-child { border-bottom: none;}
+#nav ul li:last-child a{ border-bottom: none;}
+/* Sub menus */
+#nav ul{
+	display: none;
+	visibility:hidden;
+	position: absolute;
+	top: 40px;
+}
+
+/* Third-level menus */
+#nav ul ul{
+	top: 0px;
+	left:170px;
+	display: none;
+	visibility:hidden;
+	border: 1px solid #DDDDDD;
+}
+/* Fourth-level menus */
+#nav ul ul ul{
+	top: 0px;
+	left:170px;
+	display: none;
+	visibility:hidden;
+	border: 1px solid #DDDDDD;
+}
+
+#nav ul li{
+	display: block;
+	visibility:visible;
+}
+#nav li:hover > ul{
+	display: block;
+	visibility:visible;
+}
+
+
+
+
+#editButton {
+    float: left;
+    height: 25px;
+    text-align: center;
+    background-color: rgb(211, 220, 224);
+    padding-left: 10px;
+    padding-right: 10px;
+}
+#editButtonContainer {
+    margin-bottom: 10px;
+}
+#arrow {
+    background-image: url("images/arrow.jpg");
+    background-size: 25px 25px;
+    background-repeat: no-repeat;
+    height: 25px;
+    width: 25px;
+    float: left;
+
+}
+#levelEscape {
+    float: left;
+        height: 25px;
+    width: 25px;
+}
+#addButton {
     width: 25px;
     height: 25px;
     background-color: green;
@@ -16,85 +181,6 @@
 #removeButton:hover {
     background-color: yellow;
 }
-#menu0, #menu0 dl {
-	font-size: 12px;
-	position: absolute;
-	width: 150px;
-	margin: 0;
-	padding: 0;
-	border-width: 1px;
-	border-style: solid;
-	border-color: #eee #aaa #aaa #eee;
-}
-
-#menu0 dt {
-	cursor: pointer;
-	margin: 0;
-	padding: 0;
-	background-color: #888;
-	color: #fff;
-	text-align: center;
-	font-weight: bold;
-	font-size: 14px;
-	border-width: 1px;
-	border-style: solid;
-	border-color: #aaa #666 #666 #aaa;
-	padding: 4px 5px;
-}
-
-#menu0 dl dt {
-	background-color: #ccc;
-	color: #000;
-	text-align: left;
-	font-weight: normal;
-	font-size: 12px;
-	border: 0;
-	padding: 0;
-}
-
-#menu0 dd  {
-	background-color: #ccc;
-	color: #000;
-	margin: 0;
-	padding: 0;
-	width: 150px;
-	height: 22px;
-}
-
-#menu0 dd.active {
-	font-weight: bold;
-}
-
-#menu0 dt a {
-	background: url("submenu.gif") no-repeat 140px 8px;
-	padding-right: 20px;
-}
-
-#menu0 a:link, #menu0 a:visited {
-	display: block;
-	color: #000;
-	text-decoration: none;
-	padding: 4px 5px;
-}
-
-#menu0 a:hover {
-	color: #fff;
-	background-color: #008;
-}
-
-#menu0 dl {
-	position: absolute;
-	border: 0;
-}
-
-#menu0 dl dd {
-	position: relative;
-	left: 151px;
-	bottom: 22px;
-	border-left: 1px solid #eee;
-	border-right: 1px solid #aaa;
-}
-
 
 
 html {
@@ -278,6 +364,7 @@ footer {
 
 /* menu
 ----------------------------------------------------------*/
+
 ul#menu {
     font-size: 1.3em;
     font-weight: 600;

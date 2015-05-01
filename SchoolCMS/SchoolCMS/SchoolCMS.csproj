@@ -232,6 +232,8 @@
     <Compile Include="Models\Tag.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\Button.cs" />
+    <Compile Include="ViewModels\CmsViewModel.cs" />
     <Compile Include="ViewModels\MainPage.cs" />
     <Compile Include="ViewModels\MenuButtonPage.cs" />
     <Compile Include="ViewModels\NewsEdit.cs" />
