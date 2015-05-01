@@ -52,8 +52,8 @@
   z-index: 2;
   color: #ffffff;
   cursor: default;
-  background-color: #428bca;
-  border-color: #428bca;
+  background-color: #52BDB5;
+  border-color: #52BDB5;
 }
 
 .pagination > .disabled > span,
@@ -176,11 +176,13 @@
     color: #FFF;
 	text-shadow: 1px 1px 1px #66696B;
     padding: 0px 10px 0px 30px;
+    cursor: default;
 }
 
 #nav ul li a  #buttonStyle {
     border-right: none;
   color: #6791AD;
+    cursor: default;
 }
 #nav{
 	height: 39px;
