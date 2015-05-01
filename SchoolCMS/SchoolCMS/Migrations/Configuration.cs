@@ -164,6 +164,20 @@ namespace SchoolCMS.Migrations
             };
             fileExtensions.ForEach(x=>context.FileExtensions.AddOrUpdate(x));
             context.SaveChanges();
+
+            List<Address> addresses = new List<Address>()
+            {
+                new Address() { City= "Opole", HouseNumber = 1,PostCode = "13123", Street = "a", Name = "DefaultAddress"}
+            };
+            addresses.ForEach(x => context.Addresses.AddOrUpdate(x));
+            context.SaveChanges();
+
+            List<LogoSettings> logoSettings = new List<LogoSettings>()
+            {
+                new LogoSettings(){LogoName = "a", LogoPath = "a"}
+            };
+            logoSettings.ForEach(x => context.LogoSettings.AddOrUpdate(x));
+            context.SaveChanges();
         }
     }
 }
