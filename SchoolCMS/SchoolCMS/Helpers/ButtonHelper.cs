@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Policy;
 using System.Web;
 using System.Web.Mvc;
 using SchoolCMS.Models;
@@ -13,6 +14,8 @@ namespace SchoolCMS.Helpers
         private const string closeLi = "</li>";
         private const string openUl = "<ul>";
         private const string closeUl = "</ul>";
+        private const string informationSourceController = "/InformationSource";
+        private const string informationSourceShowAction = "/Show/";
         public static MvcHtmlString ButtonList(this HtmlHelper helper, List<List<MenuButton>> sortedMenuButtons, string listId)
         {
             string result = "";
@@ -44,8 +47,9 @@ namespace SchoolCMS.Helpers
         {
             if (button.InformationSourceId!=null)
             {
-                
+                result += GetButtonWithATag(button);
             }
+            else
             result += button.Name;
 
             return result;
@@ -79,6 +83,14 @@ namespace SchoolCMS.Helpers
             }
             return closingTags;
 
+        }
+
+        private static string GetButtonWithATag(MenuButton button)
+        {
+            var result = "<a href='" + informationSourceController + informationSourceShowAction + button.InformationSourceId+ "'>";
+            result += button.Name;
+            result += "</a>";
+            return result;
         }
         
 

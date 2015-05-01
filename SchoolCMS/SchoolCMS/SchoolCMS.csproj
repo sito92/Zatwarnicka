@@ -194,6 +194,7 @@
     <Compile Include="Controllers\CmsSettingsController.cs" />
     <Compile Include="Controllers\FileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InformationSourceController.cs" />
     <Compile Include="Controllers\MenuButtonController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\PageController.cs" />
