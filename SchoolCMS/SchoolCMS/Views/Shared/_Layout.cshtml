@@ -1,6 +1,7 @@
 ﻿@using System
 @using System.Linq
 @using System.Web.Caching
+@using SchoolCMS.Helpers
 @using SchoolCMS.Models
 @using SchoolCMS.ViewModels
 @{
@@ -100,54 +101,7 @@
 
             <ul id="nav">
 
-            @foreach (var branch in Model.MenuButtons)
-            {
-                @:<li>
-                foreach (var button in branch)
-                 {
-                     @:<li>
-                     @button.Name
-                     var i = branch.IndexOf(button);
-                     if (i + 1 <= branch.Count - 1)
-                     {
-
-                         if (branch[i + 1].Level > button.Level)
-                         {
-                             @:<ul>
-                         }
-                         else if (branch[i + 1].Level == button.Level)
-                         {
-                             @:</li>
-                         }
-                         else if (branch[i + 1].Level < button.Level)
-                         {
-                             var l = button.Level - branch[i + 1].Level;
-                             for (int j = 0; j < l; j++)
-                             {
-                                 @:</li>
-                                 @:</ul> 
-                             }
-                         }
-                     }
-                     else
-                     {
-                         var l = branch.Select(x => x.Level).Max();
-                             for (int j = 0; j < l; j++)
-                             {
-                                @:</li>
-                                @:</ul>
-                             }
-                           
-
-                         
-                          
-                             
-
-                     }
-
-                 }
-                
-            }
+           @Html.ButtonList(Model.MenuButtons,"cos")
             </ul>
 
             <div class="float-right">
