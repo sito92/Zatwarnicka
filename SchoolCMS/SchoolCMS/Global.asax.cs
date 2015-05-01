@@ -23,6 +23,8 @@ namespace SchoolCMS
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AuthConfig.RegisterAuth();
+            InitializeMembership.SeedMembership();
+            CreateRoles.CreateRolesSeed();
         }
     }
 }

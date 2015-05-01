@@ -40,7 +40,6 @@ namespace SchoolCMS.Migrations
                     Name = "Jan",
                     Surname = "Nowak",
                     Username = "admin",
-                    Password = "admin"
                 }
             };
             users.ForEach(x => context.Users.AddOrUpdate(x));
