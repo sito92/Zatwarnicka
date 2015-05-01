@@ -31,22 +31,19 @@
                 <p class="site-title">@Html.ActionLink("your logo here", "Index", "Home")</p>
             </div>
 
-            <ul id="nav">
 
-           @Html.ButtonList(Model.MenuButtons,"cos")
-            </ul>
 
             <div class="float-right">
+                <ul id="nav">
+                    @Html.ButtonList(Model.MenuButtons, "cos")
+
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                </ul>
                 <section id="login">
                     @Html.Partial("_LoginPartial")
                 </section>
-                <nav>
-                    <ul id="menu">
-                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                        <li>@Html.ActionLink("About", "About", "Home")</li>
-                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    </ul>
-                </nav>
             </div>
         </div>
     </header>

@@ -16,6 +16,8 @@ namespace SchoolCMS.Helpers
         private const string closeUl = "</ul>";
         private const string informationSourceController = "/InformationSource";
         private const string informationSourceShowAction = "/Show/";
+        private const string openButtonStyle = "<div id='buttonStyle'>";
+        private const string closeDiv = "</div>";
         public static MvcHtmlString ButtonList(this HtmlHelper helper, List<List<MenuButton>> sortedMenuButtons, string listId)
         {
             string result = "";
@@ -23,7 +25,7 @@ namespace SchoolCMS.Helpers
 
             foreach (var branch in sortedMenuButtons)
             {
-                result += openLi;
+
                 foreach (var button in branch)
                 {
                     result += openLi;
@@ -40,7 +42,7 @@ namespace SchoolCMS.Helpers
                     }
                 }
             }
-            return new MvcHtmlString(result);
+            return new MvcHtmlString(result.Replace("<li></li>",string.Empty));
         }
 
         private static string GetListElement(string result, MenuButton button)
@@ -50,7 +52,7 @@ namespace SchoolCMS.Helpers
                 result += GetButtonWithATag(button);
             }
             else
-            result += button.Name;
+            result += GetButtonWithStyleDiv(button);
 
             return result;
         }
@@ -90,6 +92,14 @@ namespace SchoolCMS.Helpers
             var result = "<a href='" + informationSourceController + informationSourceShowAction + button.InformationSourceId+ "'>";
             result += button.Name;
             result += "</a>";
+            return result;
+        }
+
+        private static string GetButtonWithStyleDiv(MenuButton button)
+        {
+            var result = openButtonStyle;
+            result += button.Name;
+            result += closeDiv;
             return result;
         }
         

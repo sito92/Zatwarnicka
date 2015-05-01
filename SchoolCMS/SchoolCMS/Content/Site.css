@@ -1,4 +1,17 @@
-﻿#nav{
+﻿
+#buttonStyle {
+    line-height: 40px;
+    border-right: 1px solid #389E96;
+    color: #FFF;
+	text-shadow: 1px 1px 1px #66696B;
+    padding: 0px 10px 0px 30px;
+}
+
+#nav ul li a  #buttonStyle {
+    border-right: none;
+  color: #6791AD;
+}
+#nav{
 	height: 39px;
 	font: 12px Geneva, Arial, Helvetica, sans-serif;
 	background: #3AB3A9;
@@ -7,6 +20,7 @@
 	min-width:500px;
 	margin-left: 0px;
 	padding-left: 0px;
+    float: right;
 }	
 
 #nav li{
@@ -28,7 +42,16 @@
 	color: #FFF;
 	text-shadow: 1px 1px 1px #66696B;
 }
-
+#nav li #button {
+   	padding: 0px 10px 0px 30px;
+	margin: 0px 0;
+	line-height: 40px;
+	text-decoration: none;
+	border-right: 1px solid #389E96;
+	height: 40px;
+	color: #FFF;
+	text-shadow: 1px 1px 1px #66696B; 
+}
 #nav ul{
 	background: #f2f5f6; 
 	padding: 0px;
