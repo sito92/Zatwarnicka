@@ -5,13 +5,13 @@ namespace SchoolCMS.Migrations
     using System.Data.Entity.Migrations.Infrastructure;
     using System.Resources;
     
-    public sealed partial class fixing : IMigrationMetadata
+    public sealed partial class RadziFix : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(fixing));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(RadziFix));
         
         string IMigrationMetadata.Id
         {
-            get { return "201504300727142_fixing"; }
+            get { return "201505010911507_RadziFix"; }
         }
         
         string IMigrationMetadata.Source

@@ -184,6 +184,7 @@
   <ItemGroup>
     <Compile Include="App_Start\AuthConfig.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\CreateRoles.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\InitializeMembership.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -201,76 +202,13 @@
     </Compile>
     <Compile Include="Helpers\NewsContentHelper.cs" />
     <Compile Include="Helpers\NewsPaginationHelper.cs" />
-    <Compile Include="Migrations\201504231554549_FirstMigration.cs" />
-    <Compile Include="Migrations\201504231554549_FirstMigration.Designer.cs">
-      <DependentUpon>201504231554549_FirstMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201504231604553_menubuttonchange.cs" />
-    <Compile Include="Migrations\201504231604553_menubuttonchange.Designer.cs">
-      <DependentUpon>201504231604553_menubuttonchange.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201504231615438_menubuttonchange1.cs" />
-    <Compile Include="Migrations\201504231615438_menubuttonchange1.Designer.cs">
-      <DependentUpon>201504231615438_menubuttonchange1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201504231722137_menubuttonchange2.cs" />
-    <Compile Include="Migrations\201504231722137_menubuttonchange2.Designer.cs">
-      <DependentUpon>201504231722137_menubuttonchange2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201504231730042_menubuttonchange3.cs" />
-    <Compile Include="Migrations\201504231730042_menubuttonchange3.Designer.cs">
-      <DependentUpon>201504231730042_menubuttonchange3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201504240752431_MenuButtonPage.cs" />
-    <Compile Include="Migrations\201504240752431_MenuButtonPage.Designer.cs">
-      <DependentUpon>201504240752431_MenuButtonPage.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201504271559418_CmsSettings.cs" />
-    <Compile Include="Migrations\201504271559418_CmsSettings.Designer.cs">
-      <DependentUpon>201504271559418_CmsSettings.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201504271801447_PageChange.cs" />
-    <Compile Include="Migrations\201504271801447_PageChange.Designer.cs">
-      <DependentUpon>201504271801447_PageChange.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201504271805261_PageChange1.cs" />
-    <Compile Include="Migrations\201504271805261_PageChange1.Designer.cs">
-      <DependentUpon>201504271805261_PageChange1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201504271809455_Fix.cs" />
-    <Compile Include="Migrations\201504271809455_Fix.Designer.cs">
-      <DependentUpon>201504271809455_Fix.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201504271822139_FilesChange.cs" />
-    <Compile Include="Migrations\201504271822139_FilesChange.Designer.cs">
-      <DependentUpon>201504271822139_FilesChange.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201504271942422_CreatedatetimeRemoved.cs" />
-    <Compile Include="Migrations\201504271942422_CreatedatetimeRemoved.Designer.cs">
-      <DependentUpon>201504271942422_CreatedatetimeRemoved.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201504281229367_News.cs" />
-    <Compile Include="Migrations\201504281229367_News.Designer.cs">
-      <DependentUpon>201504281229367_News.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201504281318419_News1.cs" />
-    <Compile Include="Migrations\201504281318419_News1.Designer.cs">
-      <DependentUpon>201504281318419_News1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201504281411422_Tags.cs" />
-    <Compile Include="Migrations\201504281411422_Tags.Designer.cs">
-      <DependentUpon>201504281411422_Tags.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201504281933591_FileExtension.cs" />
-    <Compile Include="Migrations\201504281933591_FileExtension.Designer.cs">
-      <DependentUpon>201504281933591_FileExtension.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201504290959058_MainPage.cs" />
-    <Compile Include="Migrations\201504290959058_MainPage.Designer.cs">
-      <DependentUpon>201504290959058_MainPage.cs</DependentUpon>
+    <Compile Include="Migrations\201505010911507_RadziFix.cs" />
+    <Compile Include="Migrations\201505010911507_RadziFix.Designer.cs">
+      <DependentUpon>201505010911507_RadziFix.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\Address.cs" />
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\CmsContext.cs" />
     <Compile Include="Models\CmsSettings.cs" />
@@ -278,8 +216,9 @@
     <Compile Include="Models\File.cs" />
     <Compile Include="Models\FileExtension.cs" />
     <Compile Include="Models\FileType.cs" />
-    <Compile Include="Models\InforamtionSource.cs" />
+    <Compile Include="Models\InformationSource.cs" />
     <Compile Include="Models\Layout.cs" />
+    <Compile Include="Models\LogoSettings.cs" />
     <Compile Include="Models\MenuButton.cs" />
     <Compile Include="Models\News.cs" />
     <Compile Include="Models\Page.cs" />
@@ -289,6 +228,7 @@
     <Compile Include="ViewModels\Button.cs" />
     <Compile Include="ViewModels\CmsViewModel.cs" />
     <Compile Include="ViewModels\MainPage.cs" />
+    <Compile Include="ViewModels\MenuButtonPage.cs" />
     <Compile Include="ViewModels\NewsEdit.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -296,6 +236,7 @@
     <Content Include="App_Data\Localdatabase_log.ldf">
       <DependentUpon>Localdatabase.mdf</DependentUpon>
     </Content>
+    <Content Include="Content\images\arrow.jpg" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
@@ -462,65 +403,17 @@
     <Content Include="Views\News\NewsAdd.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201504231554549_FirstMigration.resx">
-      <DependentUpon>201504231554549_FirstMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201504231604553_menubuttonchange.resx">
-      <DependentUpon>201504231604553_menubuttonchange.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201504231615438_menubuttonchange1.resx">
-      <DependentUpon>201504231615438_menubuttonchange1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201504231722137_menubuttonchange2.resx">
-      <DependentUpon>201504231722137_menubuttonchange2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201504231730042_menubuttonchange3.resx">
-      <DependentUpon>201504231730042_menubuttonchange3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201504240752431_MenuButtonPage.resx">
-      <DependentUpon>201504240752431_MenuButtonPage.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201504271559418_CmsSettings.resx">
-      <DependentUpon>201504271559418_CmsSettings.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201504271801447_PageChange.resx">
-      <DependentUpon>201504271801447_PageChange.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201504271805261_PageChange1.resx">
-      <DependentUpon>201504271805261_PageChange1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201504271809455_Fix.resx">
-      <DependentUpon>201504271809455_Fix.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201504271822139_FilesChange.resx">
-      <DependentUpon>201504271822139_FilesChange.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201504271942422_CreatedatetimeRemoved.resx">
-      <DependentUpon>201504271942422_CreatedatetimeRemoved.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201504281229367_News.resx">
-      <DependentUpon>201504281229367_News.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201504281318419_News1.resx">
-      <DependentUpon>201504281318419_News1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201504281411422_Tags.resx">
-      <DependentUpon>201504281411422_Tags.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201504281933591_FileExtension.resx">
-      <DependentUpon>201504281933591_FileExtension.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201504290959058_MainPage.resx">
-      <DependentUpon>201504290959058_MainPage.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\Uploads\" />
     <Folder Include="Filters\" />
     <Folder Include="Models\VieModels\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201505010911507_RadziFix.resx">
+      <DependentUpon>201505010911507_RadziFix.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

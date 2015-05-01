@@ -21,7 +21,7 @@ namespace SchoolCMS.Controllers
             CmsViewModel model = new CmsViewModel()
             {
                 CmsSettings = GetSettings(),
-                MenuButtons = GetChildButtons(rootButtons[1])
+                MenuButtons = new List<MenuButton>()
 
             };
 
