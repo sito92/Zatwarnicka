@@ -100,44 +100,54 @@
 
             <ul id="nav">
 
+            @foreach (var branch in Model.MenuButtons)
+            {
+                @:<li>
+                foreach (var button in branch)
+                 {
+                     @:<li>
+                     @button.Name
+                     var i = branch.IndexOf(button);
+                     if (i + 1 <= branch.Count - 1)
+                     {
 
-                @foreach (var button in Model.MenuButtons)
-                {
-                    @:<li>
-                    @button.Name
-                    var i = Model.MenuButtons.IndexOf(button);
-                    if (i+1 <= Model.MenuButtons.Count - 1)
-                    {
-
-                        if (Model.MenuButtons[i + 1].Level > button.Level)
-                        {
-                            @:<ul>
-                        }
-                        else if (Model.MenuButtons[i + 1].Level == button.Level)
-                        {
-                            @:</li>
-                        }
-                        else if (Model.MenuButtons[i + 1].Level < button.Level)
-                        {
-                            var l = button.Level - Model.MenuButtons[i + 1].Level;
-                            for (int j = 0; j < l; j++)
-                            {
+                         if (branch[i + 1].Level > button.Level)
+                         {
+                             @:<ul>
+                         }
+                         else if (branch[i + 1].Level == button.Level)
+                         {
+                             @:</li>
+                         }
+                         else if (branch[i + 1].Level < button.Level)
+                         {
+                             var l = button.Level - branch[i + 1].Level;
+                             for (int j = 0; j < l; j++)
+                             {
+                                 @:</li>
+                                 @:</ul> 
+                             }
+                         }
+                     }
+                     else
+                     {
+                         var l = branch.Select(x => x.Level).Max();
+                             for (int j = 0; j < l; j++)
+                             {
                                 @:</li>
-                                @:</ul> 
-                            }
-                        }
-                    }
-                    else
-                    {
-                @:</li>
-                                @:<ul>
+                                @:</ul>
+                             }
+                           
 
-                        
-                        
-                    }
-                    
-                }
+                         
+                          
+                             
 
+                     }
+
+                 }
+                
+            }
             </ul>
 
             <div class="float-right">

@@ -21,7 +21,7 @@ namespace SchoolCMS.Controllers
             CmsViewModel model = new CmsViewModel()
             {
                 CmsSettings = GetSettings(),
-                MenuButtons = new List<MenuButton>()
+                MenuButtons = GetButtons()
 
             };
 
@@ -35,11 +35,11 @@ namespace SchoolCMS.Controllers
             return settings;
         }
 
-        private List<Button> GetButtons()
+        private List<List<MenuButton>> GetButtons()
         {
-            List<Button> result = new List<Button>();
             var rootButtons = GetRootButtons();
-            return result;
+
+            return rootButtons.Select(GetChildButtons).ToList();
         }
         private List<MenuButton> GetRootButtons()
         {

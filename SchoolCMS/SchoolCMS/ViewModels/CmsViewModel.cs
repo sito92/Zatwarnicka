@@ -9,6 +9,6 @@ namespace SchoolCMS.ViewModels
     public class CmsViewModel
     {
         public CmsSettings CmsSettings { get; set; }
-        public List<MenuButton> MenuButtons { get; set; } 
+        public List<List<MenuButton>> MenuButtons { get; set; } 
     }
 }
