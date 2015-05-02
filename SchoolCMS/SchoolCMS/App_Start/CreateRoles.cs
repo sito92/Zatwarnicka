@@ -20,7 +20,6 @@ namespace SchoolCMS
             {
                 Roles.CreateRole("CopyWriter");
             }
-           
         }
     }
 }

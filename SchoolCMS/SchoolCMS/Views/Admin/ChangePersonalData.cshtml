@@ -1,35 +1,29 @@
-﻿@model SchoolCMS.Models.RegisterModel
+﻿@model SchoolCMS.Models.ChangePersonalDataModel
 @{
-    ViewBag.Title = "Register";
+    ViewBag.Title = "Change CopyWriter's Personal Data";
 }
 
 <hgroup class="title">
     <h1>@ViewBag.Title.</h1>
-    <h2>Create a new account.</h2>
 </hgroup>
 
-@using (Html.BeginForm()) {
+@using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl }))
+{
     @Html.AntiForgeryToken()
-    @Html.ValidationSummary()
+    @Html.ValidationSummary(true)
+
+    <p class="message-success">@ViewBag.StatusMessage</p>
 
     <fieldset>
-        <legend>Registration Form</legend>
+        <legend>Change PersonalData Form</legend>
         <ol>
             <li>
                 @Html.LabelFor(m => m.UserName)
                 @Html.TextBoxFor(m => m.UserName)
             </li>
             <li>
-                @Html.LabelFor(m => m.Password)
-                @Html.PasswordFor(m => m.Password)
-            </li>
-            <li>
-                @Html.LabelFor(m => m.ConfirmPassword)
-                @Html.TextBoxFor(m => m.ConfirmPassword)
-            </li>
-            <li>
                 @Html.LabelFor(m => m.Email)
-                @Html.PasswordFor(m => m.Email)
+                @Html.TextBoxFor(m => m.Email)
             </li>
             <li>
                 @Html.LabelFor(m => m.Name)
@@ -40,7 +34,7 @@
                 @Html.TextBoxFor(m => m.Surname)
             </li>
         </ol>
-        <input type="submit" value="Register" />
+        <input type="submit" value="Change personal data"/>
     </fieldset>
 }
 

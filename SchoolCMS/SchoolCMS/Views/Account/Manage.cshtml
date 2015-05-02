@@ -1,6 +1,6 @@
-﻿@model SchoolCMS.Models.LocalPasswordModel
+﻿@model SchoolCMS.Models.Manage
 @{
-    ViewBag.Title = "Manage Account";
+    ViewBag.Title = "Manage CopyWriter's Account";
 }
 
 <hgroup class="title">
@@ -9,11 +9,17 @@
 
 <p class="message-success">@ViewBag.StatusMessage</p>
 
-<p>You're logged in as <strong>@User.Identity.Name</strong>.</p>
+<fieldset>
+    <legend>UserName</legend>
+    <ol>
+        <li>
+          
+        </li>
+       </ol>
+</fieldset>
 
-
-    @Html.Partial("_ChangePasswordPartial")
-
+@Html.Partial("_ChangePasswordPartial")
+@Html.Partial("_ChangePersonalDataPartial")
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

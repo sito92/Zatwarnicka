@@ -1,78 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data.Entity;
 using System.Linq;
 using System.Transactions;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 using DotNetOpenAuth.AspNet;
+using DotNetOpenAuth.AspNet.Clients;
 using Microsoft.Web.WebPages.OAuth;
 using WebMatrix.WebData;
 using SchoolCMS.Models;
 
 namespace SchoolCMS.Controllers
 {
-    [Authorize]
-    public class AccountController : BaseController
+    public class AdminController : BaseController
     {
-
-        [AllowAnonymous]
-        public ActionResult Login(string returnUrl)
-        {
-            ViewBag.ReturnUrl = returnUrl;
-            return View();
-        }
-
-        //
-        // POST: /Account/Login
-
-        [HttpPost]
-        [AllowAnonymous]
-        [ValidateAntiForgeryToken]
-        public ActionResult Login(LoginModel model, string returnUrl)
-        {
-            if (ModelState.IsValid)
-            {
-                if (WebSecurity.Login(model.UserName, model.Password))
-                {
-                    if (Url.IsLocalUrl(returnUrl))
-                    {
-                        return Redirect(returnUrl);
-                    }
-                    else
-                    {
-                        return RedirectToAction("Index", "Home");
-                    }
-                }
-                else
-                {
-                    ModelState.AddModelError("","Nazwa użytownika lub hasło są niepoprawne");
-                    return View(model);
-                }
-            }
-
-            // If we got this far, something failed, redisplay form
-            ModelState.AddModelError("", "The user name or password provided is incorrect.");
-            return View(model);
-        }
-
-        //
-        // POST: /Account/LogOff
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult LogOff()
-        {
-            WebSecurity.Logout();
-
-            return RedirectToAction("Index", "Home");
-        }
-
-        //
         // GET: /Account/Register
 
-        /*[AllowAnonymous]
         public ActionResult Register()
         {
             return View();
@@ -93,7 +39,6 @@ namespace SchoolCMS.Controllers
                 {
                     WebSecurity.CreateUserAndAccount(model.UserName, model.Password, new { Discriminator = "CopyWriter", Name = model.Name, Surname = model.Surname, Email = model.Email });
                     Roles.AddUserToRole(model.UserName, "CopyWriter");
-                    WebSecurity.Login(model.UserName, model.Password);
                     return RedirectToAction("Index", "Home");
                 }
                 catch (MembershipCreateUserException e)
@@ -106,45 +51,12 @@ namespace SchoolCMS.Controllers
             return View(model);
         }
 
-        
-        // POST: /Account/Disassociate
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Disassociate(string provider, string providerUserId)
-        {
-            string ownerAccount = OAuthWebSecurity.GetUserName(provider, providerUserId);
-            ManageMessageId? message = null;
-
-            // Only disassociate the account if the currently logged in user is the owner
-            if (ownerAccount == User.Identity.Name)
-            {
-                // Use a transaction to prevent the user from deleting their last login credential
-                using (var scope = new TransactionScope(TransactionScopeOption.Required, new TransactionOptions { IsolationLevel = IsolationLevel.Serializable }))
-                {
-                    bool hasLocalAccount = OAuthWebSecurity.HasLocalAccount(WebSecurity.GetUserId(User.Identity.Name));
-                    if (hasLocalAccount || OAuthWebSecurity.GetAccountsFromUserName(User.Identity.Name).Count > 1)
-                    {
-                        OAuthWebSecurity.DeleteAccount(provider, providerUserId);
-                        scope.Complete();
-                        message = ManageMessageId.RemoveLoginSuccess;
-                    }
-                }
-            }
-
-            return RedirectToAction("Manage", new { Message = message });
-        }
-
-        //
-        // GET: /Account/Manage
-
-        /*public ActionResult Manage(ManageMessageId? message)
+        public ActionResult ChangePersonalData(ManageMessageId? message)
         {
             ViewBag.StatusMessage =
-                message == ManageMessageId.ChangePasswordSuccess ? "Hasło zostało zmienione."
-                : message == ManageMessageId.ChangePersonalDataSuccess ? "Dane zostały zmienione."
+                 message == ManageMessageId.ChangePersonalDataSuccess ? "Dane zostały zmienione."
                 : "";
-            ViewBag.ReturnUrl = Url.Action("Manage");
+            ViewBag.ReturnUrl = Url.Action("ChangePersonalData");
             return View();
         }
         //
@@ -152,15 +64,100 @@ namespace SchoolCMS.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Manage(Manage model)
+        public ActionResult ChangePersonalData(ChangePersonalDataModel model)
         {
-            ViewBag.ReturnUrl = Url.Action("Manage");
+            ViewBag.ReturnUrl = Url.Action("ChangePersonalData");
 
             if (ModelState.IsValid)
             {
                 if (WebSecurity.IsConfirmed(model.UserName))
                 {
-                    bool changePasswordSucceeded=true;
+                    bool changePersonalDataSucceeded = true;
+                   
+                        var id = WebSecurity.GetUserId(model.UserName);
+
+                    if (model.Email != null)
+                    {
+                        try
+                        {
+                           var user = context.Users.FirstOrDefault(x => x.Id == id);
+                           user.Email = model.Email;
+                           context.SaveChanges();
+                        }
+                        catch (Exception)
+                        {
+                             changePersonalDataSucceeded = false;
+                             ModelState.AddModelError("", "Nie udało się zmienić adresu email");
+                        }
+                       
+                    }
+                    if (model.Name != null)
+                    {
+                         try
+                        {
+                            var user = context.Users.FirstOrDefault(x => x.Id == id);
+                            user.Name = model.Name;
+                            context.SaveChanges();
+                        }
+                        catch (Exception)
+                        {
+                             changePersonalDataSucceeded = false;
+                             ModelState.AddModelError("", "Nie udało się zmienić imienia");
+                        }
+
+                    }
+                    if (model.Surname != null)
+                    {
+                        try
+                        {
+                            var user = context.Users.FirstOrDefault(x => x.Id == id);
+                            user.Surname = model.Surname;
+                            context.SaveChanges();
+                        }
+                        catch (Exception)
+                        {
+                             changePersonalDataSucceeded = false;
+                             ModelState.AddModelError("", "Nie udało się zmienić nazwiska");
+                        }
+
+                    }
+                    if (changePersonalDataSucceeded)
+                    {
+                        return RedirectToAction("ChangePersonalData", new { Message = ManageMessageId.ChangePersonalDataSuccess }); 
+                    }
+                    }
+                else
+                {
+                    ModelState.AddModelError("", "Podany CopyWiter nie istnieje");
+                }
+
+            }
+
+            return View(model);
+        }
+
+        public ActionResult ChangePassword(ManageMessageId? message)
+        {
+            ViewBag.StatusMessage =
+                message == ManageMessageId.ChangePasswordSuccess ? "Hasło zostało zmienione."
+               : "";
+            ViewBag.ReturnUrl = Url.Action("ChangePassword");
+            return View();
+        }
+        //
+        // POST: /Account/Manage
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ChangePassword(ChangePasswordModel model)
+        {
+            ViewBag.ReturnUrl = Url.Action("ChangePassword");
+
+            if (ModelState.IsValid)
+            {
+                if (WebSecurity.IsConfirmed(model.UserName))
+                {
+                    bool changePasswordSucceeded = true;
                     try
                     {
                         WebSecurity.ResetPassword(WebSecurity.GeneratePasswordResetToken(model.UserName),
@@ -173,37 +170,21 @@ namespace SchoolCMS.Controllers
 
                     if (changePasswordSucceeded)
                     {
-                        return RedirectToAction("Manage", new { Message = ManageMessageId.ChangePasswordSuccess});
+                        return RedirectToAction("ChangePassword", new { Message = ManageMessageId.ChangePasswordSuccess });
                     }
                     else
                     {
-                        ModelState.AddModelError("", "No kurde błąd"); 
+                        ModelState.AddModelError("", "No kurde błąd");
                     }
                 }
                 else
                 {
                     ModelState.AddModelError("", "Podany CopyWiter nie istnieje");
                 }
-                
+
             }
 
             return View(model);
-        }*/
-
-       
-
-
-        #region Helpers
-        private ActionResult RedirectToLocal(string returnUrl)
-        {
-            if (Url.IsLocalUrl(returnUrl))
-            {
-                return Redirect(returnUrl);
-            }
-            else
-            {
-                return RedirectToAction("Index", "Home");
-            }
         }
 
         public enum ManageMessageId
@@ -212,20 +193,15 @@ namespace SchoolCMS.Controllers
             ChangePersonalDataSuccess
         }
 
-        internal class ExternalLoginResult : ActionResult
+ private ActionResult RedirectToLocal(string returnUrl)
         {
-            public ExternalLoginResult(string provider, string returnUrl)
+            if (Url.IsLocalUrl(returnUrl))
             {
-                Provider = provider;
-                ReturnUrl = returnUrl;
+                return Redirect(returnUrl);
             }
-
-            public string Provider { get; private set; }
-            public string ReturnUrl { get; private set; }
-
-            public override void ExecuteResult(ControllerContext context)
+            else
             {
-                OAuthWebSecurity.RequestAuthentication(Provider, ReturnUrl);
+                return RedirectToAction("Index", "Home");
             }
         }
 
@@ -266,6 +242,5 @@ namespace SchoolCMS.Controllers
                     return "An unknown error occurred. Please verify your entry and try again. If the problem persists, please contact your system administrator.";
             }
         }
-        #endregion
     }
 }
