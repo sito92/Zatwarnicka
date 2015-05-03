@@ -1,0 +1,29 @@
+﻿@model SchoolCMS.Models.ChangePasswordModel
+
+<h3>Change Personal Data
+    </h3>
+
+@using (Html.BeginForm("ChangePassword", "Account"))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary()
+
+    <fieldset>
+        <legend>Change PersonalData Form</legend>
+        <ol>
+            <li>
+                @Html.LabelFor(m => m.Email)
+                @Html.TextBoxFor(m => m.Email)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.Name)
+                @Html.TextBoxFor(m => m.Name)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.Surname)
+                @Html.TextBoxFor(m => m.Surname)
+            </li>
+        </ol>
+        <input type="submit" value="Change personal data" />
+    </fieldset>
+}

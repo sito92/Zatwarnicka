@@ -8,26 +8,34 @@ using System.Web.Security;
 
 namespace SchoolCMS.Models
 {
-    
-    public class LocalPasswordModel
+    /*
+    public class Manage
     {
         [Required]
-        [DataType(DataType.Password)]
-        [Display(Name = "Current password")]
-        public string OldPassword { get; set; }
+        [Display(Name="Nazwa użytkownika do zmiany danych")]
+        public string UserName { get; set; }
 
-        [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "New password")]
+        [Display(Name = "Nowe hasło")]
         public string NewPassword { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Confirm new password")]
+        [Display(Name = "Potwierdz nowe hasło")]
         [Compare("NewPassword", ErrorMessage = "The new password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
-    }
 
+       [Display(Name = "New E-mail")]
+        public string Email { get; set; }
+
+       [Display(Name = "New Name")]
+        public string Name { get; set; }
+
+       [Display(Name = "New Surname")]
+        public string Surname { get; set; }
+       
+    }*/
+    
     public class LoginModel
     {
         [Required]
@@ -43,7 +51,7 @@ namespace SchoolCMS.Models
         public bool RememberMe { get; set; }
     }
 
-    public class RegisterModel
+    /*public class RegisterModel
     {
         [Required]
         [Display(Name = "User name")]
@@ -64,11 +72,13 @@ namespace SchoolCMS.Models
         [Display(Name = "E-mail")]
         public string Email { get; set; }
 
+        [Required]
         [Display(Name = "Name")]
         public string Name { get; set; }
 
+        [Required]
         [Display(Name = "Surname")]
         public string Surname { get; set; }
-    }
+    }*/
     
 }

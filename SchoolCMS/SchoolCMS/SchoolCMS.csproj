@@ -190,8 +190,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CmsSettingsController.cs" />
+    <Compile Include="Controllers\CopyWriterController.cs" />
     <Compile Include="Controllers\FileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InformationSourceController.cs" />
@@ -204,14 +206,15 @@
     <Compile Include="Helpers\ButtonHelper.cs" />
     <Compile Include="Helpers\NewsContentHelper.cs" />
     <Compile Include="Helpers\NewsPaginationHelper.cs" />
-    <Compile Include="Migrations\201505011424171_anotherfix.cs" />
-    <Compile Include="Migrations\201505011424171_anotherfix.Designer.cs">
-      <DependentUpon>201505011424171_anotherfix.cs</DependentUpon>
+    <Compile Include="Migrations\201505011817371_Naprawa.cs" />
+    <Compile Include="Migrations\201505011817371_Naprawa.Designer.cs">
+      <DependentUpon>201505011817371_Naprawa.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\Admin.cs" />
+    <Compile Include="Models\AdminModels.cs" />
     <Compile Include="Models\CmsContext.cs" />
     <Compile Include="Models\CmsSettings.cs" />
     <Compile Include="Models\CopyWriter.cs" />
@@ -371,13 +374,10 @@
     <Content Include="Images\orderedList8.png" />
     <Content Include="Images\orderedList9.png" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Account\_ChangePasswordPartial.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\_RemoveExternalLoginsPartial.cshtml" />
     <Content Include="Views\Account\_SetPasswordPartial.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\Account\Manage.cshtml" />
-    <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
@@ -404,6 +404,9 @@
     <Content Include="Views\News\NewsList.cshtml" />
     <Content Include="Views\News\NewsAdd.cshtml" />
     <Content Include="Views\CmsSettings\Edit.cshtml" />
+    <Content Include="Views\Admin\ChangePassword.cshtml" />
+    <Content Include="Views\Admin\ChangePersonalData.cshtml" />
+    <Content Include="Views\Admin\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -411,10 +414,11 @@
   <ItemGroup>
     <Folder Include="App_Data\Uploads\" />
     <Folder Include="Filters\" />
+    <Folder Include="Models\VieModels\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201505011424171_anotherfix.resx">
-      <DependentUpon>201505011424171_anotherfix.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201505011817371_Naprawa.resx">
+      <DependentUpon>201505011817371_Naprawa.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
