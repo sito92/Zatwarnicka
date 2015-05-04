@@ -13,6 +13,8 @@ namespace SchoolCMS.Controllers
         //
         // GET: /Base/
         protected CmsContext context = new CmsContext();
+        protected string AdminRole = "Administrator";
+        protected string CopyWrigtherRole = "CopyWriter";
         public BaseController()
         {
             var settings = GetSettings();
