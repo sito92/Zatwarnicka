@@ -49,6 +49,7 @@
     </header>
     <div id="body">
         @RenderSection("featured", required: false)
+        @Html.Partial("_EditorsNavigation")
         <section class="content-wrapper main-content clear-fix">
             @RenderBody()
         </section>

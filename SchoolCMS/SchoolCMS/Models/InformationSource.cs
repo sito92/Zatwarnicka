@@ -23,6 +23,6 @@ namespace SchoolCMS.Models
 
         public string Content { get; set; }
 
-        public virtual ICollection<File> Files { get; set; } 
+        public virtual ICollection<File> Files { get; set; }
     }
 }

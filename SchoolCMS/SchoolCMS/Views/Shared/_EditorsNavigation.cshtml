@@ -1,0 +1,25 @@
+﻿@using System.Web.Security
+
+@if (Roles.IsUserInRole("Administrator"))
+{
+    <ul id="nav" style="margin-top: 0px; margin-right: 300px;">
+        <li><a href="@Url.Action("Edit", "CmsSettings")">Ustawienia</a></li>
+        <li><a href="@Url.Action("List", "File")">Pliki</a>
+            <ul>
+                <li><a href="@Url.Action("Add", "File")">Dodaj plik</a></li>
+            </ul>
+        </li>
+        <li><a href="@Url.Action("List", "Page")">Strony</a>
+            <ul>
+                <li><a href="@Url.Action("Create", "Page")">Dodaj stronę</a></li>
+
+            </ul>
+        </li>
+</ul>
+}
+@if (Roles.IsUserInRole("CopyWriter"))
+{
+    <ul id="nav" style="margin-top: 0px; margin-right: 300px;">
+        <li><a href="/">Home</a></li>
+    </ul>
+}

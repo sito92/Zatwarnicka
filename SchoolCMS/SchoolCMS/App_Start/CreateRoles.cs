@@ -70,6 +70,7 @@ namespace SchoolCMS
                             Username = x.Username,
                             Discriminator = "CopyWriter"
                         });
+                    Roles.AddUserToRole(x.Username, "CopyWriter");
                 }
 
             });
