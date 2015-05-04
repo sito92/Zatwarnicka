@@ -206,10 +206,6 @@
     <Compile Include="Helpers\ButtonHelper.cs" />
     <Compile Include="Helpers\NewsContentHelper.cs" />
     <Compile Include="Helpers\NewsPaginationHelper.cs" />
-    <Compile Include="Migrations\201505040913177_fixxxx.cs" />
-    <Compile Include="Migrations\201505040913177_fixxxx.Designer.cs">
-      <DependentUpon>201505040913177_fixxxx.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Address.cs" />
@@ -415,11 +411,6 @@
     <Folder Include="App_Data\Uploads\" />
     <Folder Include="Filters\" />
     <Folder Include="Models\VieModels\" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201505040913177_fixxxx.resx">
-      <DependentUpon>201505040913177_fixxxx.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
