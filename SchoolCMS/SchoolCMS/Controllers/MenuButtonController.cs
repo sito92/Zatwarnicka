@@ -9,6 +9,7 @@ using SchoolCMS.ViewModels;
 
 namespace SchoolCMS.Controllers
 {
+    [Authorize(Roles = "Administrator")]
     public class MenuButtonController : BaseController
     {
 

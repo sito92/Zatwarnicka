@@ -17,12 +17,12 @@ namespace SchoolCMS.Controllers
         {
             return View();
         }
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Administrator")]
         public ActionResult List()
         {
             return View(context.InformationSources.OfType<Page>());
         }
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Administrator")]
         public ActionResult Edit(int id)
         {
             var page = context.InformationSources.OfType<Page>().FirstOrDefault(x => x.Id == id);
@@ -32,7 +32,7 @@ namespace SchoolCMS.Controllers
             return View(page);
 
         }
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Administrator")]
         [HttpPost]
         public ActionResult Edit(Page page, IEnumerable<int> filesToAdd, IEnumerable<int> filesToRemove)
         {
@@ -89,7 +89,7 @@ namespace SchoolCMS.Controllers
             return View(page);
         }
 
-
+        [Authorize(Roles = "CopyWriter")]
         public ActionResult Create()
         {
             return View();

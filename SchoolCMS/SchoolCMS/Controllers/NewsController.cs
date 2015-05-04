@@ -9,23 +9,24 @@ using SchoolCMS.ViewModels;
 
 namespace SchoolCMS.Controllers
 {
+    [Authorize(Roles = "Administrator")]
     public class NewsController : BaseController
     {
-        
+        [AllowAnonymous]
         public ActionResult NewsDetails(int newsId)
         {
             var selectedNews = context.InformationSources.OfType<News>().FirstOrDefault(x => x.Id == newsId);
 
             return View(selectedNews);
         }
-
+        
         public ActionResult NewsList()
         {
             var news = context.InformationSources.OfType<News>();
 
             return View(news);
         }
-
+        [Authorize(Roles = "CopyWriter")]
         public ActionResult NewsAdd()
         {
             return View();

@@ -15,6 +15,7 @@ using SchoolCMS.Models;
 
 namespace SchoolCMS.Controllers
 {
+    [Authorize(Roles = "Administrator")]
     public class AdminController : BaseController
     {
         // GET: /Account/Register
