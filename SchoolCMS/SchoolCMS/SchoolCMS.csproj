@@ -206,9 +206,9 @@
     <Compile Include="Helpers\ButtonHelper.cs" />
     <Compile Include="Helpers\NewsContentHelper.cs" />
     <Compile Include="Helpers\NewsPaginationHelper.cs" />
-    <Compile Include="Migrations\201505011817371_Naprawa.cs" />
-    <Compile Include="Migrations\201505011817371_Naprawa.Designer.cs">
-      <DependentUpon>201505011817371_Naprawa.cs</DependentUpon>
+    <Compile Include="Migrations\201505040913177_fixxxx.cs" />
+    <Compile Include="Migrations\201505040913177_fixxxx.Designer.cs">
+      <DependentUpon>201505040913177_fixxxx.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
@@ -417,8 +417,8 @@
     <Folder Include="Models\VieModels\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201505011817371_Naprawa.resx">
-      <DependentUpon>201505011817371_Naprawa.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201505040913177_fixxxx.resx">
+      <DependentUpon>201505040913177_fixxxx.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
