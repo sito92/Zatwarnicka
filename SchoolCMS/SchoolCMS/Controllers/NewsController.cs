@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using DotNetOpenAuth.Messaging;
 using SchoolCMS.Models;
 using SchoolCMS.ViewModels;
+using WebMatrix.WebData;
 
 namespace SchoolCMS.Controllers
 {
@@ -19,14 +20,14 @@ namespace SchoolCMS.Controllers
 
             return View(selectedNews);
         }
-        
+        [Authorize]
         public ActionResult NewsList()
         {
             var news = context.InformationSources.OfType<News>();
 
             return View(news);
         }
-        [Authorize(Roles = "CopyWriter")]
+        [Authorize]
         public ActionResult NewsAdd()
         {
             return View();
@@ -37,6 +38,8 @@ namespace SchoolCMS.Controllers
         {
             if (ModelState.IsValid)
             {
+                var author = context.Users.FirstOrDefault(x => x.Username == WebSecurity.CurrentUserName);
+                model.AuthorId = author.Id;
                 model.Date = DateTime.Now;
                 context.InformationSources.Add(model);
                 context.SaveChanges();

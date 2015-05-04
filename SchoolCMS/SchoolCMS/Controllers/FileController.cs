@@ -18,17 +18,17 @@ namespace SchoolCMS.Controllers
         {
             return View();
         }
-        [Authorize(Roles = "CopyWriter")]
+        [Authorize]
         public ActionResult List()
         {
             return View(context.Files);
         }
-        [Authorize(Roles = "CopyWriter")]
+        [Authorize]
         public ActionResult Add()
         {
             return View();
         }
-        [Authorize(Roles = "CopyWriter")]
+        [Authorize]
         [HttpPost]
         public ActionResult Add(File model,HttpPostedFileBase file)
         {
@@ -68,7 +68,7 @@ namespace SchoolCMS.Controllers
 
             return RedirectToAction("List");
         }
-        [Authorize(Roles = "CopyWriter")]
+        [Authorize]
         public ActionResult Delete(int id)
         {
             var file = context.Files.FirstOrDefault(x => x.Id == id);

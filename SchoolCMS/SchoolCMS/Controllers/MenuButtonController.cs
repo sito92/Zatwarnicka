@@ -20,7 +20,7 @@ namespace SchoolCMS.Controllers
         {
             return View();
         }
-
+        [Authorize]
         public ActionResult List()
         {
             return View(context.MenuButtons.Where(x=>x.IsRootButton));
