@@ -9,10 +9,17 @@
 <fieldset>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.AuthorId)
+         @Html.DisplayNameFor(model => model.Author.Name)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.AuthorId)
+        @Html.DisplayFor(model => model.Author.Name)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Author.Surname)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Author.Surname)
     </div>
 
     <div class="display-label">

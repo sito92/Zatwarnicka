@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using DotNetOpenAuth.Messaging;
 using SchoolCMS.Models;
 using WebGrease.Css.Extensions;
+using WebMatrix.WebData;
 
 namespace SchoolCMS.Controllers
 {
@@ -17,12 +18,12 @@ namespace SchoolCMS.Controllers
         {
             return View();
         }
-
+        [Authorize]
         public ActionResult List()
         {
             return View(context.InformationSources.OfType<Page>());
         }
-
+        [Authorize(Roles = "Administrator")]
         public ActionResult Edit(int id)
         {
             var page = context.InformationSources.OfType<Page>().FirstOrDefault(x => x.Id == id);
@@ -32,7 +33,7 @@ namespace SchoolCMS.Controllers
             return View(page);
 
         }
-
+        [Authorize(Roles = "Administrator")]
         [HttpPost]
         public ActionResult Edit(Page page, IEnumerable<int> filesToAdd, IEnumerable<int> filesToRemove)
         {
@@ -89,19 +90,20 @@ namespace SchoolCMS.Controllers
             return View(page);
         }
 
-
+        [Authorize]
         public ActionResult Create()
         {
             return View();
         }
-
+        [Authorize]
         [HttpPost]
         public ActionResult Create(Page page)
         {
             if (ModelState.IsValid)
             {
-                page.Date = DateTime.Now;
-                //TODO page author
+                var author = context.Users.FirstOrDefault(x => x.Username == WebSecurity.CurrentUserName);
+                page.AuthorId = author.Id;
+                page.Date = DateTime.Now;               
                 context.InformationSources.Add(page);
                 context.SaveChanges();
                 return RedirectToAction("List");

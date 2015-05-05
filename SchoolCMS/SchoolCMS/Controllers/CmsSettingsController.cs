@@ -8,6 +8,7 @@ using SchoolCMS.ViewModels;
 
 namespace SchoolCMS.Controllers
 {
+    [Authorize(Roles = "Administrator")]
     public class CmsSettingsController : BaseController
     {
         //

@@ -9,6 +9,7 @@ using SchoolCMS.ViewModels;
 
 namespace SchoolCMS.Controllers
 {
+    [Authorize(Roles = "Administrator")]
     public class MenuButtonController : BaseController
     {
 
@@ -19,7 +20,7 @@ namespace SchoolCMS.Controllers
         {
             return View();
         }
-
+        [Authorize]
         public ActionResult List()
         {
             return View(context.MenuButtons.Where(x=>x.IsRootButton));

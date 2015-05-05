@@ -8,6 +8,7 @@ using File = SchoolCMS.Models.File;
 
 namespace SchoolCMS.Controllers
 {
+    [Authorize(Roles = "Administrator")]
     public class FileController : BaseController
     {
         //
@@ -17,17 +18,17 @@ namespace SchoolCMS.Controllers
         {
             return View();
         }
-
+        [Authorize]
         public ActionResult List()
         {
             return View(context.Files);
         }
-
+        [Authorize]
         public ActionResult Add()
         {
             return View();
         }
-
+        [Authorize]
         [HttpPost]
         public ActionResult Add(File model,HttpPostedFileBase file)
         {
@@ -67,7 +68,7 @@ namespace SchoolCMS.Controllers
 
             return RedirectToAction("List");
         }
-
+        [Authorize]
         public ActionResult Delete(int id)
         {
             var file = context.Files.FirstOrDefault(x => x.Id == id);

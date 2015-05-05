@@ -6,26 +6,28 @@ using System.Web.Mvc;
 using DotNetOpenAuth.Messaging;
 using SchoolCMS.Models;
 using SchoolCMS.ViewModels;
+using WebMatrix.WebData;
 
 namespace SchoolCMS.Controllers
 {
+    [Authorize(Roles = "Administrator")]
     public class NewsController : BaseController
     {
-        
+        [AllowAnonymous]
         public ActionResult NewsDetails(int newsId)
         {
             var selectedNews = context.InformationSources.OfType<News>().FirstOrDefault(x => x.Id == newsId);
 
             return View(selectedNews);
         }
-
+        [Authorize]
         public ActionResult NewsList()
         {
             var news = context.InformationSources.OfType<News>();
 
             return View(news);
         }
-
+        [Authorize]
         public ActionResult NewsAdd()
         {
             return View();
@@ -36,6 +38,8 @@ namespace SchoolCMS.Controllers
         {
             if (ModelState.IsValid)
             {
+                var author = context.Users.FirstOrDefault(x => x.Username == WebSecurity.CurrentUserName);
+                model.AuthorId = author.Id;
                 model.Date = DateTime.Now;
                 context.InformationSources.Add(model);
                 context.SaveChanges();

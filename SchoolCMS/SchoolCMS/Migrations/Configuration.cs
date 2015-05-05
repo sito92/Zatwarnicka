@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using SchoolCMS.Models;
-using WebGrease.Css.Extensions;
+using WebMatrix.WebData;
 
 namespace SchoolCMS.Migrations
 {
@@ -31,19 +31,22 @@ namespace SchoolCMS.Migrations
             //    );
             //
 
-
             List<User> users = new List<User>()
             {
                 new Admin()
                 {
-                    Email = "admin@cms.pl",
-                    Name = "Jan",
-                    Surname = "Nowak",
-                    Username = "admin",
+                    Email = "cos@cms.pl",
+                    Name = "cos",
+                    Surname = "cos",
+                    Username = "cos",
                 }
             };
             users.ForEach(x => context.Users.AddOrUpdate(x));
-             context.SaveChanges();
+            context.SaveChanges();
+
+         //Seed dla u¿ytkowników w pliku App_start/CreateRoles.cs
+            //to musi zostaæ dla zachowania spójnoœci
+
             List<Layout> layouts = new List<Layout>()
             {
                 new Layout() {Name = "Default", Path = "/Content/Site.css"}
@@ -81,7 +84,7 @@ namespace SchoolCMS.Migrations
                 }
             };
             inforamtionSources.ForEach(x => context.InformationSources.AddOrUpdate(x));
-             context.SaveChanges();
+            context.SaveChanges();
 
             List<FileType> fileTypes = new List<FileType>()
             {
@@ -90,7 +93,7 @@ namespace SchoolCMS.Migrations
                 new FileType() {Name = "Plik tekstowy"},
 
             };
-            fileTypes.ForEach(x=>context.FileTypes.AddOrUpdate(x));
+            fileTypes.ForEach(x => context.FileTypes.AddOrUpdate(x));
             context.SaveChanges();
 
             List<File> files = new List<File>()
@@ -137,7 +140,7 @@ namespace SchoolCMS.Migrations
             files.ForEach(x => context.Files.AddOrUpdate(x));
             context.SaveChanges();
 
-            
+
             List<Tag> tags = new List<Tag>()
             {
                 new Tag()
@@ -162,7 +165,7 @@ namespace SchoolCMS.Migrations
                 new Models.FileExtension() {Extension = ".txt", FileTypeId = 3},
 
             };
-            fileExtensions.ForEach(x=>context.FileExtensions.AddOrUpdate(x));
+            fileExtensions.ForEach(x => context.FileExtensions.AddOrUpdate(x));
             context.SaveChanges();
 
             List<Address> addresses = new List<Address>()
@@ -181,5 +184,3 @@ namespace SchoolCMS.Migrations
         }
     }
 }
-
-
