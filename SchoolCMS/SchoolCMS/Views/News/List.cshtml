@@ -7,7 +7,7 @@
 <h2>NewsList</h2>
 
 <p>
-    @Html.ActionLink("Create New","NewsAdd","News")
+    @Html.ActionLink("Create New","Add","News")
 </p>
 <table>
     <tr>
@@ -41,8 +41,8 @@
             @Html.DisplayFor(modelItem => item.Content)
         </td>
         <td>
-            @Html.ActionLink("Edytuj", "NewsEdit","News",new { newsId=item.Id },null ) |
-            @Html.ActionLink("Usuń", "NewsDelete","News", new { newsId=item.Id },null)
+            @Html.ActionLink("Edytuj", "Edit","News",new { newsId=item.Id },null ) |
+            @Html.ActionLink("Usuń", "Delete","News", new { newsId=item.Id },null)
         </td>
     </tr>
 }
