@@ -38,6 +38,7 @@
 
         <div class="editor-label">
             @Html.Label("Files")
+            <div id="addButton"></div>
         </div>
         <div class="editor-field">
             <div id="files">
@@ -47,11 +48,13 @@
         foreach (var file in Model.Files)
         {
             var divId = "file" + @file.Id;
-            <div id="@divId">
-                @file.Name
-                <div id="removeButton" onclick="removeExistingFile(@file.Id)"></div>
+            <div id="file">
+                
+                <div id="@divId">
+                    @file.Name
+                    <div id="removeButton" onclick="removeExistingFile(@file.Id)"></div>
+                </div>
             </div>
-
         }
         filesCount = Model.Files.Count;
     }
@@ -62,7 +65,7 @@
     }
 
                 }
-                <div id="addButton"></div>
+                
             </div>
         </div>
 

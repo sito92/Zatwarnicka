@@ -1,7 +1,4 @@
 ﻿
-#file {
-    margin-bottom: 10px;
-}
 #newses {
     margin-top: 50px;
     width: 400px;
@@ -222,8 +219,8 @@
 #nav{
 	height: 39px;
 	font: 12px Geneva, Arial, Helvetica, sans-serif;
-	background: #3AB3A9;
-	border: 1px solid #30A097;	
+	background: #666;
+	border: 1px solid #888;	
 	border-radius: 3px;
 	min-width:500px;
 	margin-left: 0px;
@@ -397,37 +394,33 @@
 #addButton {
     width: 25px;
     height: 25px;
-    background-image: url("images/addbutton.png");
-    background-size: 25px 25px;
-    background-repeat: no-repeat;
-    margin-bottom: 10px;
+    background-color: green;
 }
 
 #addButton:hover {
-    opacity: 0.7;
+    background-color:red;
 }
 
 #removeButton {
     width: 15px;
     height: 15px;
-    background-image: url("images/deletebutton.png");
-    background-size: 15px 15px;
+    background-color: red;
 }
 #removeButton:hover {
-    opacity: 0.7;
+    background-color: yellow;
 }
 
 
 html {
-    background-color: #e2e2e2;
+    background-color: #222222;
     margin: 0;
     padding: 0;
 }
 
 body {
-    background-color: #fff;
+    background-color: #000;
     border-top: solid 10px #000;
-    color: #333;
+    color: #fff;
     font-size: .85em;
     font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
     margin: 0;
@@ -480,7 +473,7 @@ mark {
 
 h1, h2, h3,
 h4, h5, h6 {
-    color: #000;
+    color: #fff;
     margin-bottom: 0;
     padding-bottom: 0;
 }
@@ -519,7 +512,7 @@ h5, h6 {
 }
 
 #body {
-    background-color: #efeeef;
+    background-color: #333;
     clear: both;
     padding-bottom: 35px;
 }
@@ -540,7 +533,7 @@ header .content-wrapper {
 
 footer {
     clear: both;
-    background-color: #e2e2e2;
+    background-color: #222222;
     font-size: .8em;
     height: 100px;
 }

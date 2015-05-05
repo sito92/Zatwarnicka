@@ -3,22 +3,29 @@
 @{
     ViewBag.Title = "Home Page";
 }
-
+<h1>Aktualności</h1>
 @{
-    <ul>
+    <div id="newses">
 
-        @foreach (var news in @Model.PagedNews)
-        {
-            <li>
-                @news.ShortContent
-                @Html.ActionLink("Czytaj więcej", "NewsDetails", "News", new { newsId  = news.Id},null)
-            </li>
-        }
+            @foreach (var news in @Model.PagedNews)
+            {
+                <div id="newses">
+                    <div id="newsTitle">@news.Title</div>
+                    <div id="newsAuthor">@news.Author.Name @news.Author.Surname</div>
+                    <div id="newsAuthor">@news.Date</div>
+                    <div id="newsShortContent">
+                        @news.ShortContent
 
-    </ul>
-    <br />   
-    @Html.PagedListPager(Model.PagedNews, page => Url.Action("Index",new {pageNumber = page}))
-    
+                        @Html.ActionLink("Czytaj więcej", "NewsDetails", "News", new { newsId = news.Id }, null)
+                    </div>
+                </div>
+
+            }
+
+    </div>
+    <br />
+    @Html.PagedListPager(Model.PagedNews, page => Url.Action("Index", new { pageNumber = page }))
+
 
 
 }

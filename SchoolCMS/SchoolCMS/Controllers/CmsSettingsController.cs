@@ -24,6 +24,7 @@ namespace SchoolCMS.Controllers
 
             var cmsSettings = new RichCmsSettings()
             {
+                SelectedLayoutId = settings.LayoutId,
                 SchoolName = settings.SchoolName,
                 NewsAmountPerSite = settings.NewsAmountPerSite,
                 Layouts = new SelectList(context.Layouts, "Id", "Name"),

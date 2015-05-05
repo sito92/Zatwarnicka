@@ -19,6 +19,13 @@ namespace SchoolCMS.Models
         public virtual ICollection<InformationSource> InformationSources { get; set; }
 
         //public News News {get; set;}
+
+
+
+        public string FilePath
+        {
+            get { return "~/App_Data/Uploads/"+FileName + Extension; }
+        }
        
     }
 }

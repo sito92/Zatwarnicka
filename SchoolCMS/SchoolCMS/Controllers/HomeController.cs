@@ -12,9 +12,10 @@ namespace SchoolCMS.Controllers
 {
     public class HomeController : BaseController
     {
-        private int pageSize = 1;
+        
         public ActionResult Index(int pageNumber=1)
         {
+            int pageSize = context.CmsSettings.Select(x => x.NewsAmountPerSite).FirstOrDefault();
             var test = new MainPage
             {
                 NewsList = context.InformationSources.OfType<News>().ToList(),
