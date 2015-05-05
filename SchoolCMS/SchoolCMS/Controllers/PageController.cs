@@ -111,6 +111,18 @@ namespace SchoolCMS.Controllers
             }
             return View(page);
         }
+
+        public ActionResult Delete(int id)
+        {
+            var page = context.InformationSources.OfType<Page>().FirstOrDefault(x => x.Id == id);
+
+            if (page != null)
+                context.InformationSources.Remove(page);
+            
+            context.SaveChanges();
+
+            return RedirectToAction("List");
+        }
         protected void PopulateFiles(object selectedFile = null)
         {
             var files = context.Files.ToList();
