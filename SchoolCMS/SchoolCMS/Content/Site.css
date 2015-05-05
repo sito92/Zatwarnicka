@@ -370,6 +370,7 @@ select:focus {
 }	
 
 #nav li{
+    z-index: 2;
 	list-style: none;
 	display: block;
 	float: left;
@@ -379,6 +380,7 @@ select:focus {
 }
 
 #nav li a{
+    z-index: 2;
 	padding: 0px 10px 0px 30px;
 	margin: 0px 0;
 	line-height: 40px;
