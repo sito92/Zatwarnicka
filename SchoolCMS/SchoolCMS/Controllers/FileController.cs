@@ -83,6 +83,16 @@ namespace SchoolCMS.Controllers
             return RedirectToAction("List");
         }
 
+        public ActionResult Download(int id)
+        {
+            var file = context.Files.FirstOrDefault(x => x.Id == id);
+            if (file==null)
+            {
+                return HttpNotFound();
+            }
+            byte[] fileBytes = System.IO.File.ReadAllBytes(Server.MapPath(file.FilePath));
+            return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, file.FileName + file.Extension);
+        }
         private string GetFilePath(File file)
         {
             return Path.Combine(Server.MapPath(filesDirectory), file.FileName + file.Extension);
