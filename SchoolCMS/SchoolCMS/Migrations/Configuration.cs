@@ -58,7 +58,7 @@ namespace SchoolCMS.Migrations
 
             List<Models.CmsSettings> settingses = new List<Models.CmsSettings>()
             {
-                new Models.CmsSettings() {LayoutId = 1, SchoolName = "Przyk³adowa szko³a"}
+                new Models.CmsSettings() {LayoutId = 1, SchoolName = "Przyk³adowa szko³a", NewsAmountPerSite=2}
             };
 
             settingses.ForEach(x => context.CmsSettings.AddOrUpdate(x));
@@ -180,6 +180,81 @@ namespace SchoolCMS.Migrations
                 new LogoSettings(){LogoName = "a", LogoPath = "a"}
             };
             logoSettings.ForEach(x => context.LogoSettings.AddOrUpdate(x));
+            context.SaveChanges();
+
+            List<MenuButton> menuButtons = new List<MenuButton>()
+            {
+                new MenuButton()
+                {
+                    Name = "Nie mam",
+                    IsRootButton = true,
+                    Level = 0,
+                    InformationSourceId = 1
+                },                
+                new MenuButton()
+                {
+                    Name = "pojecia co",
+                    IsRootButton = false,
+                    Level = 1,
+                    ParentId = 1,
+                    InformationSourceId = 2
+                },
+                new MenuButton()
+                {
+                    Name = "robiê",
+                    IsRootButton = false,
+                    Level = 2,
+                    ParentId = 2,
+                    InformationSourceId = 2
+                },
+                new MenuButton()
+                {
+                    Name = "Testowynr1",
+                    IsRootButton = true,
+                    InformationSourceId = 1,
+                    Level = 0,
+                },
+                new MenuButton()
+                {
+                    Name = "Testowynr2",
+                    IsRootButton = true,
+                    InformationSourceId = 2,
+                    Level = 0,
+                },
+                new MenuButton()
+                {
+                    Name = "PodTestowymNr1",
+                    IsRootButton = false,
+                    Level = 1,
+                    ParentId = 5,
+                    InformationSourceId = 2
+                },
+                new MenuButton()
+                {
+                    Name = "PodTestowymNr2",
+                    IsRootButton = false,
+                    Level = 1,
+                    ParentId = 6,
+                    InformationSourceId = 2
+                },
+                new MenuButton()
+                {
+                    Name = "PodPodTestowymNr1",
+                    IsRootButton = false,
+                    Level = 2,
+                    ParentId = 7,
+                    InformationSourceId = 2
+                },
+                new MenuButton()
+                {
+                    Name = "PodPodTestowymNr2",
+                    IsRootButton = false,
+                    Level = 2,
+                    ParentId = 8,
+                    InformationSourceId = 2
+                }
+            };
+            menuButtons.ForEach(x => context.MenuButtons.AddOrUpdate(x));
             context.SaveChanges();
         }
     }

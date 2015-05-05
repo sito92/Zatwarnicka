@@ -1,0 +1,135 @@
+﻿@model SchoolCMS.ViewModels.NewsEdit
+
+@{
+    ViewBag.Title = "NewsAdd";
+    int filesCount;
+}
+
+<h2>NewsAdd</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>News</legend>
+
+        @*<div class="editor-label">
+            @Html.LabelFor(model => model.AuthorId)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.AuthorId)
+            @Html.ValidationMessageFor(model => model.AuthorId)
+        </div>*@
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Tags)
+        </div>
+        <div>
+            @Html.ListBoxFor(model => model.SelectedTags, Model.Tags)
+
+            @Html.ValidationMessageFor(model => model.Tags)
+
+            @Html.HiddenFor(model => model.News.Id)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.News.Title)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.News.Title)
+            @Html.ValidationMessageFor(model => model.News.Title)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.News.Content)
+        </div>
+        <div class="editor-field">
+            @Html.TextAreaFor(model => model.News.Content)
+            @Html.ValidationMessageFor(model => model.News.Content)
+        </div>
+        <div class="editor-label">
+            @Html.Label("Files")
+        </div>
+        <div class="editor-field">
+            <div id="files">
+
+                @{if (Model.News.Files != null && Model.News.Files.Count > 0)
+                {
+                    foreach (var file in Model.News.Files)
+                    {
+                        var divId = "file" + @file.Id;
+                        <div id="@divId">
+                            @file.Name
+                            <div id="removeButton" onclick="removeExistingFile(@file.Id)"></div>
+                        </div>
+
+                    }
+                    filesCount = Model.News.Files.Count;
+                }
+                else
+                {
+                    filesCount = 0;
+                    @Html.Raw("Nie ma plików")
+                }
+
+                }
+                <div id="addButton"></div>
+            </div>
+            </div>
+            <p>
+                <input type="submit" value="Create" />
+            </p>
+</fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "List")
+</div>
+
+@section Scripts {
+    <script type="text/javascript">
+
+        function removeExistingFile(fileId) {
+            var div = $("#file" + fileId);
+
+            div.remove();
+            var filesDiv = $("#files");
+            filesDiv.append("<input type='hidden' name='filesToRemove' value='" + fileId + "'/>");
+
+        }
+
+        function removeAddedFile(select) {
+            var button = $(".removeButton" + select.id);
+            button.remove();
+            select.remove();
+
+        }
+        function appendRemoveButton(selectId) {
+            var select = $("#" + selectId);
+            select.after("<div id='removeButton' class='removeButton"+selectId+"'  onclick='removeAddedFile("+selectId+")'></div>");
+        }
+        function appendOptions(selectId) {
+            var select = $("#" + selectId);
+            @foreach(var file in (SelectList)ViewBag.Files)
+            {
+            @:select.append("<option value='@file.Value'>@file.Text</option>");
+                        }
+
+        }
+        var counter = 0;
+        $("#addButton").click(function () {
+
+            counter++;
+            var selectId = "fileId" + counter;
+            var filesDiv = $("#files");
+            filesDiv.append("<select id='" + selectId + "' name ='filesToAdd'>");
+            appendOptions(selectId);
+            appendRemoveButton(selectId);
+        });
+
+
+    </script>
+    @Styles.Render("~/bundles/markitpstyles")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/markitupscripts")
+}

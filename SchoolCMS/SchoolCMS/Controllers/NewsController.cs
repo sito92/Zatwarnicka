@@ -21,36 +21,44 @@ namespace SchoolCMS.Controllers
             return View(selectedNews);
         }
         [Authorize]
-        public ActionResult NewsList()
+        public ActionResult List()
         {
             var news = context.InformationSources.OfType<News>();
 
             return View(news);
         }
         [Authorize]
-        public ActionResult NewsAdd()
+        public ActionResult Add()
         {
-            return View();
+            var news = new NewsEdit
+            {
+                Tags = new SelectList(context.Tags, "Id", "Name"),
+                News = new News()
+            };
+            news.News.Files = context.Files.ToList();
+            PopulateFiles();
+
+            return View(news);
         }
 
         [HttpPost]
-        public ActionResult NewsAdd(News model)
+        public ActionResult Add(NewsEdit model)
         {
-            if (ModelState.IsValid)
-            {
+            //if (ModelState.IsValid)
+            //{
                 var author = context.Users.FirstOrDefault(x => x.Username == WebSecurity.CurrentUserName);
-                model.AuthorId = author.Id;
-                model.Date = DateTime.Now;
-                context.InformationSources.Add(model);
+                model.News.AuthorId = author.Id;
+                model.News.Date = DateTime.Now;
+                model.News.Tags = context.Tags.Where(x => model.SelectedTags.Contains(x.Id)).ToList();
+
+                context.InformationSources.Add(model.News);
                 context.SaveChanges();
 
-                return RedirectToAction("NewsList", "News");
-            }
-
-            return View(model);
+                return RedirectToAction("List", "News");
+            //}
         }
 
-        public ActionResult NewsEdit(int newsId)
+        public ActionResult Edit(int newsId)
         {
 
             var selectedNews = new NewsEdit
@@ -65,7 +73,7 @@ namespace SchoolCMS.Controllers
         }
 
         [HttpPost]
-        public ActionResult NewsEdit(NewsEdit model)
+        public ActionResult Edit(NewsEdit model)
         {
             var selectedNews = context.InformationSources.OfType<News>().FirstOrDefault(x => x.Id == model.News.Id);
             var tags = context.Tags.Where(x => model.SelectedTags.Contains(x.Id));
@@ -73,17 +81,24 @@ namespace SchoolCMS.Controllers
             selectedNews.Tags.AddRange(tags);
             context.SaveChanges();
 
-            return RedirectToAction("NewsList","News");
+            return RedirectToAction("List","News");
         }
 
-        public ActionResult NewsDelete(int newsId)
+        public ActionResult Delete(int newsId)
         {
             var selectedNews = context.InformationSources.OfType<News>().FirstOrDefault(x => x.Id == newsId);
 
             context.InformationSources.Remove(selectedNews);
             context.SaveChanges();
 
-            return View("NewsList");
+            return View("List");
+        }
+
+        protected void PopulateFiles(object selectedFile = null)
+        {
+            var files = context.Files.ToList();
+
+            ViewBag.Files = new SelectList(files, "Id", "Name", selectedFile ?? 1);
         }
     }
 }

@@ -190,6 +190,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AddressController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CmsSettingsController.cs" />
@@ -206,9 +207,14 @@
     <Compile Include="Helpers\ButtonHelper.cs" />
     <Compile Include="Helpers\NewsContentHelper.cs" />
     <Compile Include="Helpers\NewsPaginationHelper.cs" />
+
     <Compile Include="Migrations\201505051307543_ostatniamigracja.cs" />
     <Compile Include="Migrations\201505051307543_ostatniamigracja.Designer.cs">
       <DependentUpon>201505051307543_ostatniamigracja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201505051128482_ostatniamigracja.cs" />
+    <Compile Include="Migrations\201505051128482_ostatniamigracja.Designer.cs">
+      <DependentUpon>201505051128482_ostatniamigracja.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
@@ -238,7 +244,13 @@
     <Compile Include="ViewModels\RichCmsSettings.cs" />
   </ItemGroup>
   <ItemGroup>
+
     <Content Include="Content\DarkSite.css" />
+
+    <Content Include="App_Data\Localdatabase.mdf" />
+    <Content Include="App_Data\Localdatabase_log.ldf">
+      <DependentUpon>Localdatabase.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\images\arrow.jpg" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
@@ -393,18 +405,21 @@
     <Content Include="Views\Page\List.cshtml" />
     <Content Include="Views\Page\Edit.cshtml" />
     <Content Include="Views\Page\Show.cshtml" />
-    <Content Include="Views\News\NewsDetails.cshtml" />
-    <Content Include="Views\News\NewsEdit.cshtml" />
+    <Content Include="Views\News\Details.cshtml" />
+    <Content Include="Views\News\Edit.cshtml" />
     <Content Include="Views\Page\Create.cshtml" />
     <Content Include="Views\File\Add.cshtml" />
     <Content Include="Views\File\List.cshtml" />
-    <Content Include="Views\News\NewsList.cshtml" />
-    <Content Include="Views\News\NewsAdd.cshtml" />
+    <Content Include="Views\News\List.cshtml" />
+    <Content Include="Views\News\Add.cshtml" />
     <Content Include="Views\CmsSettings\Edit.cshtml" />
     <Content Include="Views\Admin\ChangePassword.cshtml" />
     <Content Include="Views\Admin\ChangePersonalData.cshtml" />
     <Content Include="Views\Admin\Register.cshtml" />
     <Content Include="Views\Shared\_EditorsNavigation.cshtml" />
+    <Content Include="Views\Address\Add.cshtml" />
+    <Content Include="Views\Address\List.cshtml" />
+    <Content Include="Views\Address\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -415,8 +430,13 @@
     <Folder Include="Models\VieModels\" />
   </ItemGroup>
   <ItemGroup>
+
     <EmbeddedResource Include="Migrations\201505051307543_ostatniamigracja.resx">
       <DependentUpon>201505051307543_ostatniamigracja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201505051128482_ostatniamigracja.resx">
+      <DependentUpon>201505051128482_ostatniamigracja.cs</DependentUpon>
+
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
