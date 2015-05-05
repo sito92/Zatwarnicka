@@ -93,7 +93,8 @@ namespace SchoolCMS.Controllers
         [Authorize]
         public ActionResult Create()
         {
-            return View();
+            PopulateFiles();
+            return View(new Page());
         }
         [Authorize]
         [HttpPost]
