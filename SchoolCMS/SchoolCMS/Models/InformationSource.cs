@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -17,10 +18,15 @@ namespace SchoolCMS.Models
 
         public int AuthorId { get; set; }
 
+        [Required(ErrorMessage = "Tytuł jest wymagany")]
+        [Display(Name = "Tytuł")]
         public string Title { get; set; }
+
 
         public DateTime Date { get; set; }
 
+        [Required(ErrorMessage = "Zawartość jest wymagana")]
+        [Display(Name = "Zawartość")]
         public string Content { get; set; }
 
         public virtual ICollection<File> Files { get; set; }

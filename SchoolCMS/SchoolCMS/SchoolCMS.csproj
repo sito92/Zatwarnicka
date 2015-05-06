@@ -207,9 +207,9 @@
     <Compile Include="Helpers\ButtonHelper.cs" />
     <Compile Include="Helpers\NewsContentHelper.cs" />
     <Compile Include="Helpers\NewsPaginationHelper.cs" />
-    <Compile Include="Migrations\201505051307543_ostatniamigracja.cs" />
-    <Compile Include="Migrations\201505051307543_ostatniamigracja.Designer.cs">
-      <DependentUpon>201505051307543_ostatniamigracja.cs</DependentUpon>
+    <Compile Include="Migrations\201505062048458_kolo.cs" />
+    <Compile Include="Migrations\201505062048458_kolo.Designer.cs">
+      <DependentUpon>201505062048458_kolo.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
@@ -239,11 +239,11 @@
     <Compile Include="ViewModels\RichCmsSettings.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\DarkSite.css" />
     <Content Include="App_Data\Localdatabase.mdf" />
     <Content Include="App_Data\Localdatabase_log.ldf">
       <DependentUpon>Localdatabase.mdf</DependentUpon>
     </Content>
+    <Content Include="Content\DarkSite.css" />
     <Content Include="Content\images\arrow.jpg" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
@@ -423,8 +423,8 @@
     <Folder Include="Models\VieModels\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201505051307543_ostatniamigracja.resx">
-      <DependentUpon>201505051307543_ostatniamigracja.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201505062048458_kolo.resx">
+      <DependentUpon>201505062048458_kolo.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

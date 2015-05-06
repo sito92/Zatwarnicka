@@ -56,13 +56,6 @@ namespace SchoolCMS.Migrations
             context.SaveChanges();
 
 
-            List<Models.CmsSettings> settingses = new List<Models.CmsSettings>()
-            {
-                new Models.CmsSettings() {LayoutId = 1, SchoolName = "Przyk³adowa szko³a", NewsAmountPerSite=2}
-            };
-
-            settingses.ForEach(x => context.CmsSettings.AddOrUpdate(x));
-            context.SaveChanges();
 
             List<InformationSource> inforamtionSources = new List<InformationSource>()
             {
@@ -170,7 +163,7 @@ namespace SchoolCMS.Migrations
 
             List<Address> addresses = new List<Address>()
             {
-                new Address() { City= "Opole", HouseNumber = 1,PostCode = "13123", Street = "a", Name = "DefaultAddress"}
+                new Address() { City= "Opole", HouseNumber = 1,PostCode = "13-123", Street = "a", Name = "DefaultAddress"}
             };
             addresses.ForEach(x => context.Addresses.AddOrUpdate(x));
             context.SaveChanges();
@@ -255,6 +248,15 @@ namespace SchoolCMS.Migrations
                 }
             };
             menuButtons.ForEach(x => context.MenuButtons.AddOrUpdate(x));
+            context.SaveChanges();
+
+
+            List<Models.CmsSettings> settingses = new List<Models.CmsSettings>()
+            {
+                new Models.CmsSettings() {LayoutId = 1, SchoolName = "Przyk³adowa szko³a", NewsAmountPerSite=1,AdressId=1}
+            };
+
+            settingses.ForEach(x => context.CmsSettings.AddOrUpdate(x));
             context.SaveChanges();
         }
     }
