@@ -23,7 +23,7 @@ namespace SchoolCMS.Controllers
                 return HttpNotFound();
             }
 
-            return GetClassName(informationSource) == pageClassName ? RedirectToAction("Show", "Page", new { id = id }) : RedirectToAction("NewsDetails", "News", new { newsid = id });
+            return GetClassName(informationSource) == pageClassName ? RedirectToAction("Show", "Page", new { id = id }) : RedirectToAction("Details", "News", new { newsid = id });
         }
 
         private string GetClassName<T>(T className)

@@ -31,6 +31,7 @@
         foreach (var file in Model.Files)
         {
             @Html.ActionLink(file.FileName,"Download","File",new {id = file.Id},null)
+        <br/>
         }
     }
 </div>

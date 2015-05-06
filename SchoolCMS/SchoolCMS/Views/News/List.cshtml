@@ -1,4 +1,4 @@
-﻿@model IEnumerable<SchoolCMS.Models.News>
+﻿@model System.Collections.Generic.IEnumerable<SchoolCMS.Models.News>
 
 @{
     ViewBag.Title = "NewsList";
@@ -9,7 +9,7 @@
 <p>
     @Html.ActionLink("Create New", "Add", "News")
 </p>
-<<div class="CSSTableGenerator">
+<div class="CSSTableGenerator">
     <table>
         <tr>
             <th>
@@ -31,7 +31,7 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.AuthorId)
+                    @Html.DisplayFor(modelItem => item.Author.Name) @Html.DisplayFor(modelItem => item.Author.Surname)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Title)

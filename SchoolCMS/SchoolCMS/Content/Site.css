@@ -357,17 +357,17 @@ select:focus {
   color: #6791AD;
     cursor: default;
 }
-#nav{
-	height: 39px;
-	font: 12px Geneva, Arial, Helvetica, sans-serif;
-	background: #3AB3A9;
-	border: 1px solid #30A097;	
-	border-radius: 3px;
-	min-width:500px;
-	margin-left: 0px;
-	padding-left: 0px;
+#nav {
+    height: 39px;
+    font: 12px Geneva, Arial, Helvetica, sans-serif;
+    background: #3AB3A9;
+    border: 1px solid #30A097;
+    border-radius: 3px;
+    min-width: 500px;
+    margin-left: 0px;
+    padding-left: 0px;
     float: right;
-}	
+}
 
 #nav li{
     z-index: 2;
@@ -1103,7 +1103,7 @@ table {
 
 th {
     font-size: 1.2em;
-    text-align: left;
+    text-align: center;
     border: none 0px;
     padding-left: 0;
 }

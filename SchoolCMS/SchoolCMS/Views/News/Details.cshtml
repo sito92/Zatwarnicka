@@ -9,12 +9,23 @@
 <fieldset>
     <legend>News</legend>
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Content)
+        @Html.DisplayNameFor(model => model.Content)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Content)
     </div>
 </fieldset>
+
+@if (Model.Files != null && Model.Files.Count > 0)
+{
+    <h3>Załączone pliki</h3>
+
+    foreach (var file in Model.Files)
+    {
+        @Html.ActionLink(file.FileName, "Download", "File", new { id = file.Id }, null)
+        <br />
+    }
+}
 <p>
     @Html.ActionLink("Back to List", "Index","Home")
 </p>

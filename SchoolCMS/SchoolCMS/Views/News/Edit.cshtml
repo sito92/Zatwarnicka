@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "NewsEdit";
+    int filesCount;
 }
 
 <h2>NewsEdit</h2>
@@ -41,19 +42,92 @@
             @Html.ValidationMessageFor(model => model.News.Content)
         </div>
 
+        <div class="editor-label">
+            @Html.Label("Files")
+            <div id="addButton"></div>
+        </div>
+        <div class="editor-field">
+            <div id="files">
+                @{
+    if (Model.News.Files != null && Model.News.Files.Count > 0)
+    {
+        foreach (var file in Model.News.Files)
+        {
+            var divId = "file" + @file.Id;
+            <div id="file">
+
+                <div id="@divId">
+                    @file.Name
+                    <div id="removeButton" onclick="removeExistingFile(@file.Id)"></div>
+                </div>
+            </div>
+        }
+        filesCount = Model.News.Files.Count;
+    }
+    else
+    {
+        filesCount = 0;
+        @Html.Raw("Nie ma plików")
+    }
+
+                }
+
+            </div>
+        </div>
+
         <p>
-            <input type="submit" value="Save"/>
+            <input type="submit" value="Save" />
         </p>
     </fieldset>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "List")
+    @Html.ActionLink("Back to List", "Index")
 </div>
 
-
 @section Scripts {
+    <script type="text/javascript">
 
+        function removeExistingFile(fileId) {
+            var div = $("#file" + fileId);
+
+            div.remove();
+            var filesDiv = $("#files");
+            filesDiv.append("<input type='hidden' name='filesToRemove' value='" + fileId + "'/>");
+
+        }
+
+        function removeAddedFile(select) {
+            var button = $(".removeButton" + select.id);
+            button.remove();
+            select.remove();
+
+        }
+        function appendRemoveButton(selectId) {
+            var select = $("#" + selectId);
+            select.after("<div id='removeButton' class='removeButton"+selectId+"'  onclick='removeAddedFile("+selectId+")'></div>");
+        }
+        function appendOptions(selectId) {
+            var select = $("#" + selectId);
+            @foreach(var file in (SelectList)ViewBag.Files)
+            {
+            @:select.append("<option value='@file.Value'>@file.Text</option>");
+                        }
+
+        }
+        var counter = 0;
+        $("#addButton").click(function () {
+
+            counter++;
+            var selectId = "fileId" + counter;
+            var filesDiv = $("#files");
+            filesDiv.append("<select id='" + selectId + "' name ='filesToAdd'>");
+            appendOptions(selectId);
+            appendRemoveButton(selectId);
+        });
+
+
+    </script>
     @Styles.Render("~/bundles/markitpstyles")
     @Scripts.Render("~/bundles/markitupscripts")
     @Scripts.Render("~/bundles/jqueryval")

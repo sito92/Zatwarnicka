@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using DotNetOpenAuth.Messaging;
+using SchoolCMS.Helpers;
 using SchoolCMS.Models;
 using SchoolCMS.ViewModels;
 using WebMatrix.WebData;
@@ -14,7 +15,7 @@ namespace SchoolCMS.Controllers
     public class NewsController : BaseController
     {
         [AllowAnonymous]
-        public ActionResult NewsDetails(int newsId)
+        public ActionResult Details(int newsId)
         {
             var selectedNews = context.InformationSources.OfType<News>().FirstOrDefault(x => x.Id == newsId);
 
@@ -35,27 +36,34 @@ namespace SchoolCMS.Controllers
                 Tags = new SelectList(context.Tags, "Id", "Name"),
                 News = new News()
             };
-            news.News.Files = context.Files.ToList();
             PopulateFiles();
 
             return View(news);
         }
-
+        [Authorize]
         [HttpPost]
-        public ActionResult Add(NewsEdit model)
+        public ActionResult Add(NewsEdit model,IEnumerable<int> filesToAdd, IEnumerable<int> filesToRemove)
         {
-            //if (ModelState.IsValid)
-            //{
+            if (model.SelectedTags==null || !model.SelectedTags.Any())
+            {
+                ModelState.AddModelError(string.Empty,"News musi mieć chociaż jeden tag");
+                model.Tags = new SelectList(context.Tags, "Id", "Name");
+            }
+            if (ModelState.IsValid)
+            {
                 var author = context.Users.FirstOrDefault(x => x.Username == WebSecurity.CurrentUserName);
                 model.News.AuthorId = author.Id;
                 model.News.Date = DateTime.Now;
                 model.News.Tags = context.Tags.Where(x => model.SelectedTags.Contains(x.Id)).ToList();
-
+                model.News.ManageFiles(filesToRemove, filesToAdd,context);
                 context.InformationSources.Add(model.News);
                 context.SaveChanges();
 
                 return RedirectToAction("List", "News");
-            //}
+            }
+            
+            PopulateFiles();
+            return View(model);
         }
 
         public ActionResult Edit(int newsId)
@@ -68,30 +76,39 @@ namespace SchoolCMS.Controllers
             };
 
             selectedNews.SelectedTags = selectedNews.News.Tags.Select(x => x.Id).ToList();
-
+            PopulateFiles();
             return View(selectedNews);
         }
 
         [HttpPost]
-        public ActionResult Edit(NewsEdit model)
+        public ActionResult Edit(NewsEdit model, IEnumerable<int> filesToAdd, IEnumerable<int> filesToRemove)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
             var selectedNews = context.InformationSources.OfType<News>().FirstOrDefault(x => x.Id == model.News.Id);
+            if (selectedNews == null)
+            {
+                return HttpNotFound();
+            }
             var tags = context.Tags.Where(x => model.SelectedTags.Contains(x.Id));
-
+            selectedNews.ManageFiles(filesToRemove, filesToAdd, context);
             selectedNews.Tags.AddRange(tags);
+            selectedNews.Content = model.News.Content;
+            selectedNews.Title = model.News.Title;
             context.SaveChanges();
 
             return RedirectToAction("List","News");
         }
-
+     
         public ActionResult Delete(int newsId)
         {
             var selectedNews = context.InformationSources.OfType<News>().FirstOrDefault(x => x.Id == newsId);
-
             context.InformationSources.Remove(selectedNews);
             context.SaveChanges();
 
-            return View("List");
+            return RedirectToAction("List", "News");
         }
 
         protected void PopulateFiles(object selectedFile = null)
