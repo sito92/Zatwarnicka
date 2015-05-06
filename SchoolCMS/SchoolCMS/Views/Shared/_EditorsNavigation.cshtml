@@ -2,7 +2,7 @@
 
 @if (Roles.IsUserInRole("Administrator"))
 {
-    <ul id="nav" style="margin-top: 0px; margin-right: 300px;">
+    <ul id="nav" style="margin-top: 0px; float: left;margin-left: 300px">
         <li><a href="@Url.Action("Edit", "CmsSettings")">Ustawienia</a></li>
         <li><a href="@Url.Action("List", "File")">Pliki</a>
             <ul>
@@ -19,7 +19,7 @@
 }
 @if (Roles.IsUserInRole("CopyWriter"))
 {
-    <ul id="nav" style="margin-top: 0px; margin-right: 300px;">
+    <ul id="nav" style="margin-top: 0px; float: left;margin-left: 300px">
         <li><a href="/">Home</a></li>
     </ul>
 }

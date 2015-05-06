@@ -207,6 +207,10 @@
     <Compile Include="Helpers\ButtonHelper.cs" />
     <Compile Include="Helpers\NewsContentHelper.cs" />
     <Compile Include="Helpers\NewsPaginationHelper.cs" />
+    <Compile Include="Migrations\201505051307543_ostatniamigracja.cs" />
+    <Compile Include="Migrations\201505051307543_ostatniamigracja.Designer.cs">
+      <DependentUpon>201505051307543_ostatniamigracja.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Address.cs" />
@@ -417,6 +421,11 @@
     <Folder Include="App_Data\Uploads\" />
     <Folder Include="Filters\" />
     <Folder Include="Models\VieModels\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201505051307543_ostatniamigracja.resx">
+      <DependentUpon>201505051307543_ostatniamigracja.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

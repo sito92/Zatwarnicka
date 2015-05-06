@@ -30,7 +30,7 @@
 
         foreach (var file in Model.Files)
         {
-            <a href="@file.FilePath">@file.FileName</a>
+            @Html.ActionLink(file.FileName,"Download","File",new {id = file.Id},null)
         }
     }
 </div>
