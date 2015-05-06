@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using DotNetOpenAuth.Messaging;
+using SchoolCMS.Helpers;
 using SchoolCMS.Models;
 using WebGrease.Css.Extensions;
 using WebMatrix.WebData;
@@ -46,33 +47,8 @@ namespace SchoolCMS.Controllers
             {
                 return HttpNotFound();
             }
-            if (filesToRemove != null)
-            {
-                var contextFilesToRemove = context.Files.Where(x => filesToRemove.Contains(x.Id));
 
-                foreach (var fileToRemove in contextFilesToRemove)
-                {
-                    if (prePage.Files.Contains(fileToRemove))
-                    {
-                        prePage.Files.Remove(fileToRemove);
-                    }
-                }
-            }
-            if (filesToAdd != null)
-            {
-                var contextFilesToAdd = context.Files.Where(x => filesToAdd.Contains(x.Id));
-
-                if (contextFilesToAdd.Any())
-                {
-                    foreach (var fileToAdd in contextFilesToAdd)
-                    {
-                        if (!prePage.Files.Contains(fileToAdd))
-                        {
-                            prePage.Files.Add(fileToAdd);
-                        }
-                    }
-                }
-            }
+            prePage.ManageFiles(filesToRemove, filesToAdd,context);
 
             prePage.Content = page.Content;
             prePage.Title = page.Title;
@@ -98,13 +74,14 @@ namespace SchoolCMS.Controllers
         }
         [Authorize]
         [HttpPost]
-        public ActionResult Create(Page page)
+        public ActionResult Create(Page page, IEnumerable<int> filesToAdd, IEnumerable<int> filesToRemove)
         {
             if (ModelState.IsValid)
             {
                 var author = context.Users.FirstOrDefault(x => x.Username == WebSecurity.CurrentUserName);
                 page.AuthorId = author.Id;
-                page.Date = DateTime.Now;               
+                page.Date = DateTime.Now;
+                page.ManageFiles(filesToRemove, filesToAdd,context);
                 context.InformationSources.Add(page);
                 context.SaveChanges();
                 return RedirectToAction("List");

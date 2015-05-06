@@ -205,11 +205,16 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\ButtonHelper.cs" />
+    <Compile Include="Helpers\InformationSourceFileHelper.cs" />
     <Compile Include="Helpers\NewsContentHelper.cs" />
     <Compile Include="Helpers\NewsPaginationHelper.cs" />
     <Compile Include="Migrations\201505062048458_kolo.cs" />
     <Compile Include="Migrations\201505062048458_kolo.Designer.cs">
       <DependentUpon>201505062048458_kolo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201505061441428_TagsNewsManyToMAny.cs" />
+    <Compile Include="Migrations\201505061441428_TagsNewsManyToMAny.Designer.cs">
+      <DependentUpon>201505061441428_TagsNewsManyToMAny.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
@@ -239,10 +244,13 @@
     <Compile Include="ViewModels\RichCmsSettings.cs" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Content Include="App_Data\Localdatabase.mdf" />
     <Content Include="App_Data\Localdatabase_log.ldf">
       <DependentUpon>Localdatabase.mdf</DependentUpon>
     </Content>
+=======
+>>>>>>> d22fd7c1b50e98b879516e7585a8ed008fe9e96e
     <Content Include="Content\DarkSite.css" />
     <Content Include="Content\images\arrow.jpg" />
     <Content Include="Content\PagedList.css" />
@@ -425,6 +433,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201505062048458_kolo.resx">
       <DependentUpon>201505062048458_kolo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201505061441428_TagsNewsManyToMAny.resx">
+      <DependentUpon>201505061441428_TagsNewsManyToMAny.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

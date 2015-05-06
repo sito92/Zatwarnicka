@@ -117,10 +117,12 @@ namespace SchoolCMS.Controllers
 
         public ActionResult NewBranch()
         {
+            var informationSources = context.InformationSources.OrderBy(x => x.Title).ToList();
+            informationSources.Insert(0, new InformationSource() { Id = 0, Title = "Brak" });
             MenuButtonPage button = new MenuButtonPage()
             {
                 MenuButton = new MenuButton(){IsRootButton = true, Level = 0, ParentId = null},
-                Pages = new SelectList(context.InformationSources, "Id", "Title")
+                Pages = new SelectList(informationSources, "Id", "Title")
             };
             return View("Add",button);
         }

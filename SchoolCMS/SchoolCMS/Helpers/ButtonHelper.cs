@@ -37,12 +37,12 @@ namespace SchoolCMS.Helpers
                     }
                     else
                     {
-                         var l = branch.Select(x => x.Level).Max();
-                        result += GetClosingTags(l);
+                         var l = branch.Select(x => x.Level).Last();
+                        result += GetBranchClosingTags(l);
                     }
                 }
             }
-            return new MvcHtmlString(result.Replace("<li></li>",string.Empty));
+            return new MvcHtmlString(result);
         }
 
         private static string GetListElement(string result, MenuButton button)
@@ -70,7 +70,9 @@ namespace SchoolCMS.Helpers
             else if (branch[i + 1].Level < button.Level)
             {
                 var l = button.Level - branch[i + 1].Level;
+                
                 result += GetClosingTags(l);
+                result += closeLi;
             }
             return result;
         }
@@ -86,7 +88,18 @@ namespace SchoolCMS.Helpers
             return closingTags;
 
         }
+        private static string GetBranchClosingTags(int amount)
+        {
+            var closingTags = "";
+            for (int i = 0; i < amount; i++)
+            {
+                closingTags += closeLi;
+                closingTags += closeUl;
+                closingTags += "<tu></tu>";
+            }
+            return closingTags;
 
+        }
         private static string GetButtonWithATag(MenuButton button)
         {
             var result = "<a href='" + informationSourceController + informationSourceShowAction + button.InformationSourceId+ "'>";

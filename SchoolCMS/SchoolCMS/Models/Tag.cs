@@ -13,5 +13,7 @@ namespace SchoolCMS.Models
         [Required(ErrorMessage = "Nazwa jest wymagana")]
         [Display(Name = "Nazwa")]
         public string Name { get; set; }
+
+        public ICollection<News> Newses { get; set; } 
     }
 }
