@@ -7,28 +7,33 @@
             <a href="@Url.Action("List", "News")">Artykuły</a>
             <ul>
                 <li><a href="@Url.Action("Add", "News")">Stwórz artykuł</a></li>
+                <li><a href="@Url.Action("List", "News")">Wyświetl artykuły</a></li>
             </ul>
         </li>
         <li><a href="@Url.Action("List", "Page")">Strony</a>
             <ul>
                 <li><a href="@Url.Action("Create", "Page")">Dodaj stronę</a></li>
+                <li><a href="@Url.Action("List", "Page")">Wyświetl strony</a></li>
             </ul>
         </li>
         <li><a href="@Url.Action("List", "Admin")">Użytkownicy</a>
             <ul>
                 <li><a href="@Url.Action("Register", "Admin")">Dodaj użytkownika</a></li>
-            </ul>
+                <li><a href="@Url.Action("List", "Admin")">Wyświetl użytkowników</a></li>
+</ul>
         </li>
         <li>
             <a href="@Url.Action("List", "File")">Pliki</a>
             <ul>
                 <li><a href="@Url.Action("Add", "File")">Dodaj plik</a></li>
+                <li><a href="@Url.Action("List", "File")">Wyświetl pliki</a></li>
             </ul>
         </li>
         <li>
             <a href="@Url.Action("List", "MenuButton")">Menu</a>
             <ul>
-                <li><a href="@Url.Action("NewBranch", "MenuButton")">Dodaj obiekt do menu</a></li>
+                <li><a href="@Url.Action("NewBranch", "MenuButton")">Dodaj do menu</a></li>
+                <li><a href="@Url.Action("List", "MenuButton")">Wyświetl strukturę</a></li>
             </ul>
         </li>
         <li><a href="@Url.Action("Edit", "CmsSettings")">Ustawienia</a></li>
