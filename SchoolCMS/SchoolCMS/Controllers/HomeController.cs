@@ -26,19 +26,5 @@ namespace SchoolCMS.Controllers
             test.PagedNews = test.ShortContentDict.Keys.ToPagedList(pageNumber, pageSize);
             return View(test);
         }
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your app description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
     }
 }

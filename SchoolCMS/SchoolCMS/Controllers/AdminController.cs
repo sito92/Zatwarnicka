@@ -188,6 +188,14 @@ namespace SchoolCMS.Controllers
             return View(model);
         }
 
+        [Authorize(Roles = "Administrator")]
+        public ActionResult List()
+        {
+            var copyWriters = context.Users.OfType<CopyWriter>();
+
+            return View(copyWriters);
+        }
+
         public enum ManageMessageId
         {
             ChangePasswordSuccess,

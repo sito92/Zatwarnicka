@@ -5,13 +5,13 @@ namespace SchoolCMS.Migrations
     using System.Data.Entity.Migrations.Infrastructure;
     using System.Resources;
     
-    public sealed partial class kolo : IMigrationMetadata
+    public sealed partial class GenericUser : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(kolo));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(GenericUser));
         
         string IMigrationMetadata.Id
         {
-            get { return "201505062048458_kolo"; }
+            get { return "201505081152379_GenericUser"; }
         }
         
         string IMigrationMetadata.Source

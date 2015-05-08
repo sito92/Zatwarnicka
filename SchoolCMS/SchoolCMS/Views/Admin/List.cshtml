@@ -1,0 +1,52 @@
+﻿@model System.Collections.Generic.IEnumerable<SchoolCMS.Models.CopyWriter>
+    @{
+        ViewBag.Title = "List";
+    }
+
+    <h2>List</h2>
+
+    <p>
+        @Html.ActionLink("Stwórz pisarza", "Register")
+    </p>
+    <div class="CSSTableGenerator">
+        <table>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Username)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Surname)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Username)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Surname)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Zmień hasło", "ChangePassword", new { id = item.Id }) |
+                        @Html.ActionLink("Zmień dane", "ChangePersonalData", new { id = item.Id })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>

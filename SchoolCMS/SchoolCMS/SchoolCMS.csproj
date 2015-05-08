@@ -208,13 +208,9 @@
     <Compile Include="Helpers\InformationSourceFileHelper.cs" />
     <Compile Include="Helpers\NewsContentHelper.cs" />
     <Compile Include="Helpers\NewsPaginationHelper.cs" />
-    <Compile Include="Migrations\201505062048458_kolo.cs" />
-    <Compile Include="Migrations\201505062048458_kolo.Designer.cs">
-      <DependentUpon>201505062048458_kolo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201505061441428_TagsNewsManyToMAny.cs" />
-    <Compile Include="Migrations\201505061441428_TagsNewsManyToMAny.Designer.cs">
-      <DependentUpon>201505061441428_TagsNewsManyToMAny.cs</DependentUpon>
+    <Compile Include="Migrations\201505081152379_GenericUser.cs" />
+    <Compile Include="Migrations\201505081152379_GenericUser.Designer.cs">
+      <DependentUpon>201505081152379_GenericUser.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
@@ -242,15 +238,10 @@
     <Compile Include="ViewModels\MenuButtonPage.cs" />
     <Compile Include="ViewModels\NewsEdit.cs" />
     <Compile Include="ViewModels\RichCmsSettings.cs" />
-  </ItemGroup>
-  <ItemGroup>
-<<<<<<< HEAD
     <Content Include="App_Data\Localdatabase.mdf" />
     <Content Include="App_Data\Localdatabase_log.ldf">
       <DependentUpon>Localdatabase.mdf</DependentUpon>
     </Content>
-=======
->>>>>>> d22fd7c1b50e98b879516e7585a8ed008fe9e96e
     <Content Include="Content\DarkSite.css" />
     <Content Include="Content\images\arrow.jpg" />
     <Content Include="Content\PagedList.css" />
@@ -311,6 +302,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
+    <Content Include="markitup\jquery.js" />
     <Content Include="markitup\jquery.markitup.js" />
     <Content Include="markitup\markitupadd.js" />
     <Content Include="markitup\sets\default\images\bold.png" />
@@ -348,6 +340,7 @@
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-2.1.3.min.js" />
     <Content Include="Scripts\jquery-ui-1.8.24.js" />
     <Content Include="Scripts\jquery-ui-1.8.24.min.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
@@ -390,8 +383,6 @@
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
@@ -421,6 +412,7 @@
     <Content Include="Views\Address\Add.cshtml" />
     <Content Include="Views\Address\List.cshtml" />
     <Content Include="Views\Address\Edit.cshtml" />
+    <Content Include="Views\Admin\List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -431,11 +423,8 @@
     <Folder Include="Models\VieModels\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201505062048458_kolo.resx">
-      <DependentUpon>201505062048458_kolo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201505061441428_TagsNewsManyToMAny.resx">
-      <DependentUpon>201505061441428_TagsNewsManyToMAny.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201505081152379_GenericUser.resx">
+      <DependentUpon>201505081152379_GenericUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

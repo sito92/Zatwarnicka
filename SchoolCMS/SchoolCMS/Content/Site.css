@@ -354,7 +354,7 @@ select:focus {
 
 #nav ul li a  #buttonStyle {
     border-right: none;
-  color: #6791AD;
+    color: #6791AD;
     cursor: default;
 }
 #nav {
@@ -363,7 +363,6 @@ select:focus {
     background: #3AB3A9;
     border: 1px solid #30A097;
     border-radius: 3px;
-    min-width: 500px;
     margin-left: 0px;
     padding-left: 0px;
     float: right;
