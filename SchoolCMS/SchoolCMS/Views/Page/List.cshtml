@@ -1,13 +1,13 @@
 ﻿@model System.Collections.Generic.IEnumerable<SchoolCMS.Models.Page>
 
 @{
-    ViewBag.Title = "List";
+    ViewBag.Title = "Lista stron";
 }
 
-<h2>List</h2>
+<h2>Lista</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Dodaj stronę", "Create")
 </p>
 <div class="CSSTableGenerator">
     <table>
@@ -42,8 +42,8 @@
                     @Html.DisplayFor(modelItem => item.Content)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new {id = item.Id}) |
-                    @Html.ActionLink("Delete", "Delete", new {id = item.Id})
+                    @Html.ActionLink("Edytuj", "Edit", new {id = item.Id}) |
+                    @Html.ActionLink("Usuń", "Delete", new {id = item.Id})
                 </td>
             </tr>
         }

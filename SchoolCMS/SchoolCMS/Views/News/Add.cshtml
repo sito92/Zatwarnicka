@@ -1,18 +1,18 @@
 ﻿@model SchoolCMS.ViewModels.NewsEdit
 
 @{
-    ViewBag.Title = "NewsAdd";
+    ViewBag.Title = "Dodawanie aktualności";
     int filesCount;
 }
 
-<h2>NewsAdd</h2>
+<h2>Dodaj aktualność</h2>
 
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
     <fieldset>
-        <legend>News</legend>
+        <legend>Aktualność</legend>
 
         @*<div class="editor-label">
             @Html.LabelFor(model => model.AuthorId)
@@ -48,7 +48,7 @@
             @Html.ValidationMessageFor(model => model.News.Content)
         </div>
         <div class="editor-label">
-            @Html.Label("Files")
+            @Html.Label("Pliki")
         </div>
         <div class="editor-field">
             <div id="files">
@@ -77,13 +77,13 @@
             </div>
             </div>
             <p>
-                <input type="submit" value="Create" />
+                <input type="submit" value="Dodaj" />
             </p>
 </fieldset>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "List")
+    @Html.ActionLink("Powrót do listy aktualności", "List")
 </div>
 
 @section Scripts {

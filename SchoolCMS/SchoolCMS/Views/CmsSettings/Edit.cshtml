@@ -1,17 +1,17 @@
 ﻿@model SchoolCMS.ViewModels.RichCmsSettings
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Ustawienia";
 }
 
-<h2>Edit</h2>
+<h2>Ustawienia</h2>
 
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
     <fieldset>
-        <legend>RichCmsSettings</legend>
+        <legend>Ustawienia SchoolCMS</legend>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.SchoolName)
@@ -54,7 +54,7 @@
         </div>
 
         <p>
-            <input type="submit" value="Create" />
+            <input type="submit" value="Zapisz" />
         </p>
     </fieldset>
 }

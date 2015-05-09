@@ -1,20 +1,20 @@
 ﻿@model SchoolCMS.ViewModels.MenuButtonPage
 
 @{
-    ViewBag.Title = "Add";
+    ViewBag.Title = "Dodaj przycisk menu";
 }
 
-<h2>Add</h2>
+<h2>Dodaj</h2>
 
 @using (Html.BeginForm("Add","MenuButton")) {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
     @Html.HiddenFor(x=>x.MenuButton.IsRootButton)
-    @Html.HiddenFor(x => x.MenuButton.Id)
+    @Html.HiddenFor(x => x.MenuButton)
     @Html.HiddenFor(x=>x.MenuButton.ParentId)
     @Html.HiddenFor(x => x.MenuButton.Level)
     <fieldset>
-        <legend>MenuButton</legend>
+        <legend>Przycisk menu</legend>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.MenuButton.Name)
@@ -24,18 +24,21 @@
             @Html.ValidationMessageFor(model => model.MenuButton.Name)
         </div>
 
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Pages)
+        </div>
         <div>
             @Html.DropDownListFor(model => model.SelectedPage, Model.Pages)
             @Html.HiddenFor(model => model.MenuButton.Id)
         </div>
 
         <p>
-            <input type="submit" value="Create" />
+            <input type="submit" value="Dodaj" />
         </p>
     </fieldset>
 }
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Powrót do listy przycisków menu", "List","MenuButton")
 </div>
 
 @section Scripts {

@@ -1,13 +1,13 @@
 ﻿@model SchoolCMS.Models.News
 
 @{
-    ViewBag.Title = "NewsDetails";
+    ViewBag.Title = "Szczegóły aktualności";
 }
 
-<h2>NewsDetails</h2>
+<h2>Szczegóły</h2>
 
 <fieldset>
-    <legend>News</legend>
+    <legend>Aktualność</legend>
     <div class="display-label">
         @Html.DisplayNameFor(model => model.Content)
     </div>
@@ -27,5 +27,5 @@
     }
 }
 <p>
-    @Html.ActionLink("Back to List", "Index","Home")
+    @Html.ActionLink("Powrót do listy aktualności","List")
 </p>

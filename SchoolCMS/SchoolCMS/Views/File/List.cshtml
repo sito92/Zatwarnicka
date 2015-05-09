@@ -1,13 +1,13 @@
 ﻿@model System.Collections.Generic.IEnumerable<SchoolCMS.Models.File>
 
 @{
-    ViewBag.Title = "List";
+    ViewBag.Title = "Lista plików";
 }
 
-<h2>List</h2>
+<h2>Lista plików</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Add")
+    @Html.ActionLink("Dodaj plik", "Add")
 </p>
 <div class="CSSTableGenerator">
     <table>
@@ -55,7 +55,7 @@
                     @Html.DisplayFor(modelItem => item.FileType.Name)
                 </td>
                 <td>
-                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                    @Html.ActionLink("Usuń", "Delete", new { id = item.Id })
                 </td>
             </tr>
         }

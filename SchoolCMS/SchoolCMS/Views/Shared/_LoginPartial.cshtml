@@ -3,7 +3,7 @@
     if (User.Identity.Name == "Admin")
     {
         <text>
-            Witaj Adminie, @Html.ActionLink("Przejdz do zaplecza", "ChangePersonalData", "Admin", routeValues: null, htmlAttributes: new { @class = "username", title = "Manage" })!
+            Witaj Adminie, @Html.ActionLink("Przejdz do ustawień konta", "ChangePersonalData", "Admin", routeValues: null, htmlAttributes: new { @class = "username", title = "Manage" })!
             @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
             {
                 @Html.AntiForgeryToken()
@@ -27,6 +27,6 @@
 else
 {
     <ul>
-        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+        <li>@Html.ActionLink("Zaloguj się", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
     </ul>
 }

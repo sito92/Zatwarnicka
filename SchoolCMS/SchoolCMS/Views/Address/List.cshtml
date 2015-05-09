@@ -1,13 +1,13 @@
 ﻿@model List<SchoolCMS.Models.Address>
 
 @{
-    ViewBag.Title = "List";
+    ViewBag.Title = "Lista adresów";
 }
 
-<h2>List</h2>
+<h2>Lista adresów</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Add", "Address")
+    @Html.ActionLink("Dodaj nowy adres", "Add", "Address")
 </p>
 <div class="CSSTableGenerator">
     <table>
@@ -49,8 +49,8 @@
                     @Html.DisplayFor(modelItem => item.PostCode)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                    @Html.ActionLink("Edytuj", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Usuń", "Delete", new { id = item.Id })
                 </td>
             </tr>
         }

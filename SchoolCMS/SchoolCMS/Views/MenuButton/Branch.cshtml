@@ -1,10 +1,10 @@
 ﻿@model System.Collections.Generic.IEnumerable<SchoolCMS.Models.MenuButton>
 
 @{
-    ViewBag.Title = "Branch";
+    ViewBag.Title = "Gałąź przycisków menu";
 }
 
-<h2>Branch</h2>
+<h2>Gałąź</h2>
 
 
 @foreach (var item in Model) {
@@ -24,9 +24,9 @@
         <div id="editButton">
             @Html.DisplayFor(modelItem => item.Name)
         </div>
-        @Html.ActionLink("Edit", "Edit", new { menuButtonId = item.Id })
-        @Html.ActionLink("Delete", "Delete", new { menuButtonId = item.Id })
-        @Html.ActionLink("Add Button", "Add", new { id = item.Id })
+        @Html.ActionLink("Edytuj", "Edit", new { menuButtonId = item.Id })
+        @Html.ActionLink("Usuń", "Delete", new { menuButtonId = item.Id })
+        @Html.ActionLink("Dodaj przycisk menu", "Add", new { id = item.Id })
     </div>  
 }
 

@@ -16,6 +16,7 @@ namespace SchoolCMS.ViewModels
         [Display(Name = "Wybrana strona")]
         public int SelectedPage { get; set; } 
        
+        [Display(Name = "Strona podpięta do przycisku")]
         public IEnumerable<SelectListItem> Pages  { get; set; }
     }
 }

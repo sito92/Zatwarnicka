@@ -1,13 +1,13 @@
 ﻿@model System.Collections.Generic.IEnumerable<SchoolCMS.Models.MenuButton>
 
 @{
-    ViewBag.Title = "List";
+    ViewBag.Title = "Lista przycisków menu";
 }
 
-<h2>List</h2>
+<h2>Lista</h2>
 
 <p>
-    @Html.ActionLink("Create new branch", "NewBranch")
+    @Html.ActionLink("Stwórz nową gałąź", "NewBranch")
 </p>
 <div class="CSSTableGenerator">
     <table>
@@ -25,8 +25,8 @@
                     @Html.DisplayFor(modelItem => item.Name)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit branch", "Branch", new { menuButtonId = item.Id })
-                    @Html.ActionLink("Delete branch", "Delete", new { menuButtonId = item.Id })
+                    @Html.ActionLink("Edytuj", "Branch", new { menuButtonId = item.Id })
+                    @Html.ActionLink("Usuń", "Delete", new { menuButtonId = item.Id })
                 </td>
             </tr>
         }

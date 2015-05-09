@@ -1,17 +1,17 @@
 ﻿@model SchoolCMS.Models.MenuButton
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Edycja przycisku menu";
 }
 
-<h2>Edit</h2>
+<h2>Edytuj</h2>
 
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
     <fieldset>
-        <legend>MenuButton</legend>
+        <legend>Przycisk menu</legend>
 
         @Html.HiddenFor(x => x.IsRootButton)
         @Html.HiddenFor(x => x.Id)
@@ -35,13 +35,13 @@
         </div>
 
         <p>
-            <input type="submit" value="Save" />
+            <input type="submit" value="Zapisz" />
         </p>
     </fieldset>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Powrót do listy przycisków", "List","MenuButton")
 </div>
 
 @section Scripts {

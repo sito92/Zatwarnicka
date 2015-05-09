@@ -1,10 +1,10 @@
 ﻿@model SchoolCMS.Models.File
 
 @{
-    ViewBag.Title = "Add";
+    ViewBag.Title = "Dodaj plik";
 }
 
-<h2>Add</h2>
+<h2>Dodaj</h2>
 
 @using (Html.BeginForm(null, null, FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
@@ -12,7 +12,7 @@
     @Html.ValidationSummary(true)
 
     <fieldset>
-        <legend>File</legend>
+        <legend>Plik</legend>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.Name)
@@ -23,20 +23,20 @@
         </div>
 
         <div class="editor-label">
-            @Html.Label("File")
+            @Html.Label("Plik")
         </div>
 
         <div class="editor-field">
             <input type="file" name="file" />
         </div>
         <p>
-            <input type="submit" value="Create" />
+            <input type="submit" value="Dodaj" />
         </p>
     </fieldset>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Powrót do listy plików", "List", "File")
 </div>
 
 @section Scripts {

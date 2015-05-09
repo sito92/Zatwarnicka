@@ -3,13 +3,13 @@
 @model SchoolCMS.Models.Page
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Edycja strony";
     int filesCount;
 }
 
 
 
-<h2>Edit</h2>
+<h2>Edytuj</h2>
 
 @using (Html.BeginForm())
 {
@@ -37,7 +37,7 @@
         </div>
 
         <div class="editor-label">
-            @Html.Label("Files")
+            @Html.Label("Pliki")
             <div id="addButton"></div>
         </div>
         <div class="editor-field">
@@ -70,13 +70,13 @@
         </div>
 
         <p>
-            <input type="submit" value="Save" />
+            <input type="submit" value="Zapisz" />
         </p>
     </fieldset>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Powrót do listy stron", "List")
 </div>
 
 @section Scripts {

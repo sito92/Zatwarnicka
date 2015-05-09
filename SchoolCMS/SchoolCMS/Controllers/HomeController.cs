@@ -16,15 +16,15 @@ namespace SchoolCMS.Controllers
         public ActionResult Index(int pageNumber=1)
         {
             int pageSize = context.CmsSettings.Select(x => x.NewsAmountPerSite).FirstOrDefault();
-            var test = new MainPage
+            var mainPage = new MainPage
             {
                 NewsList = context.InformationSources.OfType<News>().ToList(),
                 ShortContentDict = new Dictionary<News, string>(),
             };
 
-            NewsContentHelper.ContentTrimmer(test);
-            test.PagedNews = test.ShortContentDict.Keys.ToPagedList(pageNumber, pageSize);
-            return View(test);
+            NewsContentHelper.ContentTrimmer(mainPage);
+            mainPage.PagedNews = mainPage.ShortContentDict.Keys.ToPagedList(pageNumber, pageSize);
+            return View(mainPage);
         }
     }
 }

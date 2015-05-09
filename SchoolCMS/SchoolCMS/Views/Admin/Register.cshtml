@@ -1,6 +1,6 @@
 ﻿@model SchoolCMS.Models.RegisterModel
 @{
-    ViewBag.Title = "Create CopyWriter.";
+    ViewBag.Title = "Dodaj redaktora";
 }
 
 <hgroup class="title">
@@ -14,7 +14,7 @@
 <p class="message-success">@ViewBag.StatusMessage</p>
 
     <fieldset>
-        <legend>Registration Form</legend>
+        <legend>Formularz rejestracji</legend>
         <ol>
             <li>
                 @Html.LabelFor(m => m.UserName)
@@ -41,7 +41,7 @@
                 @Html.TextBoxFor(m => m.Surname)
             </li>
         </ol>
-        <input type="submit" value="Register" />
+        <input type="submit" value="Dodaj" />
     </fieldset>
 }
 
