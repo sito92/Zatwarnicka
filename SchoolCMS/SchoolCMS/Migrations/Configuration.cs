@@ -59,21 +59,42 @@ namespace SchoolCMS.Migrations
 
             List<InformationSource> inforamtionSources = new List<InformationSource>()
             {
-                new Page()
+                new News()
                 {
                     AuthorId = 1,
                     Content =
-                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sem turpis, dignissim ac lorem non, pellentesque placerat urna. Vestibulum in massa vitae odio sodales lacinia. Suspendisse nec gravida nisl. Vivamus id malesuada tellus. In hac habitasse platea dictumst. In tortor eros, gravida non tempus id, feugiat non odio. Phasellus non consectetur elit, in blandit nisi. Nam hendrerit purus vitae mi sollicitudin ultrices. Praesent volutpat nec nunc et fringilla.",
+                        "Maturzyœci, pochodz¹cy z rodzi by³ych pracowników pañstwowych przedsiêbiorstw gospodarki rolnej, którzy maj¹ zamiar  kontynuowaæ naukê na studiach dziennych, maj¹ szansê na stupendium. Szczegó³y na stronie: www.stypendia-pomostowe.pl.",
                     Date = DateTime.Now,
-                    Title = "Lorem ipsum"
+                    Title = "Z³odziejstwo"
                 },
                 new Models.News()
                 {
                     AuthorId = 1,
-                    Content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sem turpis, dignissim ac lorem non, pellentesque placerat urna. Vestibulum in massa vitae odio sodales lacinia. Suspendisse nec gravida nisl. Vivamus id malesuada tellus. In hac habitasse platea dictumst. In tortor eros, gravida non tempus id, feugiat non odio. Phasellus non consectetur elit, in blandit nisi. Nam hendrerit purus vitae mi sollicitudin ultrices. Praesent volutpat nec nunc et fringilla.",
+                    Content = "Uczniowie! Przed nami egzaminy maturalne, z tego powodu w dniach 4-6 maja (poniedzia³ek, wtorek, œroda) odwo³ane s¹ zajêcia lekcyjne. Uczniowie gimnazjum, którzy chc¹ skorzystaæ z zajêæ opiekuñczych w tych dniach, proszeni s¹ o zg³oszenie tej informacji do sekretariatu szko³y w czwartek (30 kwietnia). Trzymamy kciuki za maturzystów! ¯yczymy Wam powodzenia!",
                     Date = DateTime.Now,
-                    Title = "Lorem ipsum",
+                    Title = "Matury 2015 ",
                     
+                },
+                new Models.News()
+                {
+                    AuthorId = 1,
+                    Content = "zypominamy, ¿e najbli¿sze spotkanie z Rodzicami odbêdzie siê we wtorek 24 marca 2015r. Rodzice maturzystów otrzymaj¹ informacjê o ocenach proponowanych na koniec klasy trzeciej.Zainteresowanych Rodziców zapraszamy w godzinach od 17.00 do 18.30",
+                    Date = DateTime.Now,
+                    Title = "Wywiadówka"
+                },
+                new Models.News()
+                {
+                    AuthorId = 1,
+                    Content = "Sobota 21.03.2015 roku w ZSO Nr I poœwiêcona by³a uczniom przygotowuj¹cym siê do wa¿nych egzaminów. M³odzie¿ pracowa³a z arkuszami gimnazjalnymi i maturalnymi z matematyki. W trakcie trwania maratonu matematycznego uczniowie przystêpowali do próbnego egzaminu ustnego z jêzyka polskiego i jêzyka obcego.Taka forma zajêæ sta³a siê ju¿ od kilkunastu lat tradycj¹ naszej szko³y. Maturzyœci pod okiem nauczycieli w mi³ej atmosferze na miesi¹c przed egzaminami szlifuj¹ wiedzê. W tym roku podobnie jak w poprzednich latach goœciliœmy uczniów innych szkó³ œrednich miasta Opola.",
+                    Date = DateTime.Now,
+                    Title = "Ale ¿eby w sobote do szko³y?"
+                },
+                new Models.Page()
+                {
+                    AuthorId = 1,
+                    Content = "a \r\n b\r c\n d"+Environment.NewLine,
+                    Date = DateTime.Now,
+                    Title = "Kontakt"
                 }
             };
             inforamtionSources.ForEach(x => context.InformationSources.AddOrUpdate(x));
@@ -98,7 +119,7 @@ namespace SchoolCMS.Migrations
                     Extension = ".jpeg",
                     FileName = "obraz",
                     FileTypeId = 1,
-                    Name = "Fajny obrazek",
+                    Name = "Plik_graficzny",
                     Size = 512
                 },
                 new File()
@@ -107,25 +128,25 @@ namespace SchoolCMS.Migrations
                     Extension = ".exe",
                     FileName = "plik",
                     FileTypeId = 1,
-                    Name = "Plik2",
+                    Name = "Plik_wykonywalny",
                     Size = 512
                 },
-                 new File()
+                new File()
                 {
                     UploadDateTime = DateTime.Now,
                     Extension = ".exe",
                     FileName = "plik",
                     FileTypeId = 1,
-                    Name = "Plik3",
+                    Name = "Plik_wykonywalny2",
                     Size = 512
                 },
-                                 new File()
+                new File()
                 {
                     UploadDateTime = DateTime.Now,
                     Extension = ".exe",
                     FileName = "plik",
                     FileTypeId = 1,
-                    Name = "Plik4",
+                    Name = "Plik_wykonywalny3",
                     Size = 512
                 }
             };
@@ -138,11 +159,11 @@ namespace SchoolCMS.Migrations
             {
                 new Tag()
                 {
-                    Name = "Testowy"
+                    Name = "Organizacyjne"
                 },
                 new Tag()
                 {
-                    Name = "Testowy2"
+                    Name = "Inne"
                 }
             };
 
@@ -163,7 +184,7 @@ namespace SchoolCMS.Migrations
 
             List<Address> addresses = new List<Address>()
             {
-                new Address() { City= "Opole", HouseNumber = 1,PostCode = "13-123", Street = "a", Name = "DefaultAddress"}
+                new Address() { City= "Opole", HouseNumber = 3,PostCode = "45-714", Street = "Licealna", Name = "Adres domyœlny"}
             };
             addresses.ForEach(x => context.Addresses.AddOrUpdate(x));
             context.SaveChanges();
@@ -179,73 +200,32 @@ namespace SchoolCMS.Migrations
             {
                 new MenuButton()
                 {
+                    Name = "Kontakt",
+                    IsRootButton = true,
+                    Level = 0,
+                    InformationSourceId = 5
+                },
+                new MenuButton()
+                {
                     Name = "Nie mam",
                     IsRootButton = true,
                     Level = 0,
-                    InformationSourceId = 1
                 },                
                 new MenuButton()
                 {
                     Name = "pojecia co",
                     IsRootButton = false,
                     Level = 1,
-                    ParentId = 1,
-                    InformationSourceId = 2
+                    ParentId = 2,
                 },
                 new MenuButton()
                 {
                     Name = "robiê",
                     IsRootButton = false,
                     Level = 2,
-                    ParentId = 2,
-                    InformationSourceId = 2
+                    ParentId = 3,
+                    InformationSourceId = 1
                 },
-                new MenuButton()
-                {
-                    Name = "Testowynr1",
-                    IsRootButton = true,
-                    InformationSourceId = 1,
-                    Level = 0,
-                },
-                new MenuButton()
-                {
-                    Name = "Testowynr2",
-                    IsRootButton = true,
-                    InformationSourceId = 2,
-                    Level = 0,
-                },
-                new MenuButton()
-                {
-                    Name = "PodTestowymNr1",
-                    IsRootButton = false,
-                    Level = 1,
-                    ParentId = 5,
-                    InformationSourceId = 2
-                },
-                new MenuButton()
-                {
-                    Name = "PodTestowymNr2",
-                    IsRootButton = false,
-                    Level = 1,
-                    ParentId = 6,
-                    InformationSourceId = 2
-                },
-                new MenuButton()
-                {
-                    Name = "PodPodTestowymNr1",
-                    IsRootButton = false,
-                    Level = 2,
-                    ParentId = 7,
-                    InformationSourceId = 2
-                },
-                new MenuButton()
-                {
-                    Name = "PodPodTestowymNr2",
-                    IsRootButton = false,
-                    Level = 2,
-                    ParentId = 8,
-                    InformationSourceId = 2
-                }
             };
             menuButtons.ForEach(x => context.MenuButtons.AddOrUpdate(x));
             context.SaveChanges();
@@ -253,7 +233,7 @@ namespace SchoolCMS.Migrations
 
             List<Models.CmsSettings> settingses = new List<Models.CmsSettings>()
             {
-                new Models.CmsSettings() {LayoutId = 1, SchoolName = "Przyk³adowa szko³a", NewsAmountPerSite=1,AdressId=1}
+                new Models.CmsSettings() {LayoutId = 1, SchoolName = "I LO w Opolu", NewsAmountPerSite=2,AdressId=1}
             };
 
             settingses.ForEach(x => context.CmsSettings.AddOrUpdate(x));

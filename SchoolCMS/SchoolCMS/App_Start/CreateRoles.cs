@@ -44,17 +44,17 @@ namespace SchoolCMS
             {
                 new CopyWriter()
                 {
-                    Email = "user@cms.pl",
+                    Email = "a.kowalski@cms.pl",
                     Name = "Adam",
                     Surname = "Kowalski",
-                    Username = "user",
+                    Username = "akowalski",
                 },
                 new CopyWriter()
                 {
-                    Email = "miłosz@cms.pl",
+                    Email = "m.szklanka@cms.pl",
                     Name = "Miłosz",
                     Surname = "Szklanka",
-                    Username = "seximily93",
+                    Username = "mszklanka",
                 }
             };
             users.ForEach(x =>
