@@ -36,6 +36,7 @@ namespace SchoolCMS.Controllers
         }
         [Authorize(Roles = "Administrator")]
         [HttpPost]
+        [ValidateInput(false)]
         public ActionResult Edit(Page page, IEnumerable<int> filesToAdd, IEnumerable<int> filesToRemove)
         {
             if (!ModelState.IsValid)
@@ -74,6 +75,7 @@ namespace SchoolCMS.Controllers
         }
         [Authorize]
         [HttpPost]
+        [ValidateInput(false)]
         public ActionResult Create(Page page, IEnumerable<int> filesToAdd, IEnumerable<int> filesToRemove)
         {
             if (ModelState.IsValid)

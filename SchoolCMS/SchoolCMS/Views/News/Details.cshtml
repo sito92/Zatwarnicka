@@ -8,9 +8,6 @@
 
 <fieldset>
     <legend>Aktualność</legend>
-    <div class="display-label">
-        @Html.DisplayNameFor(model => model.Content)
-    </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Content)
     </div>
@@ -27,5 +24,5 @@
     }
 }
 <p>
-    @Html.ActionLink("Powrót do listy aktualności","List")
+    @Html.ActionLink("Powrót do listy aktualności","Index","Home")
 </p>
