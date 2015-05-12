@@ -4,10 +4,10 @@
 {
     <ul id="nav" style="margin-top: 0px; float: left; margin-left: 300px">
         <li>
-            <a href="@Url.Action("List", "News")">Artykuły</a>
+            <a href="@Url.Action("List", "News")">Aktualności</a>
             <ul>
-                <li><a href="@Url.Action("Add", "News")">Stwórz artykuł</a></li>
-                <li><a href="@Url.Action("List", "News")">Wyświetl artykuły</a></li>
+                <li><a href="@Url.Action("Add", "News")">Stwórz aktualność</a></li>
+                <li><a href="@Url.Action("List", "News")">Wyświetl aktualności</a></li>
             </ul>
         </li>
         <li><a href="@Url.Action("List", "Page")">Strony</a>
@@ -41,7 +41,13 @@
 }
 @if (Roles.IsUserInRole("CopyWriter"))
 {
-    <ul id="nav" style="margin-top: 0px; float: left;margin-left: 300px">
-        <li><a href="/">Home</a></li>
+    <ul id="nav" style="margin-top: 0px; float: left; margin-left: 300px">
+        <li>
+            <a href="@Url.Action("List", "News")">Artykuły</a>
+            <ul>
+                <li><a href="@Url.Action("Add", "News")">Stwórz artykuł</a></li>
+                <li><a href="@Url.Action("List", "News")">Wyświetl moje artykuły</a></li>
+            </ul>
+        </li>
     </ul>
 }
