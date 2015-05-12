@@ -6,11 +6,10 @@
 
 <h2>Dodaj</h2>
 
-@using (Html.BeginForm("Add","MenuButton")) {
+@using (Html.BeginForm("Add","MenuButton",FormMethod.Post)) {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
     @Html.HiddenFor(x=>x.MenuButton.IsRootButton)
-    @Html.HiddenFor(x => x.MenuButton)
     @Html.HiddenFor(x=>x.MenuButton.ParentId)
     @Html.HiddenFor(x => x.MenuButton.Level)
     <fieldset>
