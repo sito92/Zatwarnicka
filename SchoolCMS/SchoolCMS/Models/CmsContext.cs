@@ -36,5 +36,6 @@ namespace SchoolCMS.Models
         //public DbSet<Schedule> Schedules { get; set; }
         //public DbSet<CommentBase> Comments { get; set; }
         //public DbSet<Subject> Subjects { get; set; }
+
     }
 }

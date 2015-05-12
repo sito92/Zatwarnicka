@@ -209,9 +209,9 @@
     <Compile Include="Helpers\InformationSourceFileHelper.cs" />
     <Compile Include="Helpers\NewsContentHelper.cs" />
     <Compile Include="Helpers\NewsPaginationHelper.cs" />
-    <Compile Include="Migrations\201505081152379_GenericUser.cs" />
-    <Compile Include="Migrations\201505081152379_GenericUser.Designer.cs">
-      <DependentUpon>201505081152379_GenericUser.cs</DependentUpon>
+    <Compile Include="Migrations\201505121914590_fix.cs" />
+    <Compile Include="Migrations\201505121914590_fix.Designer.cs">
+      <DependentUpon>201505121914590_fix.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
@@ -419,8 +419,8 @@
     <Folder Include="Filters\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201505081152379_GenericUser.resx">
-      <DependentUpon>201505081152379_GenericUser.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201505121914590_fix.resx">
+      <DependentUpon>201505121914590_fix.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
