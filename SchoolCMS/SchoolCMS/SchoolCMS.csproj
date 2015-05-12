@@ -221,6 +221,19 @@
     <Compile Include="Models\CmsContext.cs" />
     <Compile Include="Models\CmsSettings.cs" />
     <Compile Include="Models\CopyWriter.cs" />
+    <Compile Include="Models\EDiary\Class.cs" />
+    <Compile Include="Models\EDiary\ClassSchedule.cs" />
+    <Compile Include="Models\EDiary\CommentBase.cs" />
+    <Compile Include="Models\EDiary\Grade.cs" />
+    <Compile Include="Models\EDiary\GradeComment.cs" />
+    <Compile Include="Models\EDiary\GradeValues.cs" />
+    <Compile Include="Models\EDiary\Lesson.cs" />
+    <Compile Include="Models\EDiary\Schedule.cs" />
+    <Compile Include="Models\EDiary\Student.cs" />
+    <Compile Include="Models\EDiary\StudentComment.cs" />
+    <Compile Include="Models\EDiary\Subject.cs" />
+    <Compile Include="Models\EDiary\Teacher.cs" />
+    <Compile Include="Models\EDiary\TeacherSchedule.cs" />
     <Compile Include="Models\File.cs" />
     <Compile Include="Models\FileExtension.cs" />
     <Compile Include="Models\FileType.cs" />
@@ -421,7 +434,6 @@
   <ItemGroup>
     <Folder Include="App_Data\Uploads\" />
     <Folder Include="Filters\" />
-    <Folder Include="Models\VieModels\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201505081152379_GenericUser.resx">
