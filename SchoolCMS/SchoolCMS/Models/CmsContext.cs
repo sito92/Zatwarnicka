@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
-using SchoolCMS.Models.EDiary;
+
 
 namespace SchoolCMS.Models
 {
@@ -28,13 +28,13 @@ namespace SchoolCMS.Models
         public DbSet<LogoSettings> LogoSettings { get; set; }
  
 
-        //DBSety dla E-dziennika
-        public DbSet<Class> Classes { get; set; }
-        public DbSet<Grade> Grades { get; set; }
-        public DbSet<GradeValues> GradeValues { get; set; }
-        public DbSet<Lesson> Lessons { get; set; }
-        public DbSet<Schedule> Schedules { get; set; }
-        public DbSet<CommentBase> Comments { get; set; }
-        public DbSet<Subject> Subjects { get; set; }
+        ////DBSety dla E-dziennika
+        //public DbSet<Class> Classes { get; set; }
+        //public DbSet<Grade> Grades { get; set; }
+        //public DbSet<GradeValues> GradeValues { get; set; }
+        //public DbSet<Lesson> Lessons { get; set; }
+        //public DbSet<Schedule> Schedules { get; set; }
+        //public DbSet<CommentBase> Comments { get; set; }
+        //public DbSet<Subject> Subjects { get; set; }
     }
 }

@@ -28,11 +28,13 @@ namespace SchoolCMS.ViewModels
         public IEnumerable<SelectListItem> Layouts { get; set; }
 
         
-        public int SelectedAddressId { get; set; }
+        //public int SelectedAddressId { get; set; }
 
-        [Required(ErrorMessage = "Adres jest wymagany")]
-        [Display(Name = "Adres szkoły")]
-        public IEnumerable<SelectListItem> Addresses { get; set; }
+        //[Required(ErrorMessage = "Adres jest wymagany")]
+        //[Display(Name = "Adres szkoły")]
+        //public IEnumerable<SelectListItem> Addresses { get; set; }
+        [Display(Name = "Adres")]
+        public Address Address { get; set; }
 
         public int SelectedLogoSettingsId { get; set; }
 

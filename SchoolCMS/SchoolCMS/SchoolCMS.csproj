@@ -221,19 +221,6 @@
     <Compile Include="Models\CmsContext.cs" />
     <Compile Include="Models\CmsSettings.cs" />
     <Compile Include="Models\CopyWriter.cs" />
-    <Compile Include="Models\EDiary\Class.cs" />
-    <Compile Include="Models\EDiary\ClassSchedule.cs" />
-    <Compile Include="Models\EDiary\CommentBase.cs" />
-    <Compile Include="Models\EDiary\Grade.cs" />
-    <Compile Include="Models\EDiary\GradeComment.cs" />
-    <Compile Include="Models\EDiary\GradeValues.cs" />
-    <Compile Include="Models\EDiary\Lesson.cs" />
-    <Compile Include="Models\EDiary\Schedule.cs" />
-    <Compile Include="Models\EDiary\Student.cs" />
-    <Compile Include="Models\EDiary\StudentComment.cs" />
-    <Compile Include="Models\EDiary\Subject.cs" />
-    <Compile Include="Models\EDiary\Teacher.cs" />
-    <Compile Include="Models\EDiary\TeacherSchedule.cs" />
     <Compile Include="Models\File.cs" />
     <Compile Include="Models\FileExtension.cs" />
     <Compile Include="Models\FileType.cs" />
@@ -252,10 +239,6 @@
     <Compile Include="ViewModels\MenuButtonPage.cs" />
     <Compile Include="ViewModels\NewsEdit.cs" />
     <Compile Include="ViewModels\RichCmsSettings.cs" />
-    <Content Include="App_Data\Localdatabase.mdf" />
-    <Content Include="App_Data\Localdatabase_log.ldf">
-      <DependentUpon>Localdatabase.mdf</DependentUpon>
-    </Content>
     <Content Include="Content\DarkSite.css" />
     <Content Include="Content\images\arrow.jpg" />
     <Content Include="Content\PagedList.css" />

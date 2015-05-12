@@ -67,11 +67,12 @@ namespace SchoolCMS.Controllers
             updatedModel.PostCode = model.PostCode;
             updatedModel.HouseNumber = model.HouseNumber;
             updatedModel.Street = model.Street;
+            updatedModel.City = model.City;
 
             context.SaveChanges();
             }
 
-            return RedirectToAction("List", "Address");
+            return RedirectToAction("Edit", "CmsSettings");
         }
     }
 }

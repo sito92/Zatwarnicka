@@ -28,8 +28,9 @@ namespace SchoolCMS.Controllers
                 SchoolName = settings.SchoolName,
                 NewsAmountPerSite = settings.NewsAmountPerSite,
                 Layouts = new SelectList(context.Layouts, "Id", "Name"),
-                Addresses = new SelectList(context.Addresses, "Id","Name"),
-                LogoSettings = new SelectList(context.LogoSettings, "Id","LogoName")
+                //Addresses = new SelectList(context.Addresses, "Id","Name"),
+                LogoSettings = new SelectList(context.LogoSettings, "Id","LogoName"),
+                Address = context.Addresses.FirstOrDefault()
             };
 
             return View(cmsSettings);
@@ -43,11 +44,11 @@ namespace SchoolCMS.Controllers
             if (presettings == null)
                 return RedirectToAction("Index", "Home");
 
-            presettings.Address = context.Addresses.FirstOrDefault(x => x.Id == settings.SelectedAddressId);
+            presettings.Address = settings.Address;
             presettings.SchoolName = settings.SchoolName;
             presettings.NewsAmountPerSite = settings.NewsAmountPerSite;
             presettings.Layout = context.Layouts.FirstOrDefault(x => x.Id == settings.SelectedLayoutId);
-            presettings.LogoSettings = context.LogoSettings.FirstOrDefault(x => x.Id == settings.SelectedLogoSettingsId);
+            //presettings.LogoSettings = context.LogoSettings.FirstOrDefault(x => x.Id == settings.SelectedLogoSettingsId);
 
             context.SaveChanges();
             

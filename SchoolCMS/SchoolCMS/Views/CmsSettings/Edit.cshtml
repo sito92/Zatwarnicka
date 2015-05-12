@@ -37,21 +37,34 @@
             @Html.ValidationMessageFor(model => model.Layouts)
         </div>
 
-        <div class="editor-label">
+        @*<div class="editor-label">
             @Html.LabelFor(model => model.Addresses)
         </div>
         <div class="editor-field">
             @Html.DropDownListFor(model => model.SelectedAddressId, Model.Addresses)
             @Html.ValidationMessageFor(model => model.Addresses)
-        </div>
+        </div>*@
 
         <div class="editor-label">
+            @Html.LabelFor(model => model.Address)
+        </div>
+        <div>
+            <b>
+                ul.@Model.Address.Street @Model.Address.HouseNumber
+                <br/>
+                @Model.Address.PostCode @Model.Address.City
+                <br/>
+            </b>
+            @Html.ActionLink("Zmień ustawienia adresu", "Edit","Address",new {id = 1}, null)
+        </div>
+
+        @*<div class="editor-label">
             @Html.LabelFor(model => model.LogoSettings)
         </div>
         <div class="editor-field">
             @Html.DropDownListFor(model => model.SelectedLogoSettingsId, Model.LogoSettings)
             @Html.ValidationMessageFor(model => model.LogoSettings)
-        </div>
+        </div>*@
 
         <p>
             <input type="submit" value="Zapisz" />
