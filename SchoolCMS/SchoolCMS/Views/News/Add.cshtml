@@ -28,7 +28,7 @@
         <div>
             @Html.ListBoxFor(model => model.SelectedTags, Model.Tags)
 
-            @Html.ValidationMessageFor(model => model.Tags)
+            @Html.ValidationMessageFor(model => model.SelectedTags)
 
             @Html.HiddenFor(model => model.News.Id)
         </div>

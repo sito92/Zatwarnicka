@@ -83,6 +83,7 @@ namespace SchoolCMS.Controllers
         [HttpPost]
         public ActionResult Edit(NewsEdit model, IEnumerable<int> filesToAdd, IEnumerable<int> filesToRemove)
         {
+
             if (model.SelectedTags == null || !model.SelectedTags.Any())
             {
                 ModelState.AddModelError(string.Empty, "News musi mieć chociaż jeden tag");
@@ -99,7 +100,7 @@ namespace SchoolCMS.Controllers
                 return HttpNotFound();
             }
             var tags = context.Tags.Where(x => model.SelectedTags.Contains(x.Id));
-            selectedNews.ManageFiles(filesToRemove, filesToAdd, context);
+           
             selectedNews.Tags.AddRange(tags);
             selectedNews.Content = model.News.Content;
             selectedNews.Title = model.News.Title;

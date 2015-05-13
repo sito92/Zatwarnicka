@@ -78,12 +78,13 @@ namespace SchoolCMS.Controllers
         [ValidateInput(false)]
         public ActionResult Create(Page page, IEnumerable<int> filesToAdd, IEnumerable<int> filesToRemove)
         {
+            
             if (ModelState.IsValid)
             {
                 var author = context.Users.FirstOrDefault(x => x.Username == WebSecurity.CurrentUserName);
                 page.AuthorId = author.Id;
                 page.Date = DateTime.Now;
-                page.ManageFiles(filesToRemove, filesToAdd,context);
+                page.ManageFiles(filesToRemove, filesToAdd, context);
                 context.InformationSources.Add(page);
                 context.SaveChanges();
                 return RedirectToAction("List");
