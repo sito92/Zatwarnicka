@@ -606,6 +606,7 @@ mark {
 }
 
 .float-right {
+    width: 300px;
     float: right;
 }
 
@@ -705,9 +706,11 @@ footer {
 /* login
 ----------------------------------------------------------*/
 #login {
+    float: right;
     display: block;
     font-size: .85em;
     margin: 0 0 10px;
+    width: 400px;
     text-align: right;
 }
 
