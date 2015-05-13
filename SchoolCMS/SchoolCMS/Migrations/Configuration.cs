@@ -143,39 +143,12 @@ wewnêtrzny:
                 {
                   
                     UploadDateTime = DateTime.Now,
-                    Extension = ".jpeg",
-                    FileName = "obraz",
+                    Extension = ".txt",
+                    FileName = "inserty",
                     FileTypeId = 1,
-                    Name = "Plik_graficzny",
+                    Name = "Przyk³adowy plik tekstowy",
                     Size = 512
                 },
-                new File()
-                {
-                    UploadDateTime = DateTime.Now,
-                    Extension = ".exe",
-                    FileName = "plik",
-                    FileTypeId = 1,
-                    Name = "Plik_wykonywalny",
-                    Size = 512
-                },
-                new File()
-                {
-                    UploadDateTime = DateTime.Now,
-                    Extension = ".exe",
-                    FileName = "plik",
-                    FileTypeId = 1,
-                    Name = "Plik_wykonywalny2",
-                    Size = 512
-                },
-                new File()
-                {
-                    UploadDateTime = DateTime.Now,
-                    Extension = ".exe",
-                    FileName = "plik",
-                    FileTypeId = 1,
-                    Name = "Plik_wykonywalny3",
-                    Size = 512
-                }
             };
 
             files.ForEach(x => context.Files.AddOrUpdate(x));

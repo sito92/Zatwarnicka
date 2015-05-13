@@ -239,6 +239,7 @@
     <Compile Include="ViewModels\MenuButtonPage.cs" />
     <Compile Include="ViewModels\NewsEdit.cs" />
     <Compile Include="ViewModels\RichCmsSettings.cs" />
+    <Content Include="App_Data\Uploads\inserty.txt" />
     <Content Include="Content\DarkSite.css" />
     <Content Include="Content\images\arrow.jpg" />
     <Content Include="Content\PagedList.css" />
@@ -415,7 +416,6 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\Uploads\" />
     <Folder Include="Filters\" />
   </ItemGroup>
   <ItemGroup>
