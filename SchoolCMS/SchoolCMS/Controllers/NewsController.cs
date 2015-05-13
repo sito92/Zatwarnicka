@@ -24,7 +24,7 @@ namespace SchoolCMS.Controllers
         [Authorize]
         public ActionResult List()
         {
-            var news = context.InformationSources.OfType<News>().OrderByDescending(x=>x.Id);
+            var news = context.InformationSources.OfType<News>();
 
             return View(news);
         }

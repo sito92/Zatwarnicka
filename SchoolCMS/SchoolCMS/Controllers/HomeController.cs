@@ -18,7 +18,7 @@ namespace SchoolCMS.Controllers
             int pageSize = context.CmsSettings.Select(x => x.NewsAmountPerSite).FirstOrDefault();
             var mainPage = new MainPage
             {
-                NewsList = context.InformationSources.OfType<News>().ToList(),
+                NewsList = context.InformationSources.OfType<News>().OrderByDescending(x => x.Id).ToList(),
                 ShortContentDict = new Dictionary<News, string>(),
             };
 
