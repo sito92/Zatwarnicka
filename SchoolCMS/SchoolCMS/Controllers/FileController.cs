@@ -82,7 +82,7 @@ namespace SchoolCMS.Controllers
             context.SaveChanges();
             return RedirectToAction("List");
         }
-
+        [AllowAnonymous]
         public ActionResult Download(int id)
         {
             var file = context.Files.FirstOrDefault(x => x.Id == id);
