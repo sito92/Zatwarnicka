@@ -24,7 +24,7 @@ namespace SchoolCMS.Controllers
         [Authorize]
         public ActionResult List()
         {
-            var news = context.InformationSources.OfType<News>();
+            var news = context.InformationSources.OfType<News>().OrderByDescending(x=>x.Id);
 
             return View(news);
         }
@@ -48,6 +48,7 @@ namespace SchoolCMS.Controllers
             {
                 ModelState.AddModelError(string.Empty,"News musi mieć chociaż jeden tag");
                 model.Tags = new SelectList(context.Tags, "Id", "Name");
+                PopulateFiles();
             }
             if (ModelState.IsValid)
             {
@@ -79,12 +80,17 @@ namespace SchoolCMS.Controllers
             PopulateFiles();
             return View(selectedNews);
         }
-
         [HttpPost]
         public ActionResult Edit(NewsEdit model, IEnumerable<int> filesToAdd, IEnumerable<int> filesToRemove)
         {
+            if (model.SelectedTags == null || !model.SelectedTags.Any())
+            {
+                ModelState.AddModelError(string.Empty, "News musi mieć chociaż jeden tag");
+                model.Tags = new SelectList(context.Tags, "Id", "Name");
+            }
             if (!ModelState.IsValid)
             {
+                PopulateFiles();
                 return View(model);
             }
             var selectedNews = context.InformationSources.OfType<News>().FirstOrDefault(x => x.Id == model.News.Id);

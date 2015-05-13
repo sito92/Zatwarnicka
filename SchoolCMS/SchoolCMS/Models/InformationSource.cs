@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace SchoolCMS.Models
 {
@@ -24,7 +25,7 @@ namespace SchoolCMS.Models
 
 
         public DateTime Date { get; set; }
-
+        [AllowHtml]
         [Required(ErrorMessage = "Zawartość jest wymagana")]
         [Display(Name = "Zawartość")]
         public string Content { get; set; }
