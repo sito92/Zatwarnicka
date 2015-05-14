@@ -59,11 +59,12 @@ namespace SchoolCMS.Models
             public string ConfirmPassword { get; set; }
 
             [Required]
+            [EmailAddress(ErrorMessage = "Nieprawidłowy format adresu email")]
             [Display(Name = "E-mail")]
             public string Email { get; set; }
 
             [Required]
-            [Display(Name = "Nazwa")]
+            [Display(Name = "Imię")]
             public string Name { get; set; }
 
             [Required]

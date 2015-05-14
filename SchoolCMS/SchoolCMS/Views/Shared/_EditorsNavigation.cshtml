@@ -4,10 +4,12 @@
 {
     <ul id="nav" style="margin-top: 0px; float: left; margin-left: 300px">
         <li>
-            <a href="@Url.Action("List", "News")">Aktualności</a>
+            <a href="@Url.Action("Index", "Home")">Strona Główna</a></li>
+        <li>
+            <a href="@Url.Action("List", "News")">Artykuły</a>
             <ul>
-                <li><a href="@Url.Action("Add", "News")">Stwórz aktualność</a></li>
-                <li><a href="@Url.Action("List", "News")">Wyświetl aktualności</a></li>
+                <li><a href="@Url.Action("Add", "News")">Stwórz artykuł</a></li>
+                <li><a href="@Url.Action("List", "News")">Wyświetl artykuły</a></li>
             </ul>
         </li>
         <li><a href="@Url.Action("List", "Page")">Strony</a>
@@ -20,7 +22,7 @@
             <ul>
                 <li><a href="@Url.Action("Register", "Admin")">Dodaj użytkownika</a></li>
                 <li><a href="@Url.Action("List", "Admin")">Wyświetl użytkowników</a></li>
-</ul>
+            </ul>
         </li>
         <li>
             <a href="@Url.Action("List", "File")">Pliki</a>
@@ -43,10 +45,20 @@
 {
     <ul id="nav" style="margin-top: 0px; float: left; margin-left: 300px">
         <li>
+            <a href="@Url.Action("Index", "Home")">Strona Główna</a>
+        </li>
+        <li>
             <a href="@Url.Action("List", "News")">Artykuły</a>
             <ul>
                 <li><a href="@Url.Action("Add", "News")">Stwórz artykuł</a></li>
-                <li><a href="@Url.Action("List", "News")">Wyświetl moje artykuły</a></li>
+                <li><a href="@Url.Action("List", "News")">Wyświetl artykuły</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="@Url.Action("List", "File")">Pliki</a>
+            <ul>
+                <li><a href="@Url.Action("Add", "File")">Dodaj plik</a></li>
+                <li><a href="@Url.Action("List", "File")">Wyświetl pliki</a></li>
             </ul>
         </li>
     </ul>

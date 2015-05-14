@@ -209,9 +209,9 @@
     <Compile Include="Helpers\InformationSourceFileHelper.cs" />
     <Compile Include="Helpers\NewsContentHelper.cs" />
     <Compile Include="Helpers\NewsPaginationHelper.cs" />
-    <Compile Include="Migrations\201505121914590_fix.cs" />
-    <Compile Include="Migrations\201505121914590_fix.Designer.cs">
-      <DependentUpon>201505121914590_fix.cs</DependentUpon>
+    <Compile Include="Migrations\201505141234155_migrancja.cs" />
+    <Compile Include="Migrations\201505141234155_migrancja.Designer.cs">
+      <DependentUpon>201505141234155_migrancja.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
@@ -239,6 +239,10 @@
     <Compile Include="ViewModels\MenuButtonPage.cs" />
     <Compile Include="ViewModels\NewsEdit.cs" />
     <Compile Include="ViewModels\RichCmsSettings.cs" />
+    <Content Include="App_Data\Localdatabase.mdf" />
+    <Content Include="App_Data\Localdatabase_log.ldf">
+      <DependentUpon>Localdatabase.mdf</DependentUpon>
+    </Content>
     <Content Include="App_Data\Uploads\inserty.txt" />
     <Content Include="Content\DarkSite.css" />
     <Content Include="Content\images\arrow.jpg" />
@@ -419,8 +423,8 @@
     <Folder Include="Filters\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201505121914590_fix.resx">
-      <DependentUpon>201505121914590_fix.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201505141234155_migrancja.resx">
+      <DependentUpon>201505141234155_migrancja.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

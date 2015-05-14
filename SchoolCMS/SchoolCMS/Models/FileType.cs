@@ -10,8 +10,8 @@ namespace SchoolCMS.Models
     {
         public int Id { get; set; }
         
-        [Required(ErrorMessage = "Nazwa jest wymagana")]
-        [Display(Name = "Nazwa")]
+        [Required(ErrorMessage = "Typ pliku jest wymagany")]
+        [Display(Name = "Typ pliku")]
         public string Name { get; set; }
     }
 }

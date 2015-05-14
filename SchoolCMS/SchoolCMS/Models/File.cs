@@ -13,7 +13,7 @@ namespace SchoolCMS.Models
         [Display(Name = "Nazwa")]
         public string Name { get; set; }
         [Required(ErrorMessage = "Nazwa pliku jest wymagana")]
-        [Display(Name = "Nazwa pliku")]
+        [Display(Name = "Wyświetlana nazwa")]
         public string FileName { get; set; }
 
         [Required(ErrorMessage = "Rozszerzenie jest wymagane")]
@@ -21,7 +21,9 @@ namespace SchoolCMS.Models
         public string Extension { get; set; }
 
 
+        [Display(Name = "Rozmiar")]
         public int Size { get; set; }
+        [Display(Name = "Data dodania")]
         public DateTime UploadDateTime { get; set; }
         public int FileTypeId { get; set; }
         public virtual FileType FileType { get; set; }
