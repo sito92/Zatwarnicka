@@ -10,7 +10,7 @@ namespace SchoolCMS.Models.EDiary
     {
         public virtual Class Class { get; set; }
         
-        public int ClassId { get; set; }
+        public int? ClassId { get; set; }
 
         public ICollection<Grade> Grades { get; set; }
         public ICollection<StudentComment> StudentComments { get; set; } 

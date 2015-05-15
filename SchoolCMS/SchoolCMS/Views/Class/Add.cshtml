@@ -1,0 +1,101 @@
+﻿@model SchoolCMS.ViewModels.EDiary.ClassViewModels.ClassViewModel
+
+@{
+    ViewBag.Title = "Add";
+}
+
+<h2>Add</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Class</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Class.Name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Class.Name)
+            @Html.ValidationMessageFor(model => model.Class.Name)
+        </div>
+        Uczniowie:
+
+        <div id="addButton"></div>
+        <div id="students">
+            @if (Model.Class.Students != null && Model.Class.Students.Count > 0)
+            {
+                <br />
+                foreach (var student in Model.Class.Students)
+                {
+                    var divId = "student" + @student.Id;
+                    <div id="student">
+                        <div id="@divId">
+                            @student.Name
+                            @student.Surname
+                            <div id="removeButton" onclick="removeExistingFile(@student.Id)"></div>
+                        </div>
+                    </div>
+                    <br />
+                }
+            }
+        </div>
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    <script type="text/javascript">
+
+        function removeExistingFile(fileId) {
+            var div = $("#student" + fileId);
+
+            div.remove();
+            var filesDiv = $("#students");
+            filesDiv.append("<input type='hidden' name='studentsToRemove' value='" + fileId + "'/>");
+
+        }
+
+        function removeAddedFile(select) {
+            var button = $(".removeButton" + select.id);
+            button.remove();
+            select.remove();
+
+        }
+        function appendRemoveButton(selectId) {
+            var select = $("#" + selectId);
+            select.after("<div id='removeButton' class='removeButton"+selectId+"'  onclick='removeAddedFile("+selectId+")'></div>");
+        }
+        function appendOptions(selectId) {
+            var select = $("#" + selectId);
+            @foreach(var student in Model.AvaiableStudents)
+            {
+            @:select.append("<option value='@student.Id'>@student.Name @student.Surname</option>");
+                        }
+
+        }
+        var counter = 0;
+        $("#addButton").click(function () {
+
+            counter++;
+            var selectId = "studentId" + counter;
+            var filesDiv = $("#students");
+            filesDiv.append("<select id='" + selectId + "' name ='studentsToAdd'>");
+            appendOptions(selectId);
+            appendRemoveButton(selectId);
+        });
+
+
+    </script>
+
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+

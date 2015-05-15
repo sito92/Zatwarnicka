@@ -7,7 +7,6 @@ namespace SchoolCMS.Models.EDiary
 {
     public class Teacher:User
     {
-        public int Id { get; set; }
 
         public virtual ICollection<Lesson> Lessons { get; set; } 
     }
