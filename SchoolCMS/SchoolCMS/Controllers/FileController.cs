@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.Cache;
 using System.Web;
 using System.Web.Mvc;
 using File = SchoolCMS.Models.File;
 
 namespace SchoolCMS.Controllers
 {
-    [Authorize(Roles = "Administrator")]
+    [Authorize(Roles = "Administrator, Copywriter")]
     public class FileController : BaseController
     {
         //
@@ -28,13 +29,14 @@ namespace SchoolCMS.Controllers
         {
             return View();
         }
+
         [Authorize]
         [HttpPost]
         public ActionResult Add(File model,HttpPostedFileBase file)
         {
             if (file==null||file.ContentLength<=0)
             {
-                ModelState.AddModelError(string.Empty,"Pusty plik");
+                ModelState.AddModelError(string.Empty,"Nie wybrano pliku");
                 return View(model);
 
             }
@@ -68,7 +70,8 @@ namespace SchoolCMS.Controllers
 
             return RedirectToAction("List");
         }
-        [Authorize]
+
+        [Authorize(Roles = "Administrator")]
         public ActionResult Delete(int id)
         {
             var file = context.Files.FirstOrDefault(x => x.Id == id);

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Services.Protocols;
 using DotNetOpenAuth.Messaging;
 using SchoolCMS.Helpers;
 using SchoolCMS.Models;
@@ -11,7 +12,7 @@ using WebMatrix.WebData;
 
 namespace SchoolCMS.Controllers
 {
-    [Authorize(Roles = "Administrator")]
+    [Authorize(Roles = "Administrator, Copywriter")]
     public class NewsController : BaseController
     {
         [AllowAnonymous]
@@ -69,6 +70,10 @@ namespace SchoolCMS.Controllers
 
         public ActionResult Edit(int newsId)
         {
+            if (context.InformationSources.OfType<News>().FirstOrDefault(x => x.Id == newsId).AuthorId != WebSecurity.GetUserId(User.Identity.Name))
+            {
+                return RedirectToAction("List", "News");
+            }
 
             var selectedNews = new NewsEdit
             {
@@ -80,6 +85,7 @@ namespace SchoolCMS.Controllers
             PopulateFiles();
             return View(selectedNews);
         }
+
         [HttpPost]
         public ActionResult Edit(NewsEdit model, IEnumerable<int> filesToAdd, IEnumerable<int> filesToRemove)
         {
@@ -108,10 +114,16 @@ namespace SchoolCMS.Controllers
 
             return RedirectToAction("List","News");
         }
-     
+
+        
         public ActionResult Delete(int newsId)
         {
             var selectedNews = context.InformationSources.OfType<News>().FirstOrDefault(x => x.Id == newsId);
+            if (selectedNews.AuthorId != WebSecurity.GetUserId(User.Identity.Name))
+            {
+               return RedirectToAction("List", "News");
+            }
+
             context.InformationSources.Remove(selectedNews);
             context.SaveChanges();
 
