@@ -48,7 +48,7 @@ namespace SchoolCMS.Models
             [Display(Name = "Nazwa użytkownika")]
             public string UserName { get; set; }
 
-        1    [Required]
+            [Required]
             [StringLength(100, ErrorMessage = "Hasło może mieć maksymalną długość {2} ", MinimumLength = 6)]
             [DataType(DataType.Password)]
             [Display(Name = "Hasło")]
@@ -62,7 +62,7 @@ namespace SchoolCMS.Models
             [Required]
             //[EmailAddress(ErrorMessage = "Nieprawidłowy adres email")]
             [EmailAddress(ErrorMessage = "Nieprawidłowy format adresu email")]
-            [Display(WellKnownAttributes.Name = "E-mail")]
+            [Display(Name = "E-mail")]
             public string Email { get; set; }
 
             [Required]
