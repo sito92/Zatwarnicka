@@ -209,9 +209,18 @@
     <Compile Include="Helpers\InformationSourceFileHelper.cs" />
     <Compile Include="Helpers\NewsContentHelper.cs" />
     <Compile Include="Helpers\NewsPaginationHelper.cs" />
+
     <Compile Include="Migrations\201505131107159_fix.cs" />
     <Compile Include="Migrations\201505131107159_fix.Designer.cs">
       <DependentUpon>201505131107159_fix.cs</DependentUpon>
+</Compile>
+    <Compile Include="Migrations\201505151314390_fix.cs" />
+    <Compile Include="Migrations\201505151314390_fix.Designer.cs">
+      <DependentUpon>201505151314390_fix.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201505151334434_fixxx.cs" />
+    <Compile Include="Migrations\201505151334434_fixxx.Designer.cs">
+      <DependentUpon>201505151334434_fixxx.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
@@ -221,6 +230,19 @@
     <Compile Include="Models\CmsContext.cs" />
     <Compile Include="Models\CmsSettings.cs" />
     <Compile Include="Models\CopyWriter.cs" />
+    <Compile Include="Models\EDiary\Class.cs" />
+    <Compile Include="Models\EDiary\ClassSchedule.cs" />
+    <Compile Include="Models\EDiary\CommentBase.cs" />
+    <Compile Include="Models\EDiary\Grade.cs" />
+    <Compile Include="Models\EDiary\GradeComment.cs" />
+    <Compile Include="Models\EDiary\GradeValues.cs" />
+    <Compile Include="Models\EDiary\Lesson.cs" />
+    <Compile Include="Models\EDiary\Schedule.cs" />
+    <Compile Include="Models\EDiary\Student.cs" />
+    <Compile Include="Models\EDiary\StudentComment.cs" />
+    <Compile Include="Models\EDiary\Subject.cs" />
+    <Compile Include="Models\EDiary\Teacher.cs" />
+    <Compile Include="Models\EDiary\TeacherSchedule.cs" />
     <Compile Include="Models\File.cs" />
     <Compile Include="Models\FileExtension.cs" />
     <Compile Include="Models\FileType.cs" />
@@ -239,6 +261,7 @@
     <Compile Include="ViewModels\MenuButtonPage.cs" />
     <Compile Include="ViewModels\NewsEdit.cs" />
     <Compile Include="ViewModels\RichCmsSettings.cs" />
+    <Content Include="App_Data\Uploads\inserty.txt" />
     <Content Include="Content\DarkSite.css" />
     <Content Include="Content\images\arrow.jpg" />
     <Content Include="Content\PagedList.css" />
@@ -415,12 +438,19 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\Uploads\" />
     <Folder Include="Filters\" />
   </ItemGroup>
   <ItemGroup>
+
     <EmbeddedResource Include="Migrations\201505131107159_fix.resx">
       <DependentUpon>201505131107159_fix.cs</DependentUpon>
+</EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201505151314390_fix.resx">
+      <DependentUpon>201505151314390_fix.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201505151334434_fixxx.resx">
+      <DependentUpon>201505151334434_fixxx.cs</DependentUpon>
+
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

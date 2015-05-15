@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Globalization;
 using System.Web.Security;
+using DotNetOpenAuth.OpenId.Extensions.AttributeExchange;
 
 namespace SchoolCMS.Models
 {
@@ -59,12 +60,13 @@ namespace SchoolCMS.Models
             public string ConfirmPassword { get; set; }
 
             [Required]
-            [EmailAddress(ErrorMessage = "Nieprawidłowy adres email")]
-            [Display(Name = "E-mail")]
+            //[EmailAddress(ErrorMessage = "Nieprawidłowy adres email")]
+            [EmailAddress(ErrorMessage = "Nieprawidłowy format adresu email")]
+            [Display(WellKnownAttributes.Name = "E-mail")]
             public string Email { get; set; }
 
             [Required]
-            [Display(Name = "Nazwa")]
+            [Display(Name = "Imię")]
             public string Name { get; set; }
 
             [Required]

@@ -1,0 +1,4 @@
+﻿insert into authors(name,surname) values ('Koń','przykladowy');
+insert into authors(name,surname) values ('Kamil','Kowalski');
+insert into authors(name,surname) values ('Harry','Potter');
+insert into authors(name,surname) values ('Geralt','z Rivii');

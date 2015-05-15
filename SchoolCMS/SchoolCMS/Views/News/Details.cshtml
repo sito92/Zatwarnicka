@@ -1,15 +1,18 @@
 ﻿@model SchoolCMS.Models.News
 
 @{
-    ViewBag.Title = "Szczegóły aktualności";
+    ViewBag.Title = "Pełny tekst aktualności";
 }
 
-<h2>Szczegóły</h2>
+<h2>@Model.Title</h2>
+<div id="newsAuthor">@Model.Author.Name @Model.Author.Surname</div>
+<div id="newsAuthor">@Model.Date</div>
+<p></p>
 
 <fieldset>
     <legend>Aktualność</legend>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Content)
+        @Html.Raw(Model.Content)
     </div>
 </fieldset>
 

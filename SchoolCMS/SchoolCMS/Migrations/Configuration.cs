@@ -92,33 +92,33 @@ namespace SchoolCMS.Migrations
                 new Models.Page()
                 {
                     AuthorId = 1,
-                    Content = @"Zespó³ Szkó³ Ogólnokszta³c¹cych Nr I w Opolu
+                    Content = @"Zespó³ Szkó³ Ogólnokszta³c¹cych Nr I w Opolu<br/><br/>
 
-Publiczne Liceum Ogólnokszta³c¹ce Nr I im. Miko³aja Kopernika
-Publiczne Gimnazjum nr 6 im. Powstañców Œl¹skich w Opolu
-Centrum Nauk Przyrodniczych przy PG nr 6 w Opolu
+Publiczne Liceum Ogólnokszta³c¹ce Nr I im. Miko³aja Kopernika<br/>
+Publiczne Gimnazjum nr 6 im. Powstañców Œl¹skich w Opolu<br/>
+Centrum Nauk Przyrodniczych przy PG nr 6 w Opolu<br/>
 sekretariat@ilo.opole.pl <br/>
-tel. +48 77 474-29-44
-ul. Licealna 3
-45-714 Opole
-  
-
-REGON: 161543431
-NIP: 754-307-52-01
-KONTO RADY RODZICÓW: 9011602220000000086991306
-RACHUNEK WYDZIELONY (OP£ATA ZA DUPLIKAT ŒWIADECTWA, LEGITYMACJI SZKOLNEJ): 10116022020000000244607658
- 
-TEL: 77 474 29 44
-wewnêtrzny:
-821 - sekretariat lub (0-77) 402-43-62
-823 - wicedyrektor
-824 - pokój nauczycielski
-825 - pedagog/psycholog
-827 - ksiêgowoœæ lub (0-77) 402-43-61
-826 - kierownik administracyjny
-827 - fax lub (0-77) 402-43-63
-831 - biblioteka
-832 - wf
+tel. +48 77 474-29-44<br/>
+ul. Licealna 3<br/>
+45-714 Opole<br/>
+  <br/>
+<br/>
+REGON: 161543431<br/>
+NIP: 754-307-52-01<br/>
+KONTO RADY RODZICÓW: 9011602220000000086991306<br/>
+RACHUNEK WYDZIELONY (OP£ATA ZA DUPLIKAT ŒWIADECTWA, LEGITYMACJI SZKOLNEJ): 10116022020000000244607658<br/>
+ <br/>
+TEL: 77 474 29 44<br/>
+wewnêtrzny:<br/>
+821 - sekretariat lub (0-77) 402-43-62<br/>
+823 - wicedyrektor<br/>
+824 - pokój nauczycielski<br/>
+825 - pedagog/psycholog<br/>
+827 - ksiêgowoœæ lub (0-77) 402-43-61<br/>
+826 - kierownik administracyjny<br/>
+827 - fax lub (0-77) 402-43-63<br/>
+831 - biblioteka<br/>
+832 - wf<br/>
 833 - pedagog/ szkolny doradca zawodowy",
                     Date = DateTime.Now,
                     Title = "Kontakt"
@@ -143,39 +143,12 @@ wewnêtrzny:
                 {
                   
                     UploadDateTime = DateTime.Now,
-                    Extension = ".jpeg",
-                    FileName = "obraz",
+                    Extension = ".txt",
+                    FileName = "inserty",
                     FileTypeId = 1,
-                    Name = "Plik_graficzny",
+                    Name = "Przyk³adowy plik tekstowy",
                     Size = 512
                 },
-                new File()
-                {
-                    UploadDateTime = DateTime.Now,
-                    Extension = ".exe",
-                    FileName = "plik",
-                    FileTypeId = 1,
-                    Name = "Plik_wykonywalny",
-                    Size = 512
-                },
-                new File()
-                {
-                    UploadDateTime = DateTime.Now,
-                    Extension = ".exe",
-                    FileName = "plik",
-                    FileTypeId = 1,
-                    Name = "Plik_wykonywalny2",
-                    Size = 512
-                },
-                new File()
-                {
-                    UploadDateTime = DateTime.Now,
-                    Extension = ".exe",
-                    FileName = "plik",
-                    FileTypeId = 1,
-                    Name = "Plik_wykonywalny3",
-                    Size = 512
-                }
             };
 
             files.ForEach(x => context.Files.AddOrUpdate(x));

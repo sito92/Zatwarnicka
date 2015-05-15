@@ -28,6 +28,7 @@ namespace SchoolCMS.Models
         public int HouseNumber { get; set; }
 
         [Required(ErrorMessage = "Kod pocztowy jest wymagany")]
+        [RegularExpression(@"^[0-9]{2}-?[0-9]{3}$", ErrorMessage = "Nieprawidłowy kod pocztowy")]
         [Display(Name = "Kod pocztowy")]
         [DataType(DataType.PostalCode)]
         public string PostCode { get; set; }

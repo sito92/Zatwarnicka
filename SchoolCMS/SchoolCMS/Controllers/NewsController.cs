@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Services.Protocols;
 using DotNetOpenAuth.Messaging;
 using SchoolCMS.Helpers;
 using SchoolCMS.Models;
@@ -11,7 +12,7 @@ using WebMatrix.WebData;
 
 namespace SchoolCMS.Controllers
 {
-    [Authorize(Roles = "Administrator")]
+    [Authorize(Roles = "Administrator, Copywriter")]
     public class NewsController : BaseController
     {
         [AllowAnonymous]
@@ -48,6 +49,7 @@ namespace SchoolCMS.Controllers
             {
                 ModelState.AddModelError(string.Empty,"News musi mieć chociaż jeden tag");
                 model.Tags = new SelectList(context.Tags, "Id", "Name");
+                PopulateFiles();
             }
             if (ModelState.IsValid)
             {
@@ -68,6 +70,10 @@ namespace SchoolCMS.Controllers
 
         public ActionResult Edit(int newsId)
         {
+            if (context.InformationSources.OfType<News>().FirstOrDefault(x => x.Id == newsId).AuthorId != WebSecurity.GetUserId(User.Identity.Name))
+            {
+                return RedirectToAction("List", "News");
+            }
 
             var selectedNews = new NewsEdit
             {
@@ -83,8 +89,15 @@ namespace SchoolCMS.Controllers
         [HttpPost]
         public ActionResult Edit(NewsEdit model, IEnumerable<int> filesToAdd, IEnumerable<int> filesToRemove)
         {
+
+            if (model.SelectedTags == null || !model.SelectedTags.Any())
+            {
+                ModelState.AddModelError(string.Empty, "News musi mieć chociaż jeden tag");
+                model.Tags = new SelectList(context.Tags, "Id", "Name");
+            }
             if (!ModelState.IsValid)
             {
+                PopulateFiles();
                 return View(model);
             }
             var selectedNews = context.InformationSources.OfType<News>().FirstOrDefault(x => x.Id == model.News.Id);
@@ -93,7 +106,7 @@ namespace SchoolCMS.Controllers
                 return HttpNotFound();
             }
             var tags = context.Tags.Where(x => model.SelectedTags.Contains(x.Id));
-            selectedNews.ManageFiles(filesToRemove, filesToAdd, context);
+           
             selectedNews.Tags.AddRange(tags);
             selectedNews.Content = model.News.Content;
             selectedNews.Title = model.News.Title;
@@ -101,10 +114,16 @@ namespace SchoolCMS.Controllers
 
             return RedirectToAction("List","News");
         }
-     
+
+        
         public ActionResult Delete(int newsId)
         {
             var selectedNews = context.InformationSources.OfType<News>().FirstOrDefault(x => x.Id == newsId);
+            if (selectedNews.AuthorId != WebSecurity.GetUserId(User.Identity.Name))
+            {
+               return RedirectToAction("List", "News");
+            }
+
             context.InformationSources.Remove(selectedNews);
             context.SaveChanges();
 

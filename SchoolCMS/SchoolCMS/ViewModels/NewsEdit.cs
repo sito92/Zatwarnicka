@@ -12,7 +12,7 @@ namespace SchoolCMS.ViewModels
     {
 
         public News News { get; set; }
-
+        [Required(ErrorMessage = "Musisz wybrać przynjmniej jeden tag")]
         [Display(Name = "Wybrane tagi")]
         public List<int> SelectedTags { get; set; }
 

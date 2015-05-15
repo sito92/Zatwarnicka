@@ -8,11 +8,6 @@ namespace SchoolCMS.Models
 {
     public class User
     {
-
-        public User()
-        {
-            Users = new List<User>();
-        }
       
         public int Id { get; set; }
 
@@ -26,14 +21,14 @@ namespace SchoolCMS.Models
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 
-        [Required(ErrorMessage = "Nazwa jest wymagana")]
-        [Display(Name = "Nazwa")]
+        [Required(ErrorMessage = "Imię jest wymagana")]
+        [Display(Name = "Imię")]
         public string Name { get; set; }
 
         [Required(ErrorMessage = "Nazwisko jest wymagane")]
         [Display(Name = "Nazwisko")]
         public string Surname { get; set; }
 
-        public virtual ICollection<User> Users { get; set; }
+       
     }
 }

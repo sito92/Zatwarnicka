@@ -12,16 +12,17 @@ namespace SchoolCMS.Models
         [Required(ErrorMessage = "Nazwa jest wymagana")]
         [Display(Name = "Nazwa")]
         public string Name { get; set; }
-        [Required(ErrorMessage = "Nazwa pliku jest wymagana")]
-        [Display(Name = "Nazwa pliku")]
+
+
         public string FileName { get; set; }
 
-        [Required(ErrorMessage = "Rozszerzenie jest wymagane")]
-        [Display(Name = "Rozszerzenie")]
+
         public string Extension { get; set; }
 
 
+        [Display(Name = "Rozmiar")]
         public int Size { get; set; }
+        [Display(Name = "Data dodania")]
         public DateTime UploadDateTime { get; set; }
         public int FileTypeId { get; set; }
         public virtual FileType FileType { get; set; }

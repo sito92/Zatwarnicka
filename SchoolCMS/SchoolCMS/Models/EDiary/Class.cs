@@ -9,11 +9,11 @@ namespace SchoolCMS.Models.EDiary
     {
         public int Id { get; set; }
 
-        public virtual ClassSchedule ClassSchedule { get; set; }
-
-        public int ClassScheduleId { get; set; }
+        public string Name { get; set; }
 
         public virtual ICollection<Lesson> Lessons { get; set; }
-        public virtual ICollection<Student> Students { get; set; }
+
+        public virtual ICollection<Student> Students { get; set; } 
+
     }
 }

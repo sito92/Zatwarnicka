@@ -606,6 +606,7 @@ mark {
 }
 
 .float-right {
+    width: 300px;
     float: right;
 }
 
@@ -666,7 +667,7 @@ h5, h6 {
     .main-content {
         background: url("../Images/accent.png") no-repeat;
         padding-left: 10px;
-        padding-top: 30px;
+        padding-top: 60px;
     }
 
     .featured + .main-content {
@@ -705,9 +706,11 @@ footer {
 /* login
 ----------------------------------------------------------*/
 #login {
+    float: right;
     display: block;
     font-size: .85em;
     margin: 0 0 10px;
+    width: 400px;
     text-align: right;
 }
 

@@ -15,7 +15,7 @@ namespace SchoolCMS.Models.EDiary
         public int GradeValueId { get; set; }
         public int? GradeCommentId { get; set; }
         public virtual GradeComment GradeComment { get; set; }
-        public int StudentId { get; set; }
-        public virtual Student Student { get; set; }
+
+
     }
 }
