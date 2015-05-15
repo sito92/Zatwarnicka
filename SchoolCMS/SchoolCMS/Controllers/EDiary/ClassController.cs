@@ -97,6 +97,7 @@ namespace SchoolCMS.Controllers.EDiary
             }
             context.Classes.Remove(myClass);
             context.SaveChanges();
+            return RedirectToAction("List");
         }
 
     }

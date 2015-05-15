@@ -196,13 +196,10 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CmsSettingsController.cs" />
     <Compile Include="Controllers\CopyWriterController.cs" />
-
     <Compile Include="Controllers\EDiary\ClassController.cs" />
-
     <Compile Include="Controllers\Ediary\LessonController.cs" />
     <Compile Include="Controllers\Ediary\StudentController.cs" />
     <Compile Include="Controllers\Ediary\TeacherController.cs" />
-
     <Compile Include="Controllers\FileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InformationSourceController.cs" />
@@ -217,17 +214,9 @@
     <Compile Include="Helpers\InformationSourceFileHelper.cs" />
     <Compile Include="Helpers\NewsContentHelper.cs" />
     <Compile Include="Helpers\NewsPaginationHelper.cs" />
-    <Compile Include="Migrations\201505151954570_ediary.cs" />
-    <Compile Include="Migrations\201505151954570_ediary.Designer.cs">
-      <DependentUpon>201505151954570_ediary.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201505151718067_nullableclass.cs" />
-    <Compile Include="Migrations\201505151718067_nullableclass.Designer.cs">
-      <DependentUpon>201505151718067_nullableclass.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201505151837495_deletedIds.cs" />
-    <Compile Include="Migrations\201505151837495_deletedIds.Designer.cs">
-      <DependentUpon>201505151837495_deletedIds.cs</DependentUpon>
+    <Compile Include="Migrations\201505152014024_ediary.cs" />
+    <Compile Include="Migrations\201505152014024_ediary.Designer.cs">
+      <DependentUpon>201505152014024_ediary.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
@@ -443,11 +432,9 @@
     <Content Include="Views\Address\List.cshtml" />
     <Content Include="Views\Address\Edit.cshtml" />
     <Content Include="Views\Admin\List.cshtml" />
-
     <Content Include="Views\Class\Edit.cshtml" />
     <Content Include="Views\Class\List.cshtml" />
     <Content Include="Views\Class\Add.cshtml" />
-
     <Content Include="Views\Lesson\Index.cshtml" />
     <Content Include="Views\Lesson\Details.cshtml" />
     <Content Include="Views\Lesson\Create.cshtml" />
@@ -457,7 +444,6 @@
     <Content Include="Views\Teacher\Create.cshtml" />
     <Content Include="Views\Teacher\Edit.cshtml" />
     <Content Include="Views\Teacher\Delete.cshtml" />
-
     <Content Include="Views\Student\Create.cshtml" />
     <Content Include="Views\Student\Delete.cshtml" />
     <Content Include="Views\Teacher\Details.cshtml" />
@@ -471,14 +457,8 @@
     <Folder Include="Filters\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201505151954570_ediary.resx">
-      <DependentUpon>201505151954570_ediary.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201505151718067_nullableclass.resx">
-      <DependentUpon>201505151718067_nullableclass.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201505151837495_deletedIds.resx">
-      <DependentUpon>201505151837495_deletedIds.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201505152014024_ediary.resx">
+      <DependentUpon>201505152014024_ediary.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
