@@ -8,7 +8,6 @@ namespace SchoolCMS.Models.EDiary
 {
     public class Student :User
     {
-        public int Id { get; set; }
         public virtual Class Class { get; set; }
         
         public int ClassId { get; set; }
