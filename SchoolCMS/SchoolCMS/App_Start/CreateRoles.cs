@@ -74,6 +74,11 @@ namespace SchoolCMS
                 }
 
             });
+
+            if (!Roles.RoleExists("Student"))
+            {
+                Roles.CreateRole("Student");
+            }
         }
     }
 }
