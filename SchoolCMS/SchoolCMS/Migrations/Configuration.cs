@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using SchoolCMS.Models;
+using SchoolCMS.Models.EDiary;
 using WebMatrix.WebData;
 
 namespace SchoolCMS.Migrations
@@ -235,8 +236,42 @@ wewnêtrzny:<br/>
             {
                 new Models.CmsSettings() {LayoutId = 1, SchoolName = "I LO w Opolu", NewsAmountPerSite=2,AdressId=1}
             };
-
             settingses.ForEach(x => context.CmsSettings.AddOrUpdate(x));
+            context.SaveChanges();
+
+            List<Models.EDiary.Class> classes = new List<Class>()
+            {
+                new Class(){Name = "1A"},
+                new Class(){Name = "1B"},
+                new Class(){Name = "1C"}
+            };
+            classes.ForEach(x => context.Classes.AddOrUpdate(x));
+            context.SaveChanges();
+
+            List<Subject> subjects = new List<Subject>()
+            {
+                new Subject(){Name = "Jêzyk polski"},
+                new Subject(){Name = "Matematyka"},
+                new Subject(){Name = "WF"},
+                new Subject(){Name = "Chemia"},
+                new Subject(){Name = "Fizyka"},
+                new Subject(){Name = "Biologia"},
+                new Subject(){Name = "Jêzyk angielski"},
+                new Subject(){Name = "Historia"}
+            };
+            subjects.ForEach(x => context.Subjects.AddOrUpdate(x));
+            context.SaveChanges();
+
+            List<GradeValues> gradeValues = new List<GradeValues>()
+            {
+                new GradeValues(){Grade = 1},
+                new GradeValues(){Grade = 2},
+                new GradeValues(){Grade = 3},
+                new GradeValues(){Grade = 4},
+                new GradeValues(){Grade = 5},
+                new GradeValues(){Grade = 6},
+            };
+            gradeValues.ForEach(x => context.GradeValues.AddOrUpdate(x));
             context.SaveChanges();
         }
     }
