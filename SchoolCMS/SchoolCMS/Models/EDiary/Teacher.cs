@@ -5,12 +5,10 @@ using System.Web;
 
 namespace SchoolCMS.Models.EDiary
 {
-    public class Teacher : User
+    public class Teacher:User
     {
-        public virtual ICollection<Lesson> Lessons { get; set; }
+        public int Id { get; set; }
 
-        public virtual TeacherSchedule TeacherSchedule { get; set; }
-
-        public int TeacherScheduleId { get; set; }
+        public virtual ICollection<Lesson> Lessons { get; set; } 
     }
 }

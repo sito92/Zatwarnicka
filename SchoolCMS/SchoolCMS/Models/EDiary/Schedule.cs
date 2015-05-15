@@ -5,7 +5,8 @@ using System.Web;
 
 namespace SchoolCMS.Models.EDiary
 {
-    public class Schedule : File
+    public class Schedule
     {
+        public int Id { get; set; }
     }
 }

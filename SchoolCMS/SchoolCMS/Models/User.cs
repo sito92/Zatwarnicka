@@ -8,11 +8,6 @@ namespace SchoolCMS.Models
 {
     public class User
     {
-
-        public User()
-        {
-            Users = new List<User>();
-        }
       
         public int Id { get; set; }
 
@@ -34,6 +29,6 @@ namespace SchoolCMS.Models
         [Display(Name = "Nazwisko")]
         public string Surname { get; set; }
 
-        public virtual ICollection<User> Users { get; set; }
+       
     }
 }

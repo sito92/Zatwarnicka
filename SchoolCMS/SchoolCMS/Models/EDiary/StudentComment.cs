@@ -7,8 +7,7 @@ namespace SchoolCMS.Models.EDiary
 {
     public class StudentComment : CommentBase
     {
-        public virtual Student Student { get; set; }
-
-        public int StudentId { get; set; }
+        
+    
     }
 }

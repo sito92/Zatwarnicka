@@ -9,6 +9,8 @@ namespace SchoolCMS.Models.EDiary
     {
         public int Id { get; set; }
 
-        public virtual ICollection<Class> Classes { get; set; }
+        public string Name { get; set; }
+
+        public virtual ICollection<Lesson> Lessons { get; set; } 
     }
 }

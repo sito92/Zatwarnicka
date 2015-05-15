@@ -9,8 +9,7 @@ namespace SchoolCMS.Models.EDiary
     {
         public int Id { get; set; }
         public string Comment { get; set; }
-        public int TeacherId { get; set; }
         public virtual Teacher Teacher { get; set; }
-
+        public int TeacherId { get; set; }
     }
 }
