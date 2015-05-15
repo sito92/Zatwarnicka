@@ -55,7 +55,7 @@ namespace SchoolCMS.Controllers
                 dbButton.InformationSourceId = button.InformationSourceId;
                 context.SaveChanges();
             }
-            return RedirectToAction("Branch",dbButton.Id);
+            return RedirectToAction("List");
 
         }
 
