@@ -197,6 +197,7 @@
     <Compile Include="Controllers\CmsSettingsController.cs" />
     <Compile Include="Controllers\CopyWriterController.cs" />
     <Compile Include="Controllers\Ediary\LessonController.cs" />
+    <Compile Include="Controllers\Ediary\StudentController.cs" />
     <Compile Include="Controllers\Ediary\TeacherController.cs" />
     <Compile Include="Controllers\FileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -211,9 +212,9 @@
     <Compile Include="Helpers\InformationSourceFileHelper.cs" />
     <Compile Include="Helpers\NewsContentHelper.cs" />
     <Compile Include="Helpers\NewsPaginationHelper.cs" />
-    <Compile Include="Migrations\201505151655127_ediary.cs" />
-    <Compile Include="Migrations\201505151655127_ediary.Designer.cs">
-      <DependentUpon>201505151655127_ediary.cs</DependentUpon>
+    <Compile Include="Migrations\201505151954570_ediary.cs" />
+    <Compile Include="Migrations\201505151954570_ediary.Designer.cs">
+      <DependentUpon>201505151954570_ediary.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
@@ -233,6 +234,7 @@
     <Compile Include="Models\EDiary\Schedule.cs" />
     <Compile Include="Models\EDiary\Student.cs" />
     <Compile Include="Models\EDiary\StudentComment.cs" />
+    <Compile Include="Models\EDiary\StudentModels.cs" />
     <Compile Include="Models\EDiary\Subject.cs" />
     <Compile Include="Models\EDiary\Teacher.cs" />
     <Compile Include="Models\EDiary\TeacherSchedule.cs" />
@@ -432,10 +434,14 @@
     <Content Include="Views\Lesson\Edit.cshtml" />
     <Content Include="Views\Lesson\Delete.cshtml" />
     <Content Include="Views\Teacher\Index.cshtml" />
-    <Content Include="Views\Teacher\Details.cshtml" />
     <Content Include="Views\Teacher\Create.cshtml" />
     <Content Include="Views\Teacher\Edit.cshtml" />
     <Content Include="Views\Teacher\Delete.cshtml" />
+    <Content Include="Views\Student\Create.cshtml" />
+    <Content Include="Views\Student\Delete.cshtml" />
+    <Content Include="Views\Teacher\Details.cshtml" />
+    <Content Include="Views\Student\Details.cshtml" />
+    <Content Include="Views\Student\List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -444,8 +450,8 @@
     <Folder Include="Filters\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201505151655127_ediary.resx">
-      <DependentUpon>201505151655127_ediary.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201505151954570_ediary.resx">
+      <DependentUpon>201505151954570_ediary.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
