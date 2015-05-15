@@ -196,6 +196,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CmsSettingsController.cs" />
     <Compile Include="Controllers\CopyWriterController.cs" />
+    <Compile Include="Controllers\EDiary\ClassController.cs" />
     <Compile Include="Controllers\FileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InformationSourceController.cs" />
@@ -206,6 +207,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\ButtonHelper.cs" />
+    <Compile Include="Helpers\ClassStudentsHelper.cs" />
     <Compile Include="Helpers\InformationSourceFileHelper.cs" />
     <Compile Include="Helpers\NewsContentHelper.cs" />
     <Compile Include="Helpers\NewsPaginationHelper.cs" />
@@ -216,6 +218,14 @@
     <Compile Include="Migrations\201505151334434_fixxx.cs" />
     <Compile Include="Migrations\201505151334434_fixxx.Designer.cs">
       <DependentUpon>201505151334434_fixxx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201505151718067_nullableclass.cs" />
+    <Compile Include="Migrations\201505151718067_nullableclass.Designer.cs">
+      <DependentUpon>201505151718067_nullableclass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201505151837495_deletedIds.cs" />
+    <Compile Include="Migrations\201505151837495_deletedIds.Designer.cs">
+      <DependentUpon>201505151837495_deletedIds.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
@@ -252,6 +262,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\Button.cs" />
     <Compile Include="ViewModels\CmsViewModel.cs" />
+    <Compile Include="ViewModels\EDiary\ClassViewModels\ClassListViewModel.cs" />
+    <Compile Include="ViewModels\EDiary\ClassViewModels\ClassViewModel.cs" />
     <Compile Include="ViewModels\MainPage.cs" />
     <Compile Include="ViewModels\MenuButtonPage.cs" />
     <Compile Include="ViewModels\NewsEdit.cs" />
@@ -428,6 +440,9 @@
     <Content Include="Views\Address\List.cshtml" />
     <Content Include="Views\Address\Edit.cshtml" />
     <Content Include="Views\Admin\List.cshtml" />
+    <Content Include="Views\Class\Edit.cshtml" />
+    <Content Include="Views\Class\List.cshtml" />
+    <Content Include="Views\Class\Add.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -441,6 +456,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201505151334434_fixxx.resx">
       <DependentUpon>201505151334434_fixxx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201505151718067_nullableclass.resx">
+      <DependentUpon>201505151718067_nullableclass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201505151837495_deletedIds.resx">
+      <DependentUpon>201505151837495_deletedIds.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
