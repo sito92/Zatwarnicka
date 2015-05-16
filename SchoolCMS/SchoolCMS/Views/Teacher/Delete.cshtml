@@ -4,9 +4,9 @@
     ViewBag.Title = "Delete";
 }
 
-<h2>Delete</h2>
+<h2>Usuń</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>Jesteś pewien, że chcesz usunąć nauczyciela?</h3>
 <fieldset>
     <legend>Teacher</legend>
 
@@ -41,7 +41,7 @@
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
     <p>
-        <input type="submit" value="Delete" /> |
-        @Html.ActionLink("Back to List", "Index")
+        <input type="submit" value="Usuń" /> |
+        @Html.ActionLink("Lista nauczycieli", "Index")
     </p>
 }

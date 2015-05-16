@@ -79,6 +79,11 @@ namespace SchoolCMS
             {
                 Roles.CreateRole("Student");
             }
+
+            if (!Roles.RoleExists("Teacher"))
+            {
+                Roles.CreateRole("Teacher");
+            }
         }
     }
 }

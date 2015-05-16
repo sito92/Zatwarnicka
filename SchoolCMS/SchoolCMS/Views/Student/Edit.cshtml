@@ -1,4 +1,4 @@
-﻿@model SchoolCMS.Models.EDiary.Teacher
+﻿@model SchoolCMS.Models.EDiary.Student
 
 @{
     ViewBag.Title = "Edit";
@@ -6,12 +6,13 @@
 
 <h2>Edytuj dane</h2>
 
-@using (Html.BeginForm()) {
+@using (Html.BeginForm())
+{
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
     <fieldset>
-        <legend>Teacher</legend>
+        <legend>Student</legend>
 
         @Html.HiddenFor(model => model.Id)
 
@@ -23,6 +24,15 @@
             @Html.ValidationMessageFor(model => model.Username)
         </div>
 
+        <div>
+            @Html.LabelFor(m => m.New)
+            @Html.PasswordFor(m => m.Password)
+        </div>
+        <div>
+            @Html.LabelFor(m => m.ConfirmPassword)
+            @Html.PasswordFor(m => m.ConfirmPassword)
+        </div>
+
         <div class="editor-label">
             @Html.LabelFor(model => model.Email)
         </div>
@@ -30,6 +40,14 @@
             @Html.EditorFor(model => model.Email)
             @Html.ValidationMessageFor(model => model.Email)
         </div>
+
+        @*<div class="editor-label">
+            @Html.LabelFor(model => ViewBag.ClassId, "Class")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("ClassId", String.Empty)
+            @Html.ValidationMessageFor(model => model.ClassId)
+        </div>*@
 
         <div class="editor-label">
             @Html.LabelFor(model => model.Name)
@@ -47,16 +65,16 @@
             @Html.ValidationMessageFor(model => model.Surname)
         </div>
 
+        <div>
+            @Html.ActionLink("Lista uczniów", "List")
+        </div>
+
         <p>
-            <input type="submit" value="Zapisz" />
+            <input type="submit" value="Zapisz"/>
         </p>
     </fieldset>
 }
 
-<div>
-    @Html.ActionLink("Lista nauczycieli", "Index")
-</div>
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+    @section Scripts {
+     @Scripts.Render("~/bundles/jqueryval")
+  }

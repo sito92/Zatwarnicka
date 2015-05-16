@@ -4,7 +4,7 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<h2>Dodaj ucznia</h2>
 
 @using (Html.BeginForm())
 {
@@ -64,13 +64,13 @@
         </div>
 
         <p>
-            <input type="submit" value="Create" />
+            <input type="submit" value="Stwórz" />
         </p>
     </fieldset>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Lista uczniów", "List")
 </div>
 
 @section Scripts {
