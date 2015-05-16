@@ -192,10 +192,9 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AddressController.cs" />
-    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\CopyWriterController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CmsSettingsController.cs" />
-    <Compile Include="Controllers\CopyWriterController.cs" />
     <Compile Include="Controllers\EDiary\ClassController.cs" />
     <Compile Include="Controllers\Ediary\LessonController.cs" />
     <Compile Include="Controllers\Ediary\StudentController.cs" />
@@ -214,15 +213,19 @@
     <Compile Include="Helpers\InformationSourceFileHelper.cs" />
     <Compile Include="Helpers\NewsContentHelper.cs" />
     <Compile Include="Helpers\NewsPaginationHelper.cs" />
-    <Compile Include="Migrations\201505152014024_ediary.cs" />
-    <Compile Include="Migrations\201505152014024_ediary.Designer.cs">
-      <DependentUpon>201505152014024_ediary.cs</DependentUpon>
+    <Compile Include="Migrations\201505162030039_migajaga.cs" />
+    <Compile Include="Migrations\201505162030039_migajaga.Designer.cs">
+      <DependentUpon>201505162030039_migajaga.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201505162036228_migajaga2.cs" />
+    <Compile Include="Migrations\201505162036228_migajaga2.Designer.cs">
+      <DependentUpon>201505162036228_migajaga2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\Admin.cs" />
-    <Compile Include="Models\AdminModels.cs" />
+    <Compile Include="Models\CopyWriterModels.cs" />
     <Compile Include="Models\CmsContext.cs" />
     <Compile Include="Models\CmsSettings.cs" />
     <Compile Include="Models\CopyWriter.cs" />
@@ -424,14 +427,14 @@
     <Content Include="Views\News\List.cshtml" />
     <Content Include="Views\News\Add.cshtml" />
     <Content Include="Views\CmsSettings\Edit.cshtml" />
-    <Content Include="Views\Admin\ChangePassword.cshtml" />
-    <Content Include="Views\Admin\ChangePersonalData.cshtml" />
-    <Content Include="Views\Admin\Register.cshtml" />
+    <Content Include="Views\CopyWriter\ChangePassword.cshtml" />
+    <Content Include="Views\CopyWriter\ChangePersonalData.cshtml" />
+    <Content Include="Views\CopyWriter\Register.cshtml" />
     <Content Include="Views\Shared\_EditorsNavigation.cshtml" />
     <Content Include="Views\Address\Add.cshtml" />
     <Content Include="Views\Address\List.cshtml" />
     <Content Include="Views\Address\Edit.cshtml" />
-    <Content Include="Views\Admin\List.cshtml" />
+    <Content Include="Views\CopyWriter\List.cshtml" />
     <Content Include="Views\Class\Edit.cshtml" />
     <Content Include="Views\Class\List.cshtml" />
     <Content Include="Views\Class\Add.cshtml" />
@@ -457,8 +460,11 @@
     <Folder Include="Filters\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201505152014024_ediary.resx">
-      <DependentUpon>201505152014024_ediary.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201505162030039_migajaga.resx">
+      <DependentUpon>201505162030039_migajaga.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201505162036228_migajaga2.resx">
+      <DependentUpon>201505162036228_migajaga2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
