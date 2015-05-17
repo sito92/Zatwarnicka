@@ -1,0 +1,26 @@
+﻿@model SchoolCMS.Models.Tag
+
+@{
+    ViewBag.Title = "Usuń tag";
+}
+
+<h2>Usuń tag</h2>
+
+<h3>Czy jest pewny, że chcesz usunąc ten tag?</h3>
+<fieldset>
+    <legend>Tag</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Usuń" /> |
+        @Html.ActionLink("Powrót do listy", "List")
+    </p>
+}
