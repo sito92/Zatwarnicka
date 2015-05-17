@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using System.Web.Services.Protocols;
 using DotNetOpenAuth.Messaging;
 using SchoolCMS.Helpers;
@@ -25,8 +26,20 @@ namespace SchoolCMS.Controllers
         [Authorize]
         public ActionResult List()
         {
-            var news = context.InformationSources.OfType<News>();
-            return View(news);
+            IQueryable<News> newses;
+            if (Roles.IsUserInRole("Administrator"))
+            {
+                 newses = context.InformationSources.OfType<News>();
+            }
+            else
+            {
+                var userId = WebSecurity.GetUserId(User.Identity.Name);
+                newses = context.InformationSources.OfType<News>().Where(x => x.AuthorId == userId);
+                
+            }
+            
+
+            return View(newses);
         }
         [Authorize]
         public ActionResult Add()
@@ -69,10 +82,9 @@ namespace SchoolCMS.Controllers
 
         public ActionResult Edit(int newsId)
         {
-            if (context.InformationSources.OfType<News>().FirstOrDefault(x => x.Id == newsId).AuthorId != WebSecurity.GetUserId(User.Identity.Name))
+            if (context.InformationSources.OfType<News>().FirstOrDefault(x => x.Id == newsId).AuthorId != WebSecurity.GetUserId(User.Identity.Name) && !Roles.IsUserInRole("Administrator"))
             {
-                ViewBag.NotYourNews = "Możesz edytować jedynie te aktualności, które sam stworzyłeś";
-                return RedirectToAction("List", "News");
+                return RedirectToAction("Unauthorized", "Account");
             }
 
             var selectedNews = new NewsEdit
@@ -106,7 +118,7 @@ namespace SchoolCMS.Controllers
                 return HttpNotFound();
             }
             var tags = context.Tags.Where(x => model.SelectedTags.Contains(x.Id));
-           
+           selectedNews.ManageFiles(filesToRemove,filesToAdd,context);
             selectedNews.Tags.AddRange(tags);
             selectedNews.Content = model.News.Content;
             selectedNews.Title = model.News.Title;

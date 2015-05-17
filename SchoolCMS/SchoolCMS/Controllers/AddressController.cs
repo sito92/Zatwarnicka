@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace SchoolCMS.Controllers
 {
+     [Authorize(Roles = "Administrator")]
     public class AddressController : BaseController
     {
 

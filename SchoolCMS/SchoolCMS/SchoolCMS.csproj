@@ -210,9 +210,9 @@
     <Compile Include="Helpers\LoginMessagesHelper.cs" />
     <Compile Include="Helpers\NewsContentHelper.cs" />
     <Compile Include="Helpers\NewsPaginationHelper.cs" />
-    <Compile Include="Migrations\201505171257559_fix.cs" />
-    <Compile Include="Migrations\201505171257559_fix.Designer.cs">
-      <DependentUpon>201505171257559_fix.cs</DependentUpon>
+    <Compile Include="Migrations\201505171729421_fix.cs" />
+    <Compile Include="Migrations\201505171729421_fix.Designer.cs">
+      <DependentUpon>201505171729421_fix.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
@@ -413,6 +413,7 @@
     <Content Include="Views\Address\Edit.cshtml" />
     <Content Include="Views\CopyWriter\List.cshtml" />
     <Content Include="Views\Filter\Filter.cshtml" />
+    <Content Include="Views\Account\Unauthorized.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -421,8 +422,8 @@
     <Folder Include="Filters\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201505171257559_fix.resx">
-      <DependentUpon>201505171257559_fix.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201505171729421_fix.resx">
+      <DependentUpon>201505171729421_fix.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

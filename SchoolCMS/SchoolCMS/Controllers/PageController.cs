@@ -11,6 +11,7 @@ using WebMatrix.WebData;
 
 namespace SchoolCMS.Controllers
 {
+    [Authorize(Roles = "Administrator")]
     public class PageController : BaseController
     {
         //
@@ -57,7 +58,7 @@ namespace SchoolCMS.Controllers
             context.SaveChanges();
             return RedirectToAction("List");
         }
-
+        [AllowAnonymous]
         public ActionResult Show(int id)
         {
             var page = context.InformationSources.OfType<Page>().FirstOrDefault(x => x.Id == id);

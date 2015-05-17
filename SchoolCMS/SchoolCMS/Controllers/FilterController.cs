@@ -14,8 +14,8 @@ namespace SchoolCMS.Controllers
 
         public ActionResult Filter(string Tag)
         {
-            var tag = context.Tags.Where(x => x.Name == Tag);
-            var matchingNewses = context.InformationSources.OfType<News>().AsEnumerable().Where(x => x.Tags == tag);
+            var tag = context.Tags.FirstOrDefault(x => x.Name == Tag);
+            var matchingNewses = context.InformationSources.OfType<News>().AsEnumerable().Where(x => x.Tags.Contains(tag));
 
             return View(matchingNewses);
         }
