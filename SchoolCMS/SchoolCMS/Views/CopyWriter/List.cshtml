@@ -42,7 +42,7 @@
                         @Html.DisplayFor(modelItem => item.Email)
                     </td>
                     <td>
-                        @Html.ActionLink("Zmień hasło", "ChangePassword", new { id = item.Id }) |
+                        @Html.ActionLink("Zmień hasło", "ChangePassword", new { username = item.Username}) |
                         @Html.ActionLink("Zmień dane", "ChangePersonalData", new { id = item.Id })
                     </td>
                 </tr>
