@@ -97,6 +97,57 @@ namespace SchoolCMS.Controllers.Ediary
             return View(student);
         }
 
+
+        public ActionResult ChangePassword(CopyWriterController.ManageMessageId? message)
+        {
+            ViewBag.StatusMessage =
+                message == CopyWriterController.ManageMessageId.ChangePasswordSuccess ? "Hasło zostało zmienione."
+               : "";
+            ViewBag.ReturnUrl = Url.Action("List");
+            return View();
+        }
+        //
+        // POST: /Account/Manage
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ChangePassword(ChangeStudentPassword model)
+        {
+            ViewBag.ReturnUrl = Url.Action("ChangePassword");
+
+            if (ModelState.IsValid)
+            {
+                if (WebSecurity.IsConfirmed(model.UserName))
+                {
+                    bool changePasswordSucceeded = true;
+                    try
+                    {
+                        WebSecurity.ResetPassword(WebSecurity.GeneratePasswordResetToken(model.UserName),
+                            model.NewPassword);
+                    }
+                    catch (Exception)
+                    {
+                        changePasswordSucceeded = false;
+                    }
+
+                    if (changePasswordSucceeded)
+                    {
+                        return RedirectToAction("List", new { Message = CopyWriterController.ManageMessageId.ChangePasswordSuccess });
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "No kurde błąd");
+                    }
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Podany CopyWiter nie istnieje");
+                }
+
+            }
+
+            return View(model);
+        }
         //
         // GET: /Student/Delete/5
 
