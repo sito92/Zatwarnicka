@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
+using SchoolCMS.Helpers;
 using SchoolCMS.Models.EDiary;
 using SchoolCMS.Models;
 using WebMatrix.WebData;
@@ -58,7 +59,7 @@ namespace SchoolCMS.Controllers.Ediary
                 }
                 catch (MembershipCreateUserException e)
                 {
-                    ModelState.AddModelError("", ErrorCodeToString(e.StatusCode));
+                    ModelState.AddModelError("", LoginMessagesHelper.ErrorCodeToString(e.StatusCode));
                 }
             }
 
