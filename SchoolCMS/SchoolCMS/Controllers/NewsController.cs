@@ -106,7 +106,7 @@ namespace SchoolCMS.Controllers
                 return HttpNotFound();
             }
             var tags = context.Tags.Where(x => model.SelectedTags.Contains(x.Id));
-           
+           selectedNews.ManageFiles(filesToRemove,filesToAdd,context);
             selectedNews.Tags.AddRange(tags);
             selectedNews.Content = model.News.Content;
             selectedNews.Title = model.News.Title;
