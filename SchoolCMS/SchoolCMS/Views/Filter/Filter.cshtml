@@ -1,50 +1,36 @@
-﻿@model IEnumerable<SchoolCMS.Models.News>
+﻿@using System.Linq
+@using System.Net.NetworkInformation
+@model System.Collections.Generic.IEnumerable<SchoolCMS.Models.News>
 
 @{
     ViewBag.Title = "Wyniki filtrowania";
 }
 
-<h2>Filter</h2>
+<h1>Aktualności</h1>
 
+    <div id="newses">
+        @if (Model.Any())
+        {
+            foreach (var news in @Model)
+             {
+                 <div id="newses">
+                     <div id="newsTitle">@news.Title</div>
+                     <div id="newsAuthor">@news.Author.Name @news.Author.Surname</div>
+                     <div id="newsAuthor">@news.Date</div>
+                     <div id="newsShortContent">
+                         @news.ShortContent
 
-<table>
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.ShortContent)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AuthorId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Date)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Content)
-        </th>
-        <th></th>
-    </tr>
+                         @Html.ActionLink("Czytaj więcej", "Details", "News", new {newsId = news.Id}, null)
+                     </div>
+                 </div>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ShortContent)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AuthorId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Date)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Content)
-        </td>
-    </tr>
-}
-
-</table>
+             }
+        }
+        else
+        {
+            <div>
+                Nie znaleziono aktualności o podanych tagach
+            </div>
+        }
+    </div>
+    <br />

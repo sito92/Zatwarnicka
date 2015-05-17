@@ -4,6 +4,15 @@
     ViewBag.Title = "Aktualności" ;
 }
 <h1>Aktualności</h1>
+<div>
+    @using (Html.BeginForm("Filter", "Filter"))
+    {
+        @Html.TextBox("Tag")
+        <p>
+            <input type="submit" value="Wyszukaj" />
+        </p>
+    }
+</div>
 @{
     <div id="newses">
 
