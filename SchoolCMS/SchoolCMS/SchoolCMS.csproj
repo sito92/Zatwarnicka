@@ -209,9 +209,9 @@
     <Compile Include="Helpers\LoginMessagesHelper.cs" />
     <Compile Include="Helpers\NewsContentHelper.cs" />
     <Compile Include="Helpers\NewsPaginationHelper.cs" />
-    <Compile Include="Migrations\201505171050165_fix.cs" />
-    <Compile Include="Migrations\201505171050165_fix.Designer.cs">
-      <DependentUpon>201505171050165_fix.cs</DependentUpon>
+    <Compile Include="Migrations\201505171310353_fixxxxx.cs" />
+    <Compile Include="Migrations\201505171310353_fixxxxx.Designer.cs">
+      <DependentUpon>201505171310353_fixxxxx.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
@@ -419,8 +419,8 @@
     <Folder Include="Filters\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201505171050165_fix.resx">
-      <DependentUpon>201505171050165_fix.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201505171310353_fixxxxx.resx">
+      <DependentUpon>201505171310353_fixxxxx.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
