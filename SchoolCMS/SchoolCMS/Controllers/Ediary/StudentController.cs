@@ -40,7 +40,6 @@ namespace SchoolCMS.Controllers.Ediary
         // POST: /Student/Create
 
         [HttpPost]
-        [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public ActionResult Create(StudentRegisterModel student)
         {
@@ -141,7 +140,7 @@ namespace SchoolCMS.Controllers.Ediary
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Podany CopyWiter nie istnieje");
+                    ModelState.AddModelError("", "Podany uczeń nie istnieje");
                 }
 
             }
