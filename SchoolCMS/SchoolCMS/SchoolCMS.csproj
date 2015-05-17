@@ -411,6 +411,7 @@
     <Content Include="Views\Address\List.cshtml" />
     <Content Include="Views\Address\Edit.cshtml" />
     <Content Include="Views\CopyWriter\List.cshtml" />
+    <Content Include="Views\Account\Unauthorized.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

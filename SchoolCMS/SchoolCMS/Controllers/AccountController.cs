@@ -24,6 +24,11 @@ namespace SchoolCMS.Controllers
             return View();
         }
 
+        [AllowAnonymous]
+        public ActionResult Unauthorized()
+        {
+            return View();
+        }
         //
         // POST: /Account/Login
 
