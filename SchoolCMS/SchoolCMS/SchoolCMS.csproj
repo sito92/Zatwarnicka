@@ -196,6 +196,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CmsSettingsController.cs" />
     <Compile Include="Controllers\FileController.cs" />
+    <Compile Include="Controllers\FilterController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InformationSourceController.cs" />
     <Compile Include="Controllers\MenuButtonController.cs" />
@@ -209,9 +210,9 @@
     <Compile Include="Helpers\LoginMessagesHelper.cs" />
     <Compile Include="Helpers\NewsContentHelper.cs" />
     <Compile Include="Helpers\NewsPaginationHelper.cs" />
-    <Compile Include="Migrations\201505171050165_fix.cs" />
-    <Compile Include="Migrations\201505171050165_fix.Designer.cs">
-      <DependentUpon>201505171050165_fix.cs</DependentUpon>
+    <Compile Include="Migrations\201505171257559_fix.cs" />
+    <Compile Include="Migrations\201505171257559_fix.Designer.cs">
+      <DependentUpon>201505171257559_fix.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
@@ -411,6 +412,7 @@
     <Content Include="Views\Address\List.cshtml" />
     <Content Include="Views\Address\Edit.cshtml" />
     <Content Include="Views\CopyWriter\List.cshtml" />
+    <Content Include="Views\Filter\Filter.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -419,8 +421,8 @@
     <Folder Include="Filters\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201505171050165_fix.resx">
-      <DependentUpon>201505171050165_fix.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201505171257559_fix.resx">
+      <DependentUpon>201505171257559_fix.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -3,7 +3,7 @@
     if (User.Identity.Name == "Admin")
     {
         <text>
-            Witaj Adminie, @Html.ActionLink("Przejdz do ustawień konta", "ChangePersonalData", "Admin", routeValues: null, htmlAttributes: new { @class = "username", title = "Manage" })!
+            Witaj Adminie, @Html.ActionLink("Przejdz do ustawień konta", "ChangePersonalData", "CopyWriter", routeValues: null, htmlAttributes: new { @class = "username", title = "Manage" })!
             @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
             {
                 @Html.AntiForgeryToken()

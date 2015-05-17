@@ -26,7 +26,6 @@ namespace SchoolCMS.Controllers
         public ActionResult List()
         {
             var news = context.InformationSources.OfType<News>();
-
             return View(news);
         }
         [Authorize]
@@ -72,6 +71,7 @@ namespace SchoolCMS.Controllers
         {
             if (context.InformationSources.OfType<News>().FirstOrDefault(x => x.Id == newsId).AuthorId != WebSecurity.GetUserId(User.Identity.Name))
             {
+                ViewBag.NotYourNews = "Możesz edytować jedynie te aktualności, które sam stworzyłeś";
                 return RedirectToAction("List", "News");
             }
 

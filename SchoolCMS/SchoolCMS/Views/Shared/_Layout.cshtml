@@ -45,13 +45,22 @@
             </div>
         </div>
     </header>
-    <div id="body">
-        @RenderSection("featured", required: false)
-        @Html.Partial("_EditorsNavigation")
-        <section class="content-wrapper main-content clear-fix">
-                @RenderBody()
-        </section>
-    </div>
+<div id="body">
+    @RenderSection("featured", required: false)
+    @Html.Partial("_EditorsNavigation")
+    <section class="content-wrapper main-content clear-fix">
+        @RenderBody()
+    </section>
+</div>
+<div>
+    @using (Html.BeginForm("Filter", "Filter"))
+    {
+        @Html.TextBox("Tag")
+    <p>
+        <input type="submit" value="Wyszukaj" />
+    </p>
+    }
+</div>
     <footer>
         <div class="content-wrapper">
             <div class="float-left">

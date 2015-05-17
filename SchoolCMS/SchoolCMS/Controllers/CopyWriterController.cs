@@ -34,7 +34,7 @@ namespace SchoolCMS.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Register(RegisterModel model)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && model.UserName != " ")
             {
                 // Attempt to register the user
                 try
