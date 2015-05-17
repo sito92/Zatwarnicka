@@ -138,12 +138,17 @@ namespace SchoolCMS.Controllers
             return View(model);
         }
 
-        public ActionResult ChangePassword(ManageMessageId? message)
+        public ActionResult ChangePassword(ManageMessageId? message,string username)
         {
             ViewBag.StatusMessage =
                 message == ManageMessageId.ChangePasswordSuccess ? "Hasło zostało zmienione."
                : "";
             ViewBag.ReturnUrl = Url.Action("ChangePassword");
+            var user = context.Users.FirstOrDefault(x => x.Username==username).Username;
+            ChangePasswordModel model = new ChangePasswordModel()
+            {
+                UserName = user
+            };
             return View();
         }
         //
@@ -172,7 +177,7 @@ namespace SchoolCMS.Controllers
 
                     if (changePasswordSucceeded)
                     {
-                        return RedirectToAction("ChangePassword", new { Message = ManageMessageId.ChangePasswordSuccess });
+                        return RedirectToAction("List","CopyWriter");
                     }
                     else
                     {
