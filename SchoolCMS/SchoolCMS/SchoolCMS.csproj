@@ -211,6 +211,10 @@
     <Compile Include="Helpers\LoginMessagesHelper.cs" />
     <Compile Include="Helpers\NewsContentHelper.cs" />
     <Compile Include="Helpers\NewsPaginationHelper.cs" />
+    <Compile Include="Migrations\201505172130427_file.cs" />
+    <Compile Include="Migrations\201505172130427_file.Designer.cs">
+      <DependentUpon>201505172130427_file.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Address.cs" />
@@ -422,6 +426,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Filters\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201505172130427_file.resx">
+      <DependentUpon>201505172130427_file.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

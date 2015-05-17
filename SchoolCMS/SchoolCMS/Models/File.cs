@@ -31,7 +31,7 @@ namespace SchoolCMS.Models
 
         //public News News {get; set;}
 
-
+        public int AuthorId {get; set; }
 
         public string FilePath
         {

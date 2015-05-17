@@ -5,6 +5,9 @@ using System.Linq;
 using System.Net.Cache;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
+using SchoolCMS.Models;
+using WebMatrix.WebData;
 using File = SchoolCMS.Models.File;
 
 namespace SchoolCMS.Controllers
@@ -15,15 +18,24 @@ namespace SchoolCMS.Controllers
         //
         // GET: /File/
         private const string filesDirectory = "~/App_Data/Uploads/";
-        public ActionResult Index()
-        {
-            return View();
-        }
+
         [Authorize]
         public ActionResult List()
         {
-            return View(context.Files);
+            IQueryable<File> files;
+            if (Roles.IsUserInRole("Administrator"))
+            {
+                files = context.Files;
+            }
+            else
+            {
+                var userId = WebSecurity.GetUserId(User.Identity.Name);
+                files = context.Files.Where(x => x.AuthorId == userId);
+            }
+
+            return View(files);
         }
+
         [Authorize]
         public ActionResult Add()
         {
@@ -58,6 +70,9 @@ namespace SchoolCMS.Controllers
                 model.Size = file.ContentLength;
                 model.UploadDateTime = DateTime.Now;
                 model.FileName = fileName;
+
+                model.AuthorId = WebSecurity.CurrentUserId; 
+
                 file.SaveAs(GetFilePath(model));
                 context.Files.Add(model);
                 context.SaveChanges();
