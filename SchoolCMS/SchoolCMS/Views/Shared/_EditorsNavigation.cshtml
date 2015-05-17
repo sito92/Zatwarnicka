@@ -22,10 +22,10 @@
             <ul>
                 <li><a href="@Url.Action("Register", "CopyWriter")">Dodaj redaktora</a></li>
                 <li><a href="@Url.Action("List", "CopyWriter")">Wyświetl redaktorów</a></li>
-                <li><a href="@Url.Action("Create", "Teacher")">Dodaj nauczyciela</a></li>
+                @*<li><a href="@Url.Action("Create", "Teacher")">Dodaj nauczyciela</a></li>
                 <li><a href="@Url.Action("Index", "Teacher")">Wyświetl nauczycieli</a></li>
                 <li><a href="@Url.Action("Create", "Student")">Dodaj ucznia</a></li>
-                <li><a href="@Url.Action("List", "Student")">Wyświetl uczniów</a></li>
+                <li><a href="@Url.Action("List", "Student")">Wyświetl uczniów</a></li>*@
             </ul>
         </li>
         <li>
@@ -42,6 +42,15 @@
                 <li><a href="@Url.Action("List", "MenuButton")">Wyświetl strukturę</a></li>
             </ul>
         </li>
+        @*<li>
+            <a href="@Url.Action("List", "MenuButton")">E-dziennik</a>
+            <ul>
+                <li><a href="@Url.Action("Create", "Teacher")">Dodaj nauczyciela</a></li>
+                <li><a href="@Url.Action("Create", "Student")">Dodaj studenta</a></li>
+                <li><a href="@Url.Action("Add","Class")">Dodaj klasę</a></li>
+            </ul>
+        </li>*@
+
         <li><a href="@Url.Action("Edit", "CmsSettings")">Ustawienia</a></li>
     </ul>
 }
@@ -67,3 +76,36 @@
         </li>
     </ul>
 }
+
+@*@if (Roles.IsUserInRole("Student"))
+{
+    <ul id="nav" style="margin-top: 0px; float: left; margin-left: 300px">
+        <li>
+            <a href="@Url.Action("Index", "Home")">Strona Główna</a>
+        </li>
+        <li>
+            <a href="@Url.Action("", "")">E-dziennik</a>
+            <ul>
+                <li><a href="@Url.Action("", "Student")">Twoje oceny</a></li>
+                <li><a href="@Url.Action("", "Student")">Twój profil</a></li>
+            </ul>
+        </li>
+    </ul>
+}
+
+@if (Roles.IsUserInRole("Teacher"))
+{
+    <ul id="nav" style="margin-top: 0px; float: left; margin-left: 300px">
+        <li>
+            <a href="@Url.Action("Index", "Home")">Strona Główna</a>
+        </li>
+        <li>
+            <a href="@Url.Action("", "")">E-dziennik</a>
+            <ul>
+                <li><a href="@Url.Action("", "")">Twoje zajęcia</a></li>
+                <li><a href="@Url.Action("", "")">Twoje komentarze</a></li>
+                <li><a href="@Url.Action("", "Teacher")">Twój profil</a></li>
+            </ul>
+        </li>
+    </ul>
+}*@

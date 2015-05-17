@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
+using SchoolCMS.Helpers;
 using SchoolCMS.Models.EDiary;
 using SchoolCMS.Models;
 using WebMatrix.WebData;
@@ -57,7 +58,7 @@ namespace SchoolCMS.Controllers.Ediary
                 }
                 catch (MembershipCreateUserException e)
                 {
-                    ModelState.AddModelError("", ErrorCodeToString(e.StatusCode));
+                    ModelState.AddModelError("", LoginMessagesHelper.ErrorCodeToString(e.StatusCode));
                 }
             }
 
@@ -96,6 +97,24 @@ namespace SchoolCMS.Controllers.Ediary
             return View(student);
         }
 
+        public ActionResult Dashboard()
+        {
+            var currentStudent = context.Students.FirstOrDefault(x => x.Username == WebSecurity.CurrentUserName);
+            return View(currentStudent);
+        }
+
+        public ActionResult Grades(Lesson lesson)
+        {
+            var currentStudent = context.Students.FirstOrDefault(x => x.Username == WebSecurity.CurrentUserName);
+            if (currentStudent == null)
+            {
+                return HttpNotFound();
+            }
+
+            var grades = currentStudent.Grades.Where(x => x.LessonId == lesson.Id);
+            
+            return View(grades);
+        }
 
         public ActionResult ChangePassword(CopyWriterController.ManageMessageId? message)
         {
@@ -187,46 +206,5 @@ namespace SchoolCMS.Controllers.Ediary
             base.Dispose(disposing);
         }
 
-        private static string ErrorCodeToString(MembershipCreateStatus createStatus)
-        {
-            // See http://go.microsoft.com/fwlink/?LinkID=177550 for
-            // a full list of status codes.
-            switch (createStatus)
-            {
-                case MembershipCreateStatus.DuplicateUserName:
-                    return "User name already exists. Please enter a different user name.";
-
-                case MembershipCreateStatus.DuplicateEmail:
-                    return
-                        "A user name for that e-mail address already exists. Please enter a different e-mail address.";
-
-                case MembershipCreateStatus.InvalidPassword:
-                    return "The password provided is invalid. Please enter a valid password value.";
-
-                case MembershipCreateStatus.InvalidEmail:
-                    return "The e-mail address provided is invalid. Please check the value and try again.";
-
-                case MembershipCreateStatus.InvalidAnswer:
-                    return "The password retrieval answer provided is invalid. Please check the value and try again.";
-
-                case MembershipCreateStatus.InvalidQuestion:
-                    return "The password retrieval question provided is invalid. Please check the value and try again.";
-
-                case MembershipCreateStatus.InvalidUserName:
-                    return "The user name provided is invalid. Please check the value and try again.";
-
-                case MembershipCreateStatus.ProviderError:
-                    return
-                        "The authentication provider returned an error. Please verify your entry and try again. If the problem persists, please contact your system administrator.";
-
-                case MembershipCreateStatus.UserRejected:
-                    return
-                        "The user creation request has been canceled. Please verify your entry and try again. If the problem persists, please contact your system administrator.";
-
-                default:
-                    return
-                        "An unknown error occurred. Please verify your entry and try again. If the problem persists, please contact your system administrator.";
-            }
-        }
     }
 }

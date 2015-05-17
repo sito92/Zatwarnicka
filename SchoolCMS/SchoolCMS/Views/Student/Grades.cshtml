@@ -1,0 +1,37 @@
+﻿@model IEnumerable<SchoolCMS.Models.EDiary.Grade>
+
+@{
+    ViewBag.Title = "Grades";
+}
+
+<h2>Grades</h2>
+
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.LessonId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GradeValueId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GradeCommentId)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.LessonId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GradeValueId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GradeCommentId)
+        </td>
+    </tr>
+}
+
+</table>

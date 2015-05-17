@@ -195,10 +195,6 @@
     <Compile Include="Controllers\CopyWriterController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CmsSettingsController.cs" />
-    <Compile Include="Controllers\EDiary\ClassController.cs" />
-    <Compile Include="Controllers\Ediary\LessonController.cs" />
-    <Compile Include="Controllers\Ediary\StudentController.cs" />
-    <Compile Include="Controllers\Ediary\TeacherController.cs" />
     <Compile Include="Controllers\FileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InformationSourceController.cs" />
@@ -209,8 +205,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\ButtonHelper.cs" />
-    <Compile Include="Helpers\ClassStudentsHelper.cs" />
     <Compile Include="Helpers\InformationSourceFileHelper.cs" />
+    <Compile Include="Helpers\LoginMessagesHelper.cs" />
     <Compile Include="Helpers\NewsContentHelper.cs" />
     <Compile Include="Helpers\NewsPaginationHelper.cs" />
     <Compile Include="Migrations\201505171050165_fix.cs" />
@@ -225,20 +221,6 @@
     <Compile Include="Models\CmsContext.cs" />
     <Compile Include="Models\CmsSettings.cs" />
     <Compile Include="Models\CopyWriter.cs" />
-    <Compile Include="Models\EDiary\Class.cs" />
-    <Compile Include="Models\EDiary\ClassSchedule.cs" />
-    <Compile Include="Models\EDiary\CommentBase.cs" />
-    <Compile Include="Models\EDiary\Grade.cs" />
-    <Compile Include="Models\EDiary\GradeComment.cs" />
-    <Compile Include="Models\EDiary\GradeValues.cs" />
-    <Compile Include="Models\EDiary\Lesson.cs" />
-    <Compile Include="Models\EDiary\Schedule.cs" />
-    <Compile Include="Models\EDiary\Student.cs" />
-    <Compile Include="Models\EDiary\StudentComment.cs" />
-    <Compile Include="Models\EDiary\StudentModels.cs" />
-    <Compile Include="Models\EDiary\Subject.cs" />
-    <Compile Include="Models\EDiary\Teacher.cs" />
-    <Compile Include="Models\EDiary\TeacherSchedule.cs" />
     <Compile Include="Models\File.cs" />
     <Compile Include="Models\FileExtension.cs" />
     <Compile Include="Models\FileType.cs" />
@@ -253,8 +235,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\Button.cs" />
     <Compile Include="ViewModels\CmsViewModel.cs" />
-    <Compile Include="ViewModels\EDiary\ClassViewModels\ClassListViewModel.cs" />
-    <Compile Include="ViewModels\EDiary\ClassViewModels\ClassViewModel.cs" />
     <Compile Include="ViewModels\MainPage.cs" />
     <Compile Include="ViewModels\MenuButtonPage.cs" />
     <Compile Include="ViewModels\NewsEdit.cs" />
@@ -431,25 +411,6 @@
     <Content Include="Views\Address\List.cshtml" />
     <Content Include="Views\Address\Edit.cshtml" />
     <Content Include="Views\CopyWriter\List.cshtml" />
-    <Content Include="Views\Class\Edit.cshtml" />
-    <Content Include="Views\Class\List.cshtml" />
-    <Content Include="Views\Class\Add.cshtml" />
-    <Content Include="Views\Lesson\Index.cshtml" />
-    <Content Include="Views\Lesson\Details.cshtml" />
-    <Content Include="Views\Lesson\Create.cshtml" />
-    <Content Include="Views\Lesson\Edit.cshtml" />
-    <Content Include="Views\Lesson\Delete.cshtml" />
-    <Content Include="Views\Teacher\Index.cshtml" />
-    <Content Include="Views\Teacher\Create.cshtml" />
-    <Content Include="Views\Teacher\Edit.cshtml" />
-    <Content Include="Views\Teacher\Delete.cshtml" />
-    <Content Include="Views\Student\Create.cshtml" />
-    <Content Include="Views\Student\Delete.cshtml" />
-    <Content Include="Views\Teacher\Details.cshtml" />
-    <Content Include="Views\Student\Details.cshtml" />
-    <Content Include="Views\Student\List.cshtml" />
-    <Content Include="Views\Student\Edit.cshtml" />
-    <Content Include="Views\Student\ChangePassword.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

@@ -1,0 +1,14 @@
+﻿@model SchoolCMS.Models.EDiary.Student
+
+@{
+    ViewBag.Title = "Dashboard";
+}
+
+<h2>Dashboard</h2>
+
+<li>
+    @foreach (var lesson in @Model.Class.Lessons)
+    {
+        <ul>@Html.ActionLink(lesson.Subject.Name,"Grades", "Student", new { lesson = lesson}, null)</ul>
+    }
+</li>
