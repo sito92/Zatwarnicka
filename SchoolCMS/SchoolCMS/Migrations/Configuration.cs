@@ -40,6 +40,13 @@ namespace SchoolCMS.Migrations
                     Name = "cos",
                     Surname = "cos",
                     Username = "cos",
+                },
+                new Teacher()
+                {
+                    Email = "cos@cms.pl",
+                    Name = "cos",
+                    Surname = "cos",
+                    Username = "nauczyciel",
                 }
             };
             users.ForEach(x => context.Users.AddOrUpdate(x));

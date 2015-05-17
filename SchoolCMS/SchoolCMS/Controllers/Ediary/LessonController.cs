@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using SchoolCMS.Models.EDiary;
 using SchoolCMS.Models;
+using WebMatrix.WebData;
 
 namespace SchoolCMS.Controllers.Ediary
 {
@@ -53,9 +54,14 @@ namespace SchoolCMS.Controllers.Ediary
         {
             if (ModelState.IsValid)
             {
+                var teacher = context.Teachers.FirstOrDefault(x => x.Username == WebSecurity.CurrentUserName);
+                if(teacher !=null)
+                { 
+                lesson.TeacherId = teacher.Id;
                 context.Lessons.Add(lesson);
                 context.SaveChanges();
                 return RedirectToAction("Index", "Lesson");
+                }
             }
 
             ViewBag.ClassId = new SelectList(context.Classes, "Id", "Name", lesson.ClassId);

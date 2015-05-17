@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Configuration;
 using System.Web.Security;
 using SchoolCMS.Models;
+using SchoolCMS.Models.EDiary;
 using WebMatrix.WebData;
 
 namespace SchoolCMS
@@ -84,6 +85,34 @@ namespace SchoolCMS
             {
                 Roles.CreateRole("Teacher");
             }
+
+            List<User> teachers = new List<User>()
+            {
+                new Teacher()
+                {
+                    Email = "a.kowalski@cms.pl",
+                    Name = "Adam",
+                    Surname = "Kowalski",
+                    Username = "nauczyciel",
+                }
+            };
+            teachers.ForEach(x =>
+            {
+                if (!WebSecurity.UserExists(x.Username))
+                {
+                    WebSecurity.CreateUserAndAccount(x.Username, "qwerty123",
+                        new
+                        {
+                            Email = x.Email,
+                            Name = x.Name,
+                            Surname = x.Surname,
+                            Username = x.Username,
+                            Discriminator = "Teacher"
+                        });
+                    Roles.AddUserToRole(x.Username, "Teacher");
+                }
+
+            });
         }
     }
 }
