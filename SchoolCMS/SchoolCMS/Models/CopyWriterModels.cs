@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Globalization;
 using System.Web.Security;
+using System.Web.UI.WebControls;
 using DotNetOpenAuth.OpenId.Extensions.AttributeExchange;
 
 namespace SchoolCMS.Models
@@ -45,6 +46,7 @@ namespace SchoolCMS.Models
         public class RegisterModel
         {
             [Required]
+            [RegularExpression("^[a-zA-Z0-9]*$", ErrorMessage = "Nazwa użytkownika może składać się wyłącznie z liter i cyfr")]
             [Display(Name = "Nazwa użytkownika")]
             public string UserName { get; set; }
 
@@ -66,10 +68,12 @@ namespace SchoolCMS.Models
             public string Email { get; set; }
 
             [Required]
+            [RegularExpression("^[a-zA-Z ]*$", ErrorMessage = "Imie może składać się wyłącznie z liter")]
             [Display(Name = "Imię")]
             public string Name { get; set; }
 
             [Required]
+            [RegularExpression("^[a-zA-Z ]*$", ErrorMessage = "Nazwisko może składać się wyłącznie z liter")]
             [Display(Name = "Nazwisko")]
             public string Surname { get; set; }
         }

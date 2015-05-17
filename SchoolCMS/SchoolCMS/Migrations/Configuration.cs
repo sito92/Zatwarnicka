@@ -212,27 +212,27 @@ wewnêtrzny:<br/>
                     Level = 0,
                     InformationSourceId = 5
                 },
-                new MenuButton()
-                {
-                    Name = "Nie mam",
-                    IsRootButton = true,
-                    Level = 0,
-                },                
-                new MenuButton()
-                {
-                    Name = "pojecia co",
-                    IsRootButton = false,
-                    Level = 1,
-                    ParentId = 2,
-                },
-                new MenuButton()
-                {
-                    Name = "robiê",
-                    IsRootButton = false,
-                    Level = 2,
-                    ParentId = 3,
-                    InformationSourceId = 1
-                },
+                //new MenuButton()
+                //{
+                //    Name = "Nie mam",
+                //    IsRootButton = true,
+                //    Level = 0,
+                //},                
+                //new MenuButton()
+                //{
+                //    Name = "pojecia co",
+                //    IsRootButton = false,
+                //    Level = 1,
+                //    ParentId = 2,
+                //},
+                //new MenuButton()
+                //{
+                //    Name = "robiê",
+                //    IsRootButton = false,
+                //    Level = 2,
+                //    ParentId = 3,
+                //    InformationSourceId = 1
+                //},
             };
             menuButtons.ForEach(x => context.MenuButtons.AddOrUpdate(x));
             context.SaveChanges();
