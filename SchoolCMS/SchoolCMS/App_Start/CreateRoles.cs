@@ -6,7 +6,6 @@ using System.Web;
 using System.Web.Configuration;
 using System.Web.Security;
 using SchoolCMS.Models;
-using SchoolCMS.Models.EDiary;
 using WebMatrix.WebData;
 
 namespace SchoolCMS
@@ -15,6 +14,7 @@ namespace SchoolCMS
     {
         private static string AdminLogin = WebConfigurationManager.AppSettings["AdminLogin"];
         private static string AdminPassword = WebConfigurationManager.AppSettings["AdminPassword"];
+
         public static void CreateRolesSeed()
         {
             if (!Roles.RoleExists("Administrator"))
@@ -29,7 +29,7 @@ namespace SchoolCMS
                         Name = "Jan",
                         Surname = "Nowak",
                         Username = "admin",
-                        Discriminator="Admin"
+                        Discriminator = "Admin"
                     });
                     Roles.AddUserToRole(AdminLogin, "Administrator");
                 }
@@ -76,43 +76,44 @@ namespace SchoolCMS
 
             });
 
-            if (!Roles.RoleExists("Student"))
-            {
-                Roles.CreateRole("Student");
-            }
+            //    if (!Roles.RoleExists("Student"))
+            //    {
+            //        Roles.CreateRole("Student");
+            //    }
 
-            if (!Roles.RoleExists("Teacher"))
-            {
-                Roles.CreateRole("Teacher");
-            }
+            //    if (!Roles.RoleExists("Teacher"))
+            //    {
+            //        Roles.CreateRole("Teacher");
+            //    }
 
-            List<User> teachers = new List<User>()
-            {
-                new Teacher()
-                {
-                    Email = "a.kowalski@cms.pl",
-                    Name = "Adam",
-                    Surname = "Kowalski",
-                    Username = "nauczyciel",
-                }
-            };
-            teachers.ForEach(x =>
-            {
-                if (!WebSecurity.UserExists(x.Username))
-                {
-                    WebSecurity.CreateUserAndAccount(x.Username, "qwerty123",
-                        new
-                        {
-                            Email = x.Email,
-                            Name = x.Name,
-                            Surname = x.Surname,
-                            Username = x.Username,
-                            Discriminator = "Teacher"
-                        });
-                    Roles.AddUserToRole(x.Username, "Teacher");
-                }
+            //    List<User> teachers = new List<User>()
+            //    {
+            //        new Teacher()
+            //        {
+            //            Email = "a.kowalski@cms.pl",
+            //            Name = "Adam",
+            //            Surname = "Kowalski",
+            //            Username = "nauczyciel",
+            //        }
+            //    };
+            //    teachers.ForEach(x =>
+            //    {
+            //        if (!WebSecurity.UserExists(x.Username))
+            //        {
+            //            WebSecurity.CreateUserAndAccount(x.Username, "qwerty123",
+            //                new
+            //                {
+            //                    Email = x.Email,
+            //                    Name = x.Name,
+            //                    Surname = x.Surname,
+            //                    Username = x.Username,
+            //                    Discriminator = "Teacher"
+            //                });
+            //            Roles.AddUserToRole(x.Username, "Teacher");
+            //        }
 
-            });
+            //    });
+            //}
         }
     }
 }
