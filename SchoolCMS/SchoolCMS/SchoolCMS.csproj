@@ -213,14 +213,6 @@
     <Compile Include="Helpers\InformationSourceFileHelper.cs" />
     <Compile Include="Helpers\NewsContentHelper.cs" />
     <Compile Include="Helpers\NewsPaginationHelper.cs" />
-    <Compile Include="Migrations\201505162030039_migajaga.cs" />
-    <Compile Include="Migrations\201505162030039_migajaga.Designer.cs">
-      <DependentUpon>201505162030039_migajaga.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201505162036228_migajaga2.cs" />
-    <Compile Include="Migrations\201505162036228_migajaga2.Designer.cs">
-      <DependentUpon>201505162036228_migajaga2.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Address.cs" />
@@ -452,20 +444,13 @@
     <Content Include="Views\Teacher\Details.cshtml" />
     <Content Include="Views\Student\Details.cshtml" />
     <Content Include="Views\Student\List.cshtml" />
+    <Content Include="Views\Student\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Filters\" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201505162030039_migajaga.resx">
-      <DependentUpon>201505162030039_migajaga.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201505162036228_migajaga2.resx">
-      <DependentUpon>201505162036228_migajaga2.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
